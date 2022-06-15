@@ -1,0 +1,6 @@
+C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\bin\Debug\Audit.dll
+C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\bin\Debug\Audit.pdb
+C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\Audit.csproj.AssemblyReference.cache
+C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\Audit.csproj.CoreCompileInputs.cache
+C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\Audit.dll
+C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\Audit.pdb
