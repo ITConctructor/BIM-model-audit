@@ -12,6 +12,7 @@ namespace Audit
     [Transaction(TransactionMode.Manual)]
     public class IfLinkInCorrectWorksetChecking : CheckingTemplate
     {
+        //pushing test after online merging
         public IfLinkInCorrectWorksetChecking()
         {
             Name = "ОБЩ_Корректность рабочих наборов связей";
