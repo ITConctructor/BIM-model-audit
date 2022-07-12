@@ -10,10 +10,16 @@ using Autodesk.Revit.Attributes;
 namespace Audit
 {
     [Transaction(TransactionMode.Manual)]
-    public class IfLinkInCorrectWorksetChecking : IExternalCommand
+    public class IfLinkInCorrectWorksetChecking : CheckingTemplate
     {
-        public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
+        public IfLinkInCorrectWorksetChecking()
         {
+            Name = "ОБЩ_Корректность рабочих наборов связей";
+            Dep = "ОБЩ";
+        }
+        public Result Run()
+        {
+            Name = "ОБЩ_Корректность рабочих наборов связей";
             return Result.Succeeded;
         }
     }

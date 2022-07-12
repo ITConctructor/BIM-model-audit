@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.Attributes;
+using System.Reflection;
 
 namespace Audit
 {
@@ -15,6 +16,8 @@ namespace Audit
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             ///test comment
+            StartWindow win = new StartWindow();
+            win.Show();
             return Result.Succeeded;
         }
     }

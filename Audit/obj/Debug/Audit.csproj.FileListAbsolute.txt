@@ -4,3 +4,10 @@ C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\Audit.csproj.Assembly
 C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\Audit.csproj.CoreCompileInputs.cache
 C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\Audit.dll
 C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\Audit.pdb
+C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\StartWindow.g.cs
+C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\Audit_MarkupCompile.cache
+C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\Audit_MarkupCompile.lref
+C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\StartWindow.baml
+C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\Audit.g.resources
+C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\Audit.Properties.Resource1.resources
+C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\Audit.csproj.GenerateResource.cache
