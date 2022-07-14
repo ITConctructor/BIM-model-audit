@@ -89,5 +89,8 @@
     <None Include="packages.config" />
     <None Include="Resources\folderImage.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\driveImage.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
