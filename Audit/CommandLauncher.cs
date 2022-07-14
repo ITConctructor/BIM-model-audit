@@ -16,9 +16,17 @@ namespace Audit
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             ///test comment
-            StartWindow win = new StartWindow();
-            win.Show();
-            return Result.Succeeded;
+            try
+            {
+                StartWindow win = new StartWindow();
+                win.Show();
+                return Result.Succeeded;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

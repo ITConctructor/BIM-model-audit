@@ -10,12 +10,12 @@ using Autodesk.Revit.Attributes;
 namespace Audit
 {
     [Transaction(TransactionMode.Manual)]
-    public class IfLinkInCorrectWorksetChecking : CheckingTemplate
+    public class IfLevelNamesAreCorrectChecking : CheckingTemplate
     {
         //pushing test after online merging
-        public IfLinkInCorrectWorksetChecking()
+        public IfLevelNamesAreCorrectChecking()
         {
-            Name = "ОБЩ_Корректность рабочих наборов связей";
+            Name = "ОБЩ_Корректность наименований уровней";
             Dep = "ОБЩ";
         }
         public Result Run()

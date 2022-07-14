@@ -7,55 +7,67 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Loaded="Window_Loaded">
     <Grid>
-        <StackPanel Margin="0, 0, 0, 0">
-            <Grid >
-                <TextBlock x:Name="CheckingName" Text="Название проверки" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20, 20" />
+        <Grid Margin="0, 0, 0, 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80" MinHeight="80" MaxHeight="80"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <UniformGrid Grid.Row="0" Columns="2">
+                <TextBlock x:Name="CheckingName" Text="{Binding ElementName=CheckingsTabControl, Path=SelectedItem.Content.SelectedItems[0].Name}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20" Height="30"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <TextBlock Text="Последнее выполнение:" VerticalAlignment="Top" Margin="0, 20, 5, 0"/>
+                    <TextBlock Text="{Binding ElementName=CheckingsGrid, Path=ActualHeight}" VerticalAlignment="Top" Margin="0, 20, 5, 0"/>
                     <TextBlock x:Name="DateOfLastChecking" Text="26.04.2022" VerticalAlignment="Top" Margin="0, 20, 20, 0" Width="Auto"/>
                 </StackPanel>
+            </UniformGrid>
+            <Separator Grid.Row="1" BorderThickness="50" BorderBrush="Black"/>
+            <Grid Grid.Row="2" Height="Auto" x:Name="CheckingsGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition x:Name="CheckingsRow"  Height="Auto"/>
+                    <RowDefinition x:Name="CheckingsButtonsRow" Height="50" MaxHeight="50" MinHeight="50"/>
+                </Grid.RowDefinitions>
+                <TabControl Grid.Row="0" Margin="20, 20, 20, 10" Name="CheckingsTabControl" LostFocus="CheckingsTabControl_LostFocus" Height="Auto">
+                    <TabItem Header="ОБЩ" >
+                        <DataGrid VerticalScrollBarVisibility="Visible" Height="Auto" x:Name="CommonCheckingGrid" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Auto" SelectedIndex="0" FrozenColumnCount="6" MinHeight="60">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Path=Name}" Header="Имя" Width="Auto"/>
+                                <DataGridTextColumn Header="Статус" Width="Auto"/>
+                                <DataGridTextColumn Header="Количество нарушений" Width="Auto"/>
+                                <DataGridTextColumn Header="Созданные" Width="Auto"/>
+                                <DataGridTextColumn Header="Активные" Width="Auto"/>
+                                <DataGridTextColumn Header="Проверенные" Width="Auto"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </TabItem>
+                    <TabItem Header="АР">
+                        <DataGrid VerticalScrollBarVisibility="Visible" Height="Auto" x:Name="ARCheckingGrid" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Auto" SelectedIndex="0">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Path=Name}" Header="Имя" Width="Auto"/>
+                                <DataGridTextColumn Header="Статус" Width="Auto"/>
+                                <DataGridTextColumn Header="Количество нарушений" Width="Auto"/>
+                                <DataGridTextColumn Header="Созданные" Width="Auto"/>
+                                <DataGridTextColumn Header="Активные" Width="Auto"/>
+                                <DataGridTextColumn Header="Проверенные" Width="Auto"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </TabItem>
+                    <TabItem Header="КР">
+
+                    </TabItem>
+                </TabControl>
+                <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="20, 10, 20, 10" Height="30" MaxHeight="30" MinHeight="30">
+                    <Button HorizontalAlignment="Left">
+                        <TextBlock Text="Обновить все"/>
+                    </Button>
+                    <Button HorizontalAlignment="Left" Margin="20, 0, 0, 0" >
+                        <TextBlock Text="Обновить выбранное"/>
+                    </Button>
+                </StackPanel>
             </Grid>
-            <Separator BorderThickness="50" BorderBrush="Black"/>
-            <TabControl Margin="20, 20, 20, 20" Name="CheckingsTabControl" >
-                <TabItem Header="ОБЩ">
-                    <DataGrid VerticalScrollBarVisibility="Visible" Height="100" x:Name="CommonCheckingGrid" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Auto">
-                        <DataGrid.Columns>
-                            <DataGridCheckBoxColumn Width="Auto"/>
-                            <DataGridTextColumn Binding="{Binding Path=Name}" Header="Имя" Width="Auto"/>
-                            <DataGridTextColumn Header="Статус" Width="Auto"/>
-                            <DataGridTextColumn Header="Количество нарушений" Width="Auto"/>
-                            <DataGridTextColumn Header="Созданные" Width="Auto"/>
-                            <DataGridTextColumn Header="Активные" Width="Auto"/>
-                            <DataGridTextColumn Header="Проверенные" Width="Auto"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </TabItem>
-                <TabItem Header="АР">
-                    <DataGrid VerticalScrollBarVisibility="Visible" Height="100" x:Name="ARCheckingGrid" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Auto">
-                        <DataGrid.Columns>
-                            <DataGridCheckBoxColumn Width="Auto"/>
-                            <DataGridTextColumn Binding="{Binding Path=Name}" Header="Имя" Width="Auto"/>
-                            <DataGridTextColumn Header="Статус" Width="Auto"/>
-                            <DataGridTextColumn Header="Количество нарушений" Width="Auto"/>
-                            <DataGridTextColumn Header="Созданные" Width="Auto"/>
-                            <DataGridTextColumn Header="Активные" Width="Auto"/>
-                            <DataGridTextColumn Header="Проверенные" Width="Auto"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </TabItem>
-                <TabItem Header="КР">
-                    
-                </TabItem>
-            </TabControl>
-            <StackPanel Orientation="Horizontal">
-                <Button HorizontalAlignment="Left" Margin="20, 0, 0, 0">
-                    <TextBlock Text="Обновить все"/>
-                </Button>
-                <Button HorizontalAlignment="Left" Margin="20, 0, 0, 0" >
-                    <TextBlock Text="Обновить выбранное"/>
-                </Button>
-            </StackPanel>
-            <TabControl Margin="20, 20, 20, 0">
+            <GridSplitter Grid.Row="3" HorizontalAlignment="Stretch" Height="5"/>
+            <TabControl Grid.Row="4" Margin="20, 10, 20, 0">
                 <TabItem Header="Файлы">
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -87,6 +99,6 @@
 
                 </TabItem>
             </TabControl>
-        </StackPanel>
+        </Grid>
     </Grid>
 </Window>

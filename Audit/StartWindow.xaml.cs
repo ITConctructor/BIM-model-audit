@@ -35,37 +35,67 @@ namespace Audit
 
         }
 
-        private void LoadCheckings(Type[] checkings, BindingList<CheckingTemplate> _checkings, DataGrid CheckingGrid)
-        {
-            for (int i = 0; i < checkings.Length; i++)
-            {
-                var checking = Activator.CreateInstance(Type.GetType(checkings[i].FullName)) as CheckingTemplate;
-                TabItem tabItem = VisualTreeHelper.GetParent(CheckingGrid) as TabItem;
-                if (checking is CheckingTemplate && checkings[i].Name != "CheckingTemplate")
-                {
-                    if (tabItem.Name == checking.Name)
-                    {
-                        _checkings.Add(checking as CheckingTemplate);
-                    }
-                }
-            }
-            if (_checkings.Count > 0)
-            {
-                CheckingGrid.ItemsSource = _checkings;
-            }
-        }
+        //private void LoadCheckings(string Dep, Type[] checkings, DataGrid CheckingGrid)
+        //{
+        //    _checkings = new BindingList<CheckingTemplate>();
+        //    for (int i = 0; i < checkings.Length; i++)
+        //    {
+        //        var checking = Activator.CreateInstance(Type.GetType(checkings[i].FullName)) as CheckingTemplate;
+        //        //var tabItem = CheckingGrid.Parent as TabItem;
+        //        if (checking is CheckingTemplate && checkings[i].Name != "CheckingTemplate")
+        //        {
+        //            if (Dep == checking.Dep)
+        //            {
+        //                _checkings.Add(checking as CheckingTemplate);
+        //            }
+        //        }
+        //    }
+        //    if (_checkings.Count > 0)
+        //    {
+        //        CheckingGrid.ItemsSource = _checkings;
+        //    }
+        //}
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Type[] checkings = Assembly.GetExecutingAssembly().GetTypes().Where(t => t.Namespace == "Audit").ToArray();
-            _checkings = new BindingList<CheckingTemplate>();
             foreach (TabItem item in CheckingsTabControl.Items)
             {
+                _checkings = new BindingList<CheckingTemplate>();
                 DataGrid dataGrid = item.Content as DataGrid;
-                LoadCheckings(checkings, _checkings, dataGrid);
+                //LoadCheckings(item.Header.ToString(), checkings, dataGrid);
+                for (int i = 0; i < checkings.Length; i++)
+                {
+                    var checking = Activator.CreateInstance(Type.GetType(checkings[i].FullName)) as CheckingTemplate;
+                    //var tabItem = CheckingGrid.Parent as TabItem;
+                    if (checking is CheckingTemplate && checkings[i].Name != "CheckingTemplate")
+                    {
+                        if (item.Header.ToString() == checking.Dep)
+                        {
+                            _checkings.Add(checking as CheckingTemplate);
+                        }
+                    }
+                }
+                if (_checkings.Count > 0)
+                {
+                    dataGrid.ItemsSource = _checkings;
+                }
             }
 
         }
+
+        private void CheckingsTabControl_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (CheckingsTabControl.SelectedItem == null)
+            {
+                CheckingsTabControl.SelectedIndex = 0;
+                TabItem tabItem = CheckingsTabControl.SelectedItem as TabItem;
+                DataGrid dataGrid = tabItem.Content as DataGrid;
+                dataGrid.SelectedIndex = 0;
+            }
+        }
+
+        
         //[Serializable]
         //public abstract class PropertyNotifier : INotifyPropertyChanged
         //{

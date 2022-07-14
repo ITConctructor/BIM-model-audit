@@ -10,13 +10,13 @@ using Autodesk.Revit.Attributes;
 namespace Audit
 {
     [Transaction(TransactionMode.Manual)]
-    public class IfLinkInCorrectWorksetChecking : CheckingTemplate
+    public class IfAllRoomsArePlaced : CheckingTemplate
     {
         //pushing test after online merging
-        public IfLinkInCorrectWorksetChecking()
+        public IfAllRoomsArePlaced()
         {
-            Name = "ОБЩ_Корректность рабочих наборов связей";
-            Dep = "ОБЩ";
+            Name = "АР_Нет неразмещенных помещений";
+            Dep = "АР";
         }
         public Result Run()
         {
@@ -24,3 +24,4 @@ namespace Audit
         }
     }
 }
+
