@@ -19,34 +19,27 @@
                 <Setter Property="IsReadOnly" Value="True"/>
             </Style.Setters>
         </Style>
-        <Style x:Key="GridSplitterStyle" TargetType="GridSplitter">
-            <Style.Triggers>
-                <DataTrigger Binding="{Binding ElementName=CheckingsRow, Path=Height}" Value="120" >
-                    <Setter Property="ResizeBehavior" Value="CurrentAndNext"/>
-                </DataTrigger>
-            </Style.Triggers>
-        </Style>
     </Window.Resources>
     <Grid>
         <Grid Margin="0, 0, 0, 0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="80" MinHeight="80" MaxHeight="80"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" MinHeight="170"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <UniformGrid Grid.Row="0" Columns="2">
                 <TextBlock x:Name="CheckingName" Text="{Binding ElementName=CheckingsTabControl, Path=SelectedItem.Content.SelectedItems[0].Name}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20" Height="30"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <TextBlock Text="{Binding ElementName=CheckingsRow, Path=ActualHeight}" VerticalAlignment="Top" Margin="0, 20, 5, 0"/>
+                    <TextBlock Text="{Binding ElementName=CheckingsTabControl, Path=ActualHeight}" VerticalAlignment="Top" Margin="0, 20, 5, 0"/>
                     <TextBlock x:Name="DateOfLastChecking" Text="26.04.2022" VerticalAlignment="Top" Margin="0, 20, 20, 0" Width="Auto"/>
                 </StackPanel>
             </UniformGrid>
             <Separator Grid.Row="1" BorderThickness="50" BorderBrush="Black"/>
             <Grid Grid.Row="2" Height="Auto" x:Name="CheckingsGrid">
                 <Grid.RowDefinitions>
-                    <RowDefinition x:Name="CheckingsRow" Height="*" MinHeight="120"/>
+                    <RowDefinition x:Name="CheckingsRow" Height="*"/>
                     <RowDefinition x:Name="CheckingsButtonsRow" Height="50" MaxHeight="50" MinHeight="50"/>
                 </Grid.RowDefinitions>
                 <TabControl Margin="20, 20, 20, 10" Name="CheckingsTabControl" LostFocus="CheckingsTabControl_LostFocus">
@@ -87,7 +80,7 @@
                     </Button>
                 </StackPanel>
             </Grid>
-            <GridSplitter Grid.Row="3" HorizontalAlignment="Stretch" Height="5" Style="{StaticResource GridSplitterStyle}"/>
+            <GridSplitter Grid.Row="3" HorizontalAlignment="Stretch" Height="5" x:Name="CheckingsAndFilesSplitter"/>
             <TabControl Grid.Row="4" Margin="20, 10, 20, 0">
                 <TabItem Header="Файлы">
                     <Grid>
