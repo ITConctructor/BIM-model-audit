@@ -6,6 +6,27 @@
              xmlns:local="clr-namespace:Audit"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Loaded="Window_Loaded">
+    <Window.Resources>
+        <Style x:Key="CheckingsDataGridStyle" TargetType="DataGrid">
+            <Style.Setters>
+                <Setter Property="CanUserAddRows" Value="False"/>
+                <Setter Property="CanUserResizeRows" Value="False"/>
+                <Setter Property="VerticalScrollBarVisibility" Value="Visible"/>
+                <Setter Property="HorizontalScrollBarVisibility" Value="Auto"/>
+                <Setter Property="SelectedIndex" Value="0"/>
+                <Setter Property="Height" Value="Auto"/>
+                <Setter Property="AutoGenerateColumns" Value="False"/>
+                <Setter Property="IsReadOnly" Value="True"/>
+            </Style.Setters>
+        </Style>
+        <Style x:Key="GridSplitterStyle" TargetType="GridSplitter">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=CheckingsRow, Path=Height}" Value="120" >
+                    <Setter Property="ResizeBehavior" Value="CurrentAndNext"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid Margin="0, 0, 0, 0">
             <Grid.RowDefinitions>
@@ -18,19 +39,19 @@
             <UniformGrid Grid.Row="0" Columns="2">
                 <TextBlock x:Name="CheckingName" Text="{Binding ElementName=CheckingsTabControl, Path=SelectedItem.Content.SelectedItems[0].Name}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20" Height="30"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <TextBlock Text="{Binding ElementName=CheckingsGrid, Path=ActualHeight}" VerticalAlignment="Top" Margin="0, 20, 5, 0"/>
+                    <TextBlock Text="{Binding ElementName=CheckingsRow, Path=ActualHeight}" VerticalAlignment="Top" Margin="0, 20, 5, 0"/>
                     <TextBlock x:Name="DateOfLastChecking" Text="26.04.2022" VerticalAlignment="Top" Margin="0, 20, 20, 0" Width="Auto"/>
                 </StackPanel>
             </UniformGrid>
             <Separator Grid.Row="1" BorderThickness="50" BorderBrush="Black"/>
             <Grid Grid.Row="2" Height="Auto" x:Name="CheckingsGrid">
                 <Grid.RowDefinitions>
-                    <RowDefinition x:Name="CheckingsRow"  Height="Auto"/>
+                    <RowDefinition x:Name="CheckingsRow" Height="*" MinHeight="120"/>
                     <RowDefinition x:Name="CheckingsButtonsRow" Height="50" MaxHeight="50" MinHeight="50"/>
                 </Grid.RowDefinitions>
-                <TabControl Grid.Row="0" Margin="20, 20, 20, 10" Name="CheckingsTabControl" LostFocus="CheckingsTabControl_LostFocus" Height="Auto">
+                <TabControl Margin="20, 20, 20, 10" Name="CheckingsTabControl" LostFocus="CheckingsTabControl_LostFocus">
                     <TabItem Header="ОБЩ" >
-                        <DataGrid VerticalScrollBarVisibility="Visible" Height="Auto" x:Name="CommonCheckingGrid" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Auto" SelectedIndex="0" FrozenColumnCount="6" MinHeight="60">
+                        <DataGrid x:Name="CommonCheckingGrid" Style="{StaticResource CheckingsDataGridStyle}" Height="Auto">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Binding="{Binding Path=Name}" Header="Имя" Width="Auto"/>
                                 <DataGridTextColumn Header="Статус" Width="Auto"/>
@@ -42,7 +63,7 @@
                         </DataGrid>
                     </TabItem>
                     <TabItem Header="АР">
-                        <DataGrid VerticalScrollBarVisibility="Visible" Height="Auto" x:Name="ARCheckingGrid" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Auto" SelectedIndex="0">
+                        <DataGrid x:Name="ARCheckingGrid" Style="{StaticResource CheckingsDataGridStyle}">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Binding="{Binding Path=Name}" Header="Имя" Width="Auto"/>
                                 <DataGridTextColumn Header="Статус" Width="Auto"/>
@@ -66,7 +87,7 @@
                     </Button>
                 </StackPanel>
             </Grid>
-            <GridSplitter Grid.Row="3" HorizontalAlignment="Stretch" Height="5"/>
+            <GridSplitter Grid.Row="3" HorizontalAlignment="Stretch" Height="5" Style="{StaticResource GridSplitterStyle}"/>
             <TabControl Grid.Row="4" Margin="20, 10, 20, 0">
                 <TabItem Header="Файлы">
                     <Grid>

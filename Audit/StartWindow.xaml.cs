@@ -35,27 +35,6 @@ namespace Audit
 
         }
 
-        //private void LoadCheckings(string Dep, Type[] checkings, DataGrid CheckingGrid)
-        //{
-        //    _checkings = new BindingList<CheckingTemplate>();
-        //    for (int i = 0; i < checkings.Length; i++)
-        //    {
-        //        var checking = Activator.CreateInstance(Type.GetType(checkings[i].FullName)) as CheckingTemplate;
-        //        //var tabItem = CheckingGrid.Parent as TabItem;
-        //        if (checking is CheckingTemplate && checkings[i].Name != "CheckingTemplate")
-        //        {
-        //            if (Dep == checking.Dep)
-        //            {
-        //                _checkings.Add(checking as CheckingTemplate);
-        //            }
-        //        }
-        //    }
-        //    if (_checkings.Count > 0)
-        //    {
-        //        CheckingGrid.ItemsSource = _checkings;
-        //    }
-        //}
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Type[] checkings = Assembly.GetExecutingAssembly().GetTypes().Where(t => t.Namespace == "Audit").ToArray();
@@ -63,11 +42,9 @@ namespace Audit
             {
                 _checkings = new BindingList<CheckingTemplate>();
                 DataGrid dataGrid = item.Content as DataGrid;
-                //LoadCheckings(item.Header.ToString(), checkings, dataGrid);
                 for (int i = 0; i < checkings.Length; i++)
                 {
                     var checking = Activator.CreateInstance(Type.GetType(checkings[i].FullName)) as CheckingTemplate;
-                    //var tabItem = CheckingGrid.Parent as TabItem;
                     if (checking is CheckingTemplate && checkings[i].Name != "CheckingTemplate")
                     {
                         if (item.Header.ToString() == checking.Dep)

@@ -11,3 +11,6 @@ C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\StartWindow.baml
 C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\Audit.g.resources
 C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\Audit.Properties.Resource1.resources
 C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\Audit.csproj.GenerateResource.cache
+C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\Audit.csproj.CopyComplete
