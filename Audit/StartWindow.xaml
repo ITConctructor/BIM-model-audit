@@ -34,7 +34,7 @@
         <UniformGrid Grid.Row="0" Columns="2">
             <TextBlock x:Name="CheckingName" Text="{Binding ElementName=CheckingsTabControl, Path=SelectedItem.Content.SelectedItems[0].Name}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20" Height="30"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock Text="{Binding ElementName=BaseGrid, Path=ActualHeight}" VerticalAlignment="Top" Margin="0, 20, 5, 0"/>
+                <TextBlock Text="Последняя проверка:" VerticalAlignment="Top" Margin="0, 20, 5, 0"/>
                 <TextBlock x:Name="DateOfLastChecking" Text="26.04.2022" VerticalAlignment="Top" Margin="0, 20, 20, 0" Width="Auto"/>
             </StackPanel>
         </UniformGrid>
@@ -88,39 +88,46 @@
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" Text="Выберите файлы"/>
-                        <TreeView Grid.Column="0" x:Name="foldersItem"
+                    <Border Margin="10, 10, 10, 10" BorderBrush="Black" BorderThickness="2">
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Text="Выберите файлы"/>
+                            <TreeView Grid.Column="0" x:Name="foldersItem"
                                   Width="Auto" Background="#FFFFFFFF"
                                   BorderBrush="#FFFFFFFF"
                                   Foreground="#FFFFFFFF"
                                   Grid.Row="1">
-                            <TreeView.Resources>
-                                <Style TargetType="{x:Type TreeViewItem}">
-                                    <Setter Property="HeaderTemplate">
-                                        <Setter.Value>
-                                            <DataTemplate>
-                                                <StackPanel Orientation="Horizontal">
-                                                    <Image Name="img"
+                                <TreeView.Resources>
+                                    <Style TargetType="{x:Type TreeViewItem}">
+                                        <Setter Property="HeaderTemplate">
+                                            <Setter.Value>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Image Name="img"
                                                            Width="20"
                                                            Height="20"
                                                            Stretch="Fill"
                                                            Source="Resources/driveImage.png"/>
-                                                    <TextBlock Text="{Binding}" Margin="5,0" />
-                                                </StackPanel>
-                                            </DataTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-                                </Style>
-                            </TreeView.Resources>
-                        </TreeView>
-                    </Grid>
+                                                        <TextBlock Text="{Binding}" Margin="5,0" />
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </TreeView.Resources>
+                            </TreeView>
+                        </Grid>
+                    </Border>
+                    <UniformGrid Rows="2" Grid.Column="1">
+                        <Button Content="Туда" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20, 20, 20, 20"/>
+                        <Button Content="Сюда" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20, 20, 20, 20"/>
+                    </UniformGrid>
                 </Grid>
             </TabItem>
             <TabItem Header="Результаты">
