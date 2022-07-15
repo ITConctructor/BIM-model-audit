@@ -75,8 +75,7 @@ namespace Audit
         {
             TreeViewItem item = (TreeViewItem)sender;
             TreeViewItem smallItem = item.Items[0] as TreeViewItem;
-            TreeViewItem dummyNode = new TreeViewItem();
-            dummyNode.Header = "dummyNode";
+            
             if (item.Items.Count == 1 && smallItem.Header.ToString() == "dummyNode")
             {
                 item.Items.Clear();
@@ -84,6 +83,8 @@ namespace Audit
                 {
                     foreach (string s in Directory.GetDirectories(item.Tag.ToString()))
                     {
+                        TreeViewItem dummyNode = new TreeViewItem();
+                        dummyNode.Header = "dummyNode";
                         TreeViewItem subitem = new TreeViewItem();
                         subitem.Header = s.Substring(s.LastIndexOf("\\") + 1);
                         subitem.Tag = s;
