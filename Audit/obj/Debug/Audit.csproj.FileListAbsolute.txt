@@ -14,3 +14,4 @@ C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\Audit.csproj.Generate
 C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\Audit.csproj.CopyComplete
+C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\GeneratedInternalTypeHelper.g.cs

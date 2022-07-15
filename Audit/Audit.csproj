@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="CheckingTemplate.cs" />
     <Compile Include="CommandLauncher.cs" />
+    <Compile Include="CustomGridSplitter.cs" />
     <Compile Include="IfAllRoomsArePlaced.cs" />
     <Compile Include="IfLevelNamesAreCorrectChecking.cs" />
     <Compile Include="IfLevelsAreNotDuplicatedChecking.cs" />

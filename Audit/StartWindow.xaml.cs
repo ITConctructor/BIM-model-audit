@@ -55,8 +55,6 @@ namespace Audit
             }
         }
 
-
-
         private void GetDrivers()
         {
             foreach (string s in Directory.GetLogicalDrives())
@@ -116,6 +114,52 @@ namespace Audit
             }
         }
 
+        private void splitterCenter_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            splitterCenter.originPoint = e.GetPosition(Window.GetWindow(this));
+        }
 
+        private void splitterCenter_PreviewMouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                Window pwindow = Window.GetWindow(this);
+                System.Windows.Point newPoint = e.GetPosition(pwindow);
+                if (splitterCenter.SplitterDirection == CustomGridSplitter.SplitterDirectionEnum.Horizontal)
+                {
+                    if (newPoint.Y > splitterCenter.originPoint.Y)
+                    {
+                        if (newPoint.Y >= pwindow.ActualHeight - splitterCenter.MinimumDistanceFromEdge)
+                        {
+                            e.Handled = true;
+                        }
+                    }
+                    else
+                    {
+                        if (newPoint.Y > pwindow.ActualHeight - (splitterCenter.MinimumDistanceFromEdge + splitterCenter.Width))
+                        {
+                            e.Handled = true;
+                        }
+                    }
+                }
+                else
+                {
+                    if (newPoint.X > splitterCenter.originPoint.X)
+                    {
+                        if (newPoint.X >= pwindow.ActualWidth - splitterCenter.MinimumDistanceFromEdge)
+                        {
+                            e.Handled = true;
+                        }
+                    }
+                    else
+                    {
+                        if (newPoint.X > pwindow.ActualWidth - (splitterCenter.MinimumDistanceFromEdge + splitterCenter.Width))
+                        {
+                            e.Handled = true;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
