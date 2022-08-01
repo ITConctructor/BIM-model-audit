@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -19,6 +20,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Image = System.Drawing.Image;
 
 namespace Audit
 {
@@ -92,6 +94,14 @@ namespace Audit
                         subitem.Items.Add(dummyNode);
                         subitem.Expanded += new RoutedEventHandler(folder_Expanded);
                         item.Items.Add(subitem);
+                    }
+                    foreach (string s in Directory.GetFiles(item.Tag.ToString()))
+                    {
+                        TreeViewItem file = new TreeViewItem();
+                        file.Header = s.Substring(s.LastIndexOf("\\") + 1);
+                        file.Tag = s;
+                        file.FontWeight = FontWeights.Normal;
+                        item.Items.Add(file);
                     }
                 }
                 catch (Exception) { }

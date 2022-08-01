@@ -60,6 +60,7 @@
     <Compile Include="CheckingTemplate.cs" />
     <Compile Include="CommandLauncher.cs" />
     <Compile Include="CustomGridSplitter.cs" />
+    <Compile Include="HeaderToImageConverter.cs" />
     <Compile Include="IfAllRoomsArePlaced.cs" />
     <Compile Include="IfLevelNamesAreCorrectChecking.cs" />
     <Compile Include="IfLevelsAreNotDuplicatedChecking.cs" />
@@ -82,16 +83,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resource1.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Resource Include="Resources\folderImage.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\driveImage.png" />
+    <None Include="Resources\folderImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\driveImage.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
