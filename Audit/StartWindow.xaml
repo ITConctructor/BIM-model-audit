@@ -22,6 +22,12 @@
                 <Setter Property="IsReadOnly" Value="True"/>
             </Style.Setters>
         </Style>
+        <Style x:Key="GroupBoxStyle" TargetType="GroupBox">
+            <Style.Setters>
+                <Setter Property="BorderBrush" Value="MediumPurple"/>
+                <Setter Property="BorderThickness" Value="2"/>
+            </Style.Setters>
+        </Style>
     </Window.Resources>
     <Grid Margin="0, 0, 0, 0" MaxHeight="{Binding ElementName=BaseWindow, Path=ActualHeight}" x:Name="BaseGrid">
         <Grid.RowDefinitions>
@@ -46,7 +52,7 @@
             </Grid.RowDefinitions>
             <TabControl Margin="20, 20, 20, 10" Name="CheckingsTabControl" LostFocus="CheckingsTabControl_LostFocus">
                 <TabItem Header="ОБЩ" >
-                    <DataGrid x:Name="CommonCheckingGrid" Style="{StaticResource CheckingsDataGridStyle}" Height="Auto">
+                    <DataGrid x:Name="CommonCheckingGrid" Style="{StaticResource CheckingsDataGridStyle}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Path=Name}" Header="Имя" Width="Auto"/>
                             <DataGridTextColumn Header="Статус" Width="Auto"/>
@@ -100,7 +106,7 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <GroupBox Grid.Column="0" Margin="10, 10, 10, 10" BorderBrush="MediumPurple" BorderThickness="2" Header="Выберите файлы">
+                    <GroupBox Grid.Column="0" Margin="10, 10, 10, 10" Header="Выберите файлы" Style="{StaticResource GroupBoxStyle}">
                         <TreeView Grid.Column="0" x:Name="foldersItem"
                                   Width="Auto" Background="#FFFFFFFF"
                                   BorderBrush="#FFFFFFFF"
@@ -153,10 +159,67 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Результаты">
-
+                <DataGrid x:Name="ResultsGrid"
+                          CanUserAddRows="False"
+                          CanUserResizeRows="False"
+                          VerticalScrollBarVisibility="Visible"
+                          HorizontalScrollBarVisibility="Visible"
+                          AutoGenerateColumns="False"
+                          IsReadOnly="True"
+                          Margin="10, 10, 10, 10">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Path=Name}" Header="Имя" Width="Auto"/>
+                        <DataGridTextColumn Header="Статус" Width="Auto"/>
+                        <DataGridTextColumn Header="ID элемента" Width="Auto"/>
+                        <DataGridTextColumn Header="Комментарий" Width="Auto" IsReadOnly="False"/>
+                        <DataGridTextColumn Header="Время обнаружения"/>
+                    </DataGrid.Columns>
+                </DataGrid>
             </TabItem>
             <TabItem Header="Отчет">
-
+                <StackPanel>
+                    <UniformGrid Columns="2">
+                        <GroupBox Header="Включить поля" Style="{StaticResource GroupBoxStyle}" Margin="10, 10, 10, 10">
+                            <StackPanel Margin="5, 5, 5, 5">
+                                <CheckBox Content="Имя"/>
+                                <CheckBox Content="Статус"/>
+                                <CheckBox Content="ID элемента"/>
+                                <CheckBox Content="Комментарий"/>
+                                <CheckBox Content="Время обнаружения"/>
+                            </StackPanel>
+                        </GroupBox>
+                        <GroupBox Header="Включить статусы" Style="{StaticResource GroupBoxStyle}" Margin="10, 10, 10, 10">
+                            <StackPanel>
+                                <CheckBox Content="Новая"/>
+                                <CheckBox Content="Активная"/>
+                                <CheckBox Content="Проанализировано"/>
+                                <CheckBox Content="Исправлено"/>
+                            </StackPanel>
+                        </GroupBox>
+                    </UniformGrid>
+                    <GroupBox Header="Параметры вывода" Style="{StaticResource GroupBoxStyle}" Margin="10, 10, 10, 10">
+                        <StackPanel Orientation="Horizontal">
+                            <UniformGrid Rows="2" Margin="5, 5, 5, 5">
+                                <TextBlock Text="Тип отчета"/>
+                                <ComboBox SelectedIndex="0">
+                                    <ComboBoxItem Content="Все тесты"/>
+                                    <ComboBoxItem Content="Выбранные тесты"/>
+                                </ComboBox>
+                            </UniformGrid>
+                            <UniformGrid Rows="2" Margin="5, 5, 5, 5">
+                                <TextBlock Text="Формат отчета"/>
+                                <ComboBox SelectedIndex="0">
+                                    <ComboBoxItem Content="Excel"/>
+                                    <ComboBoxItem Content="HTML (Табличное представление)"/>
+                                </ComboBox>
+                            </UniformGrid>
+                            <Button Content="Записать отчет" Height="Auto" Width="Auto"/>
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Аналитика">
+                
             </TabItem>
         </TabControl>
     </Grid>
