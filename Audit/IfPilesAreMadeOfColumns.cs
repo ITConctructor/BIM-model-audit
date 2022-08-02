@@ -10,12 +10,12 @@ using Autodesk.Revit.Attributes;
 namespace Audit
 {
     [Transaction(TransactionMode.Manual)]
-    public class IfLinkInCorrectWorksetChecking : CheckingTemplate
+    internal class IfPilesAreMadeOfColumns : CheckingTemplate
     {
-        public IfLinkInCorrectWorksetChecking()
+        public IfPilesAreMadeOfColumns()
         {
-            Name = "ОБЩ_Корректность рабочих наборов связей";
-            Dep = "ОБЩ";
+            Name = "КР_Сваи замоделированы колоннами";
+            Dep = "КР";
         }
         public override Result Run()
         {

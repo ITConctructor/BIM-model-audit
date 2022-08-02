@@ -179,7 +179,7 @@ namespace Audit
         private void AddFiles_Click(object sender, RoutedEventArgs e)
         {
             List<string> filesToAnalysAsText = new List<string>();
-            foreach (TextBlock item in FilesToAnalys.Children)
+            foreach (TextBlock item in FilesToAnalys.Items)
             {
                 filesToAnalysAsText.Add(item.Text);
             }
@@ -189,26 +189,40 @@ namespace Audit
             fileName.Text = file.Header as string;
             if (fileName.Text.EndsWith(".rvt") && !filesToAnalysAsText.Contains(fileName.Text))
             {
-                FilesToAnalys.Children.Add(fileName);
+                FilesToAnalys.Items.Add(fileName);
                 CommandLauncher.filesToAnalysPaths.Add(file.Tag as string);
             }
         }
 
         private void RemoveFiles_Click(object sender, RoutedEventArgs e)
         {
-            
+            for (int i = 0; i < FilesToAnalys.SelectedItems.Count; i = i)
+            {
+                FilesToAnalys.Items.Remove(FilesToAnalys.SelectedItems[i]);
+            }
         }
 
         private void UpdateSelected_Click(object sender, RoutedEventArgs e)
         {
             TabItem selectedTabItem = CheckingsTabControl.SelectedItem as TabItem;
             DataGrid selectedDataGrid = selectedTabItem.Content as DataGrid;
-            List<CheckingTemplate> selectedCheckings = new List<CheckingTemplate>();
             foreach (var item in selectedDataGrid.SelectedItems)
             {
-                //selectedCheckings.Add((CheckingTemplate)item);
                 CheckingTemplate activeChecking = (CheckingTemplate)item;
                 activeChecking.Run();
+            }
+        }
+
+        private void UpdateAll_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (TabItem item in CheckingsTabControl.Items)
+            {
+                DataGrid activeDataGrid = item.Content as DataGrid;
+                foreach (var activeDataGridItem in activeDataGrid.Items)
+                {
+                    CheckingTemplate activeChecking = (CheckingTemplate)activeDataGridItem;
+                    activeChecking.Run();
+                }
             }
         }
     }
