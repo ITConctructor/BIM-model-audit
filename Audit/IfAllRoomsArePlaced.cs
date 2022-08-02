@@ -18,8 +18,11 @@ namespace Audit
             Name = "АР_Нет неразмещенных помещений";
             Dep = "АР";
         }
-        public Result Run()
+        public override Result Run()
         {
+            TaskDialog dialog = new TaskDialog("Test");
+            dialog.MainContent = Name;
+            dialog.Show();
             return Result.Succeeded;
         }
     }

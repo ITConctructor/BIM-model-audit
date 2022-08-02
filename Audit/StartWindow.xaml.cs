@@ -97,11 +97,14 @@ namespace Audit
                     }
                     foreach (string s in Directory.GetFiles(item.Tag.ToString()))
                     {
-                        TreeViewItem file = new TreeViewItem();
-                        file.Header = s.Substring(s.LastIndexOf("\\") + 1);
-                        file.Tag = s;
-                        file.FontWeight = FontWeights.Normal;
-                        item.Items.Add(file);
+                        if (s.EndsWith(".rvt"))
+                        {
+                            TreeViewItem file = new TreeViewItem();
+                            file.Header = s.Substring(s.LastIndexOf("\\") + 1);
+                            file.Tag = s;
+                            file.FontWeight = FontWeights.Normal;
+                            item.Items.Add(file);
+                        }
                     }
                 }
                 catch (Exception) { }
@@ -170,6 +173,42 @@ namespace Audit
                         }
                     }
                 }
+            }
+        }
+
+        private void AddFiles_Click(object sender, RoutedEventArgs e)
+        {
+            List<string> filesToAnalysAsText = new List<string>();
+            foreach (TextBlock item in FilesToAnalys.Children)
+            {
+                filesToAnalysAsText.Add(item.Text);
+            }
+            TreeViewItem file = foldersItem.SelectedItem as TreeViewItem;
+            TextBlock fileName = new TextBlock();
+            fileName.Focusable = true;
+            fileName.Text = file.Header as string;
+            if (fileName.Text.EndsWith(".rvt") && !filesToAnalysAsText.Contains(fileName.Text))
+            {
+                FilesToAnalys.Children.Add(fileName);
+                CommandLauncher.filesToAnalysPaths.Add(file.Tag as string);
+            }
+        }
+
+        private void RemoveFiles_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void UpdateSelected_Click(object sender, RoutedEventArgs e)
+        {
+            TabItem selectedTabItem = CheckingsTabControl.SelectedItem as TabItem;
+            DataGrid selectedDataGrid = selectedTabItem.Content as DataGrid;
+            List<CheckingTemplate> selectedCheckings = new List<CheckingTemplate>();
+            foreach (var item in selectedDataGrid.SelectedItems)
+            {
+                //selectedCheckings.Add((CheckingTemplate)item);
+                CheckingTemplate activeChecking = (CheckingTemplate)item;
+                activeChecking.Run();
             }
         }
     }

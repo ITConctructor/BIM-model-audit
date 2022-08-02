@@ -18,8 +18,11 @@ namespace Audit
             Name = "ОБЩ_Уровни не дублируются";
             Dep = "ОБЩ";
         }
-        public Result Run()
+        public override Result Run()
         {
+            TaskDialog dialog = new TaskDialog("Test");
+            dialog.MainContent = Name;
+            dialog.Show();
             return Result.Succeeded;
         }
     }
