@@ -37,12 +37,9 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*" MinHeight="120" x:Name="FilesRow"/>
         </Grid.RowDefinitions>
-        <UniformGrid Grid.Row="0" Columns="2">
-            <TextBlock x:Name="CheckingName" Text="{Binding ElementName=CheckingsTabControl, Path=SelectedItem.Content.SelectedItems[0].Name}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20" Height="30"/>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock Text="Последняя проверка:" VerticalAlignment="Top" Margin="0, 20, 5, 0"/>
-                <TextBlock x:Name="DateOfLastChecking" Text="26.04.2022" VerticalAlignment="Top" Margin="0, 20, 20, 0" Width="Auto"/>
-            </StackPanel>
+        <UniformGrid Columns="2">
+            <TextBlock Grid.Row="0" x:Name="CheckingName" Text="{Binding ElementName=CheckingsTabControl, Path=SelectedItem.Content.SelectedItems[0].Name}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20" Height="30"/>
+            <Image Source="Resources/logoEtalon.png" Width="100" HorizontalAlignment="Right" Margin="20, 20, 20, 20"/>
         </UniformGrid>
         <Separator Grid.Row="1" BorderThickness="50" BorderBrush="Black"/>
         <Grid Grid.Row="2" Height="Auto" x:Name="CheckingsGrid">
@@ -219,7 +216,17 @@
                 </StackPanel>
             </TabItem>
             <TabItem Header="Аналитика">
-                
+                <Grid Margin="10, 10, 10, 10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="Путь к папке с результатами прошлых проверок:" Height="Auto"/>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                        <TextBox Width="500" Height="20" x:Name="logFilePath"/>
+                        <Button Margin="10, 10, 10, 10" Height="20" Content="Обзор..." Click="Button_Click"/>
+                    </StackPanel>
+                </Grid>
             </TabItem>
         </TabControl>
     </Grid>

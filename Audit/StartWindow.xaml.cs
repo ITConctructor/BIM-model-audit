@@ -21,6 +21,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Image = System.Drawing.Image;
+using Microsoft.Win32;
+using System.Windows.Forms;
+using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
+using DataGrid = System.Windows.Controls.DataGrid;
 
 namespace Audit
 {
@@ -38,7 +42,7 @@ namespace Audit
             foreach (TabItem item in CheckingsTabControl.Items)
             {
                 _checkings = new BindingList<CheckingTemplate>();
-                DataGrid dataGrid = item.Content as DataGrid;
+                System.Windows.Controls.DataGrid dataGrid = item.Content as System.Windows.Controls.DataGrid;
                 for (int i = 0; i < checkings.Length; i++)
                 {
                     var checking = Activator.CreateInstance(Type.GetType(checkings[i].FullName)) as CheckingTemplate;
@@ -133,7 +137,7 @@ namespace Audit
             splitterCenter.originPoint = e.GetPosition(Window.GetWindow(this));
         }
 
-        private void splitterCenter_PreviewMouseMove(object sender, MouseEventArgs e)
+        private void splitterCenter_PreviewMouseMove(object sender, System.Windows.Input.MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
@@ -224,6 +228,25 @@ namespace Audit
                     activeChecking.Run();
                 }
             }
+        }
+
+        private void ReadLog()
+        {
+            string assemblyPath = Assembly.GetExecutingAssembly().Location;
+            StreamWriter writer = File.AppendText("");
+        }
+
+        private void WriteLog()
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+            folderBrowserDialog.ShowDialog();
+            logFilePath.Text = folderBrowserDialog.SelectedPath;
         }
     }
 }
