@@ -97,5 +97,11 @@
   <ItemGroup>
     <None Include="Resources\driveImage.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\leftArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\rightArrow.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

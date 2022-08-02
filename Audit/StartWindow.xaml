@@ -91,7 +91,7 @@
                 </Button>
             </StackPanel>
         </Grid>
-        <local:CustomGridSplitter SplitterDirection="Horizontal" MinimumDistanceFromEdge="160" x:Name="splitterCenter" Grid.Row="3" HorizontalAlignment="Stretch" Height="5" MouseDown="splitterCenter_MouseDown" PreviewMouseMove="splitterCenter_PreviewMouseMove"/>
+        <local:CustomGridSplitter SplitterDirection="Horizontal" MinimumDistanceFromEdge="250" x:Name="splitterCenter" Grid.Row="3" HorizontalAlignment="Stretch" Height="5" MouseDown="splitterCenter_MouseDown" PreviewMouseMove="splitterCenter_PreviewMouseMove"/>
         <TabControl Grid.Row="4" Margin="20, 10, 20, 20">
             <TabItem Header="Файлы">
                 <Grid>
@@ -130,13 +130,25 @@
                         </TreeView>
                     </GroupBox>
                     <UniformGrid Rows="2" Grid.Column="1">
-                        <Button Content="Туда" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20, 20, 20, 20" x:Name="AddFiles" Click="AddFiles_Click"/>
-                        <Button Content="Сюда" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20, 20, 20, 20" x:Name="RemoveFiles" Click="RemoveFiles_Click"/>
+                        <Button HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20, 20, 20, 20" x:Name="AddFiles" Click="AddFiles_Click" Background="White" BorderBrush="White">
+                            <Button.Content>
+                                <Image Width="40"
+                                       Height="20"
+                                       Stretch="Fill"
+                                       Source="Resources/rightArrow.png"/>
+                            </Button.Content>
+                        </Button>
+                        <Button HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20, 20, 20, 20" x:Name="RemoveFiles" Click="RemoveFiles_Click" Background="White" BorderBrush="White">
+                            <Button.Content>
+                                <Image Width="40"
+                                       Height="20"
+                                       Stretch="Fill"
+                                       Source="Resources/leftArrow.png"/>
+                            </Button.Content>
+                        </Button>
                     </UniformGrid>
                     <Border Grid.Column="2" Margin="10, 20, 10, 10" BorderBrush="MediumPurple" BorderThickness="2" CornerRadius="5">
-                        <ListBox x:Name="FilesToAnalys" Margin="5, 5, 5, 5" SelectionMode="Multiple">
-
-                        </ListBox>
+                        <ListBox x:Name="FilesToAnalys" Margin="5, 5, 5, 5" SelectionMode="Multiple"/>
                     </Border>
                 </Grid>
             </TabItem>
