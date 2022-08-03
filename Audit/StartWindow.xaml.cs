@@ -34,7 +34,6 @@ namespace Audit
         public StartWindow()
         {
             InitializeComponent();
-            logFilePath.Text = Properties.Settings.Default.folderToSaveLog;
         }
 
         private void Load_Checkings()
@@ -120,6 +119,8 @@ namespace Audit
         {
             GetDrivers();
             Load_Checkings();
+            logFilePath.Text = Properties.Settings.Default.folderToSaveLog;
+            LoadLastAuditData();
         }
 
         private void CheckingsTabControl_LostFocus(object sender, RoutedEventArgs e)
@@ -192,13 +193,11 @@ namespace Audit
             TextBlock fileName = new TextBlock();
             fileName.Focusable = true;
             fileName.Text = file.Header as string;
+            fileName.Tag = file.Tag;
             if (fileName.Text.EndsWith(".rvt") && !filesToAnalysAsText.Contains(fileName.Text))
             {
                 FilesToAnalys.Items.Add(fileName);
                 CommandLauncher.filesToAnalysPaths.Add(file.Tag as string);
-                TextBlock activeFileName = new TextBlock();
-                activeFileName.Text = file.Header as string;
-                activeFileComboBox.Items.Add(activeFileName);
             }
         }
 
@@ -206,6 +205,14 @@ namespace Audit
         {
             for (int i = 0; i < FilesToAnalys.SelectedItems.Count; i = i)
             {
+                TextBlock textBlockToRemove = FilesToAnalys.SelectedItems[i] as TextBlock;
+                for (int k = 0; k < CommandLauncher.filesToAnalysPaths.Count; k++)
+                {
+                    if (CommandLauncher.filesToAnalysPaths[k].EndsWith(textBlockToRemove.Text))
+                    {
+                        CommandLauncher.filesToAnalysPaths.Remove(CommandLauncher.filesToAnalysPaths[k]);
+                    }
+                }
                 FilesToAnalys.Items.Remove(FilesToAnalys.SelectedItems[i]);
             }
         }
@@ -219,6 +226,19 @@ namespace Audit
                 CheckingTemplate activeChecking = (CheckingTemplate)item;
                 activeChecking.Run();
             }
+            string lastAnalysFilesString = "";
+            string lastAnalysFilesPathsString = "";
+            activeFileComboBox.Items.Clear();
+            foreach (TextBlock fileToSaveInList in FilesToAnalys.Items)
+            {
+                activeFileComboBox.Items.Add(fileToSaveInList.Text);
+                lastAnalysFilesString = lastAnalysFilesString + fileToSaveInList.Text + "|";
+                lastAnalysFilesPathsString = lastAnalysFilesPathsString + fileToSaveInList.Tag + "|";
+            }
+            Properties.Settings.Default.lastCheckedFiles = lastAnalysFilesString;
+            Properties.Settings.Default.lastCheckedFilesPaths = lastAnalysFilesPathsString;
+            Properties.Settings.Default.Save();
+            WriteLog();
         }
 
         private void UpdateAll_Click(object sender, RoutedEventArgs e)
@@ -232,17 +252,37 @@ namespace Audit
                     activeChecking.Run();
                 }
             }
+            string lastAnalysFilesString = "";
+            string lastAnalysFilesPathsString = "";
+            activeFileComboBox.Items.Clear();
+            foreach (TextBlock fileToSaveInList in FilesToAnalys.Items)
+            {
+                activeFileComboBox.Items.Add(fileToSaveInList.Text);
+                lastAnalysFilesString = lastAnalysFilesString + fileToSaveInList.Text + "|";
+                lastAnalysFilesPathsString = lastAnalysFilesPathsString + fileToSaveInList.Tag + "|";
+            }
+            Properties.Settings.Default.lastCheckedFiles = lastAnalysFilesString;
+            Properties.Settings.Default.lastCheckedFilesPaths = lastAnalysFilesPathsString;
+            Properties.Settings.Default.Save();
+            WriteLog();
         }
 
         private void ReadLog()
         {
-            string assemblyPath = Assembly.GetExecutingAssembly().Location;
-            StreamWriter writer = File.AppendText("");
+            
         }
 
         private void WriteLog()
         {
-
+            foreach (string rvtFilePath in CommandLauncher.filesToAnalysPaths)
+            {
+                string logFileName = rvtFilePath.Substring(rvtFilePath.LastIndexOf("\\") + 1);
+                string fullFilePath = Properties.Settings.Default.folderToSaveLog + "\\log_" + logFileName.Substring(0, logFileName.LastIndexOf(".")) + ".txt";
+                using (StreamWriter writer = File.AppendText(fullFilePath))
+                {
+                    writer.WriteLine("Logging test is successful");
+                }
+            }
         }
 
         private void selectFolderToSaveLog_Click(object sender, RoutedEventArgs e)
@@ -253,6 +293,27 @@ namespace Audit
             logFilePath.Text = folderBrowserDialog.SelectedPath;
             Properties.Settings.Default.folderToSaveLog = logFilePath.Text;
             Properties.Settings.Default.Save();
+        }
+
+        private void LoadLastAuditData()
+        {
+            string loadedLastAnalysFiles = Properties.Settings.Default.lastCheckedFiles;
+            string[] loadedLastAnalysFilesArray = loadedLastAnalysFiles.Split('|');
+            string loadedLastAnalysFilesPaths = Properties.Settings.Default.lastCheckedFiles;
+            string[] loadedLastAnalysFilesPathsArray = loadedLastAnalysFilesPaths.Split('|');
+            CommandLauncher.filesToAnalysPaths.Clear();
+            for (int i = 0; i < loadedLastAnalysFilesArray.Count(); i++)
+            {
+                if (loadedLastAnalysFilesArray[i] != "")
+                {
+                    activeFileComboBox.Items.Add(loadedLastAnalysFilesArray[i]);
+                    TextBlock textBlock = new TextBlock();
+                    textBlock.Text = loadedLastAnalysFilesArray[i];
+                    textBlock.Tag = loadedLastAnalysFilesPathsArray[i];
+                    CommandLauncher.filesToAnalysPaths.Add(loadedLastAnalysFilesPathsArray[i]);
+                    FilesToAnalys.Items.Add(textBlock);
+                }
+            }
         }
 
     }

@@ -34,5 +34,29 @@ namespace Audit.Properties {
                 this["folderToSaveLog"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string lastCheckedFiles {
+            get {
+                return ((string)(this["lastCheckedFiles"]));
+            }
+            set {
+                this["lastCheckedFiles"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string lastCheckedFilesPaths {
+            get {
+                return ((string)(this["lastCheckedFilesPaths"]));
+            }
+            set {
+                this["lastCheckedFilesPaths"] = value;
+            }
+        }
     }
 }
