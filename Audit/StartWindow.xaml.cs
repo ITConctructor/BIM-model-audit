@@ -195,6 +195,9 @@ namespace Audit
             {
                 FilesToAnalys.Items.Add(fileName);
                 CommandLauncher.filesToAnalysPaths.Add(file.Tag as string);
+                TextBlock activeFileName = new TextBlock();
+                activeFileName.Text = file.Header as string;
+                activeFileComboBox.Items.Add(activeFileName);
             }
         }
 

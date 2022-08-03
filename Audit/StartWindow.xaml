@@ -156,7 +156,10 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Результаты">
-                <DataGrid x:Name="ResultsGrid"
+                <StackPanel>
+                    <TextBlock Margin="10, 10, 10, 10" Text="Показать для файла:"/>
+                    <ComboBox x:Name="activeFileComboBox" Margin="10, 0, 10, 0" SelectedIndex="0"/>
+                    <DataGrid x:Name="ResultsGrid"
                           CanUserAddRows="False"
                           CanUserResizeRows="False"
                           VerticalScrollBarVisibility="Visible"
@@ -164,14 +167,15 @@
                           AutoGenerateColumns="False"
                           IsReadOnly="True"
                           Margin="10, 10, 10, 10">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Binding="{Binding Path=Name}" Header="Имя" Width="Auto"/>
-                        <DataGridTextColumn Header="Статус" Width="Auto"/>
-                        <DataGridTextColumn Header="ID элемента" Width="Auto"/>
-                        <DataGridTextColumn Header="Комментарий" Width="Auto" IsReadOnly="False"/>
-                        <DataGridTextColumn Header="Время обнаружения"/>
-                    </DataGrid.Columns>
-                </DataGrid>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=Name}" Header="Имя" Width="Auto"/>
+                            <DataGridTextColumn Header="Статус" Width="Auto"/>
+                            <DataGridTextColumn Header="ID элемента" Width="Auto"/>
+                            <DataGridTextColumn Header="Комментарий" Width="Auto" IsReadOnly="False"/>
+                            <DataGridTextColumn Header="Время обнаружения"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
             </TabItem>
             <TabItem Header="Отчет">
                 <StackPanel>
