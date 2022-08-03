@@ -15,3 +15,4 @@ C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\Audit.csproj.CoreComp
 C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\Audit.csproj.CopyComplete
 C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\Audit.dll
 C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\Audit.pdb
+C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\bin\Debug\Audit.dll.config

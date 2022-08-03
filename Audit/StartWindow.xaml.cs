@@ -34,6 +34,7 @@ namespace Audit
         public StartWindow()
         {
             InitializeComponent();
+            logFilePath.Text = Properties.Settings.Default.folderToSaveLog;
         }
 
         private void Load_Checkings()
@@ -244,12 +245,15 @@ namespace Audit
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void selectFolderToSaveLog_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
             folderBrowserDialog.ShowDialog();
             logFilePath.Text = folderBrowserDialog.SelectedPath;
+            Properties.Settings.Default.folderToSaveLog = logFilePath.Text;
+            Properties.Settings.Default.Save();
         }
+
     }
 }

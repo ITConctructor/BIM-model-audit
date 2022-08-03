@@ -228,7 +228,7 @@
                     <TextBlock Grid.Row="0" Text="Путь к папке с результатами прошлых проверок:" Height="Auto"/>
                     <StackPanel Grid.Row="1" Orientation="Horizontal">
                         <TextBox Width="500" Height="20" x:Name="logFilePath"/>
-                        <Button Margin="10, 10, 10, 10" Height="20" Content="Обзор..." Click="Button_Click"/>
+                        <Button x:Name="selectFolderToSaveLog" Margin="10, 10, 10, 10" Height="20" Content="Обзор..." Click="selectFolderToSaveLog_Click"/>
                     </StackPanel>
                 </Grid>
             </TabItem>

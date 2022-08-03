@@ -22,5 +22,17 @@ namespace Audit.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string folderToSaveLog {
+            get {
+                return ((string)(this["folderToSaveLog"]));
+            }
+            set {
+                this["folderToSaveLog"] = value;
+            }
+        }
     }
 }
