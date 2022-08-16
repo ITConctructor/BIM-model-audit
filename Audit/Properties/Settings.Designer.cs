@@ -58,5 +58,17 @@ namespace Audit.Properties {
                 this["lastCheckedFilesPaths"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string logFilesPaths {
+            get {
+                return ((string)(this["logFilesPaths"]));
+            }
+            set {
+                this["logFilesPaths"] = value;
+            }
+        }
     }
 }
