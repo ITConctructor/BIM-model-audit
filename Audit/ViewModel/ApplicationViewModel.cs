@@ -61,8 +61,6 @@ namespace Audit
         public ApplicationViewModel(StartWindow win)
         {
             _win = win;
-            //_win.FilesToAnalys.DataContext = PreanalysFiles;
-            //_win.activeFileComboBox.DataContext = PreanalysFiles;
             LoadLastLaunchData();
             FirstLaunchDataInitializing();
             ReadLog();
@@ -94,6 +92,19 @@ namespace Audit
                 _win.SSCheckingGrid.ItemsSource = _selectedFile?.CheckingResults[0].Checkings.Where(t => t.Dep == "СС").ToList();
             } 
         }
+
+        private CheckingTemplate _selectedChecking;
+        public CheckingTemplate SelectedChecking
+        {
+            get { return _selectedChecking; }
+            set 
+            { 
+                CheckingTemplate buf = value as CheckingTemplate;
+                SetProperty(ref _selectedChecking, buf);
+                _win.ResultsGrid.ItemsSource = _selectedChecking?.ElementCheckingResults;
+            }
+        }
+
         #endregion
 
         #region Методы
@@ -319,15 +330,9 @@ namespace Audit
             for (int i = 0; i < PreanalysFiles.Count; i++)
             {
                 _win.activeFileComboBox.SelectedIndex = i;
-                foreach (TabItem item in _win.CheckingsTabControl.Items)
+                foreach (CheckingTemplate Checking in PreanalysFiles[i].CheckingResults[0].Checkings)
                 {
-                    DataGrid activeDataGrid = item.Content as DataGrid;
-                    foreach (var activeDataGridItem in activeDataGrid.Items)
-                    {
-                        CheckingTemplate activeChecking = (CheckingTemplate)activeDataGridItem;
-                        activeChecking.LastRun = System.DateTime.Now.ToString();
-                        activeChecking.Running.Run(PreanalysFiles[i].Path);
-                    }
+                    UpdateChecking(Checking, PreanalysFiles[i].Path);
                 }
             }
             UpdateSettings();
@@ -346,11 +351,38 @@ namespace Audit
                 foreach (var item in selectedDataGrid.SelectedItems)
                 {
                     CheckingTemplate activeChecking = (CheckingTemplate)item;
-                    activeChecking.Running.Run(file.Path);
+                    foreach (CheckingTemplate checking in file.CheckingResults[0].Checkings)
+                    {
+                        if (checking.Name == activeChecking.Name)
+                        {
+                            UpdateChecking(checking, file.Path);
+                        }
+                    }
                 }
             }
             UpdateSettings();
             WriteLog();
+        }
+
+        /// <summary>
+        /// Общий для UpdateSelected и UpdateAll метод запуска проверки и обновления результатов
+        /// </summary>
+        private void UpdateChecking(CheckingTemplate Checking, string filePath)
+        {
+            Checking.LastRun = System.DateTime.Now.ToString();
+            Checking.Running.Run(filePath, Checking.ElementCheckingResults);
+            Checking.Amount = Checking.ElementCheckingResults.Count.ToString();
+            Checking.Created = Checking.ElementCheckingResults.Where(t => t.Status == "Созданная").ToList().Count.ToString();
+            Checking.Active = Checking.ElementCheckingResults.Where(t => t.Status == "Активная").ToList().Count.ToString();
+            foreach (ElementCheckingResult result in Checking.ElementCheckingResults)
+            {
+                if (result.Status == null)
+                {
+                    result.Status = "Исправленная";
+                }
+            }
+            Checking.Corrected = Checking.ElementCheckingResults.Where(t => t.Status == "Исправленная").ToList().Count.ToString();
+            Checking.Checked = Checking.ElementCheckingResults.Where(t => t.Status == "Проверенная").ToList().Count.ToString();
         }
 
         /// <summary>
@@ -444,6 +476,23 @@ namespace Audit
             }
             return result;
         }
+
+        /// <summary>
+        /// Общий для всех классов проверок метод добавления результата проверки элемента в список
+        /// </summary>
+        public static void AddElementCheckingResult(ElementCheckingResult newResult, BindingList<ElementCheckingResult> results)
+        {
+            if (results.Remove(newResult))
+            {
+                newResult.Status = "Активная";
+                results.Add(newResult);
+            }
+            else
+            {
+                newResult.Status = "Созданная";
+                results.Add(newResult);
+            }
+        }
         #endregion
 
         #region Комманды
@@ -474,7 +523,7 @@ namespace Audit
         private RelayCommand _updateSelectedCommand;
         public RelayCommand UpdateSelectedCommand
         {
-            get { return _updateSelectedCommand ?? (_updateSelectedCommand = new RelayCommand(UpdateAll)); }
+            get { return _updateSelectedCommand ?? (_updateSelectedCommand = new RelayCommand(UpdateSelected)); }
         }
         #endregion
 

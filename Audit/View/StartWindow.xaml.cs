@@ -35,39 +35,10 @@ namespace Audit
 {
     public partial class StartWindow : Window
     {
-        private BindingList<CheckingTemplate> _checkings;
-
-        private List<FileCheckingResult> ActiveFiles = new List<FileCheckingResult>();
-
         public StartWindow()
         {
             InitializeComponent();
             DataContext = new ApplicationViewModel(this);
-        }
-
-        private void Load_Checkings()
-        {
-            Type[] checkings = Assembly.GetExecutingAssembly().GetTypes().Where(t => t.Namespace == "Audit").ToArray();
-            foreach (TabItem item in CheckingsTabControl.Items)
-            {
-                _checkings = new BindingList<CheckingTemplate>();
-                System.Windows.Controls.DataGrid dataGrid = item.Content as System.Windows.Controls.DataGrid;
-                for (int i = 0; i < checkings.Length; i++)
-                {
-                    CheckingTemplate checking = Activator.CreateInstance(Type.GetType(checkings[i].FullName)) as CheckingTemplate;
-                    if (checking is CheckingTemplate && checkings[i].Name != "CheckingTemplate")
-                    {
-                        if (item.Header.ToString() == checking.Dep)
-                        {
-                            _checkings.Add(checking as CheckingTemplate);
-                        }
-                    }
-                }
-                if (_checkings.Count > 0)
-                {
-                    dataGrid.ItemsSource = _checkings;
-                }
-            }
         }
 
         private void GetDrivers()
@@ -188,55 +159,12 @@ namespace Audit
             }
         }
 
-        private void ReadLog()
-        {
-            string[] logFilesPaths = Properties.Settings.Default.logFilesPaths.Split(new string[] { "|" }, StringSplitOptions.RemoveEmptyEntries);
-            foreach (string item in logFilesPaths)
-            {
-                ActiveFiles.Add(Deserialize(item));
-            }
-        }
-
-        public static FileCheckingResult Deserialize(string file)
-        {
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<FileCheckingResult>));
-            List<FileCheckingResult> results = new List<FileCheckingResult> ();
-            FileCheckingResult result = new FileCheckingResult();
-            if (File.Exists(file))
-            {
-                try
-                {
-                    using (StreamReader sr = new StreamReader(file))
-                    {
-                        results = (List<FileCheckingResult>)xmlSerializer.Deserialize(sr);
-                        result = results[results.Count - 1];
-                    }
-                }
-                catch (Exception)
-                {
-
-                    throw;
-                }
-            }
-            return result;
-        }
-
         private System.Windows.Controls.DataGrid activeGrid = new System.Windows.Controls.DataGrid();
 
         private void CheckingsTabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             TabItem activeTab = CheckingsTabControl.SelectedItem as TabItem;
             activeGrid = activeTab.Content as System.Windows.Controls.DataGrid;
-            activeGrid.SelectionChanged += CheckingGrid_SelectionChanged;
-        }
-
-        private void CheckingGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (activeGrid.SelectedIndex >= 0)
-            {
-                CheckingTemplate activeChecking = activeGrid.SelectedItem as CheckingTemplate;
-                ResultsGrid.ItemsSource = activeChecking.ElementCheckingResults;
-            }
         }
     }
 }

@@ -29,9 +29,9 @@ namespace Audit
         public string Corrected { get; set; }
         public BindingList<ElementCheckingResult> ElementCheckingResults { get; set; }
         public CheckingTemplate Running { get; set; }
-        public virtual Result Run(string filePath)
+        public virtual void Run(string filePath, BindingList<ElementCheckingResult> oldResults)
         {
-            return Result.Succeeded;
+
         }
     }
 }

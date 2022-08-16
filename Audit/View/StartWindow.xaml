@@ -48,8 +48,8 @@
                 <RowDefinition x:Name="CheckingsButtonsRow" Height="50" MaxHeight="50" MinHeight="50"/>
             </Grid.RowDefinitions>
             <TabControl Margin="20, 20, 20, 10" Name="CheckingsTabControl" LostFocus="CheckingsTabControl_LostFocus" SelectionChanged="CheckingsTabControl_SelectionChanged" SelectedIndex="0">
-                <TabItem Header="ОБЩ" >
-                    <DataGrid x:Name="CommonCheckingGrid" Style="{StaticResource CheckingsDataGridStyle}">
+                <TabItem Header="ОБЩ">
+                    <DataGrid x:Name="CommonCheckingGrid" Style="{StaticResource CheckingsDataGridStyle}" SelectedItem="{Binding SelectedChecking, Mode=OneWayToSource}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Path=Name}" Header="Имя" Width="Auto"/>
                             <DataGridTextColumn Binding="{Binding Path=LastRun}" Header="Последний запуск" Width="Auto"/>
@@ -62,7 +62,7 @@
                     </DataGrid>
                 </TabItem>
                 <TabItem Header="АР">
-                    <DataGrid x:Name="ARCheckingGrid" Style="{StaticResource CheckingsDataGridStyle}">
+                    <DataGrid x:Name="ARCheckingGrid" Style="{StaticResource CheckingsDataGridStyle}" SelectedItem="{Binding SelectedChecking, Mode=OneWayToSource}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Path=Name}" Header="Имя" Width="Auto"/>
                             <DataGridTextColumn Binding="{Binding Path=LastRun}" Header="Последний запуск" Width="Auto"/>
@@ -75,7 +75,7 @@
                     </DataGrid>
                 </TabItem>
                 <TabItem Header="КР">
-                    <DataGrid x:Name="KRCheckingGrid" Style="{StaticResource CheckingsDataGridStyle}">
+                    <DataGrid x:Name="KRCheckingGrid" Style="{StaticResource CheckingsDataGridStyle}" SelectedItem="{Binding SelectedChecking, Mode=OneWayToSource}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Path=Name}" Header="Имя" Width="Auto"/>
                             <DataGridTextColumn Binding="{Binding Path=LastRun}" Header="Последний запуск" Width="Auto"/>
@@ -88,7 +88,7 @@
                     </DataGrid>
                 </TabItem>
                 <TabItem Header="ЭОМ">
-                    <DataGrid x:Name="EOMCheckingGrid" Style="{StaticResource CheckingsDataGridStyle}">
+                    <DataGrid x:Name="EOMCheckingGrid" Style="{StaticResource CheckingsDataGridStyle}" SelectedItem="{Binding SelectedChecking, Mode=OneWayToSource}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Path=Name}" Header="Имя" Width="Auto"/>
                             <DataGridTextColumn Binding="{Binding Path=LastRun}" Header="Последний запуск" Width="Auto"/>
@@ -101,7 +101,7 @@
                     </DataGrid>
                 </TabItem>
                 <TabItem Header="ВК">
-                    <DataGrid x:Name="VKCheckingGrid" Style="{StaticResource CheckingsDataGridStyle}">
+                    <DataGrid x:Name="VKCheckingGrid" Style="{StaticResource CheckingsDataGridStyle}" SelectedItem="{Binding SelectedChecking, Mode=OneWayToSource}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Path=Name}" Header="Имя" Width="Auto"/>
                             <DataGridTextColumn Binding="{Binding Path=LastRun}" Header="Последний запуск" Width="Auto"/>
@@ -114,7 +114,7 @@
                     </DataGrid>
                 </TabItem>
                 <TabItem Header="ОВ">
-                    <DataGrid x:Name="OVCheckingGrid" Style="{StaticResource CheckingsDataGridStyle}">
+                    <DataGrid x:Name="OVCheckingGrid" Style="{StaticResource CheckingsDataGridStyle}" SelectedItem="{Binding SelectedChecking, Mode=OneWayToSource}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Path=Name}" Header="Имя" Width="Auto"/>
                             <DataGridTextColumn Binding="{Binding Path=LastRun}" Header="Последний запуск" Width="Auto"/>
@@ -127,7 +127,7 @@
                     </DataGrid>
                 </TabItem>
                 <TabItem Header="СС">
-                    <DataGrid x:Name="SSCheckingGrid" Style="{StaticResource CheckingsDataGridStyle}">
+                    <DataGrid x:Name="SSCheckingGrid" Style="{StaticResource CheckingsDataGridStyle}" SelectedItem="{Binding SelectedChecking, Mode=OneWayToSource}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Path=Name}" Header="Имя" Width="Auto"/>
                             <DataGridTextColumn Binding="{Binding Path=LastRun}" Header="Последний запуск" Width="Auto"/>
@@ -213,9 +213,7 @@
             <TabItem Header="Результаты">
                 <StackPanel>
                     <TextBlock Margin="10, 10, 10, 10" Text="Показать для файла:"/>
-                    <ComboBox x:Name="activeFileComboBox" Margin="10, 0, 10, 0" ItemsSource="{Binding PreanalysFiles}" SelectedItem="{Binding SelectedFile, Mode=TwoWay}">
-                        
-                    </ComboBox>
+                    <ComboBox x:Name="activeFileComboBox" Margin="10, 0, 10, 0" ItemsSource="{Binding PreanalysFiles}" SelectedItem="{Binding SelectedFile, Mode=TwoWay}"/>
                     <DataGrid x:Name="ResultsGrid"
                           CanUserAddRows="False"
                           CanUserResizeRows="False"
