@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Autodesk.Revit.UI;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
@@ -20,10 +21,11 @@ using System.Windows.Media.Imaging;
 using System.Xml;
 using System.Xml.Serialization;
 using DataGrid = System.Windows.Controls.DataGrid;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Audit
 {
-    internal class ApplicationViewModel : INotifyPropertyChanged
+    public class ApplicationViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -105,6 +107,12 @@ namespace Audit
             }
         }
 
+        private ReportSettings _reportsSettings = new ReportSettings() { ReportType = "Все тесты", ReportFormat = "Excel" };
+        public ReportSettings ReportsSettings
+        { 
+            get => _reportsSettings; 
+            set { SetProperty(ref _reportsSettings, value); } 
+        }
         #endregion
 
         #region Методы
@@ -277,6 +285,16 @@ namespace Audit
                     PreanalysFiles.Add(File);
                 }
             }
+            string reportSettings = Properties.Settings.Default.ReportSettings;
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(ReportSettings));
+            using(StringReader reader = new StringReader(reportSettings))
+            {
+                if (reportSettings != "")
+                {
+                    ReportsSettings = (ReportSettings)xmlSerializer.Deserialize(reader);
+                }
+            }
+
         }
 
         /// <summary>
@@ -392,13 +410,21 @@ namespace Audit
         {
             string lastAnalysFilesString = "";
             string lastAnalysFilesPathsString = "";
-            foreach (RvtFileInfo fileToSaveInList in _win.FilesToAnalys.Items)
+            foreach (RvtFileInfo fileToSaveInList in PreanalysFiles)
             {
                 lastAnalysFilesString = lastAnalysFilesString + fileToSaveInList.Name + "|";
                 lastAnalysFilesPathsString = lastAnalysFilesPathsString + fileToSaveInList.Path + "|";
             }
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(ReportSettings));
+            string reportSettings = "";
+            using(StringWriter writer = new StringWriter())
+            {
+                xmlSerializer.Serialize(writer, ReportsSettings);
+                reportSettings = writer.ToString();
+            }
             Properties.Settings.Default.lastCheckedFiles = lastAnalysFilesString;
             Properties.Settings.Default.lastCheckedFilesPaths = lastAnalysFilesPathsString;
+            Properties.Settings.Default.ReportSettings = reportSettings;
             Properties.Settings.Default.Save();
         }
 
@@ -493,6 +519,16 @@ namespace Audit
                 results.Add(newResult);
             }
         }
+
+        /// <summary>
+        /// Создает результаты проверок в формат excel
+        /// </summary>
+        private void CreateExcel()
+        {
+            TaskDialog dialog = new TaskDialog("Test");
+            dialog.MainContent = "Excel created";
+            dialog.Show();
+        }
         #endregion
 
         #region Комманды
@@ -525,6 +561,12 @@ namespace Audit
         {
             get { return _updateSelectedCommand ?? (_updateSelectedCommand = new RelayCommand(UpdateSelected)); }
         }
+
+        private RelayCommand _createExcelCommand;
+        public RelayCommand CreateExcelCommand
+        {
+            get { return _createExcelCommand ?? (_createExcelCommand = new RelayCommand(CreateExcel)); }
+        }
         #endregion
 
         #region Вспомогательные классы для хранения данных
@@ -537,6 +579,29 @@ namespace Audit
             {
                 return Name;
             }
+        }
+
+        public class ReportSettings
+        {
+            public class ReportFields
+            {
+                public bool Name { get; set; }
+                public bool Status { get; set; }
+                public bool Id { get; set; }
+                public bool Comment { get; set; }
+                public bool Time { get; set; }
+            }
+            public class ReportStatuses
+            {
+                public bool Created { get; set; }
+                public bool Active { get; set; }
+                public bool Checked { get; set; }
+                public bool Corrected { get; set; }
+            }
+            public ReportFields Fields { get; set; } = new ReportFields();
+            public ReportStatuses Statuses { get; set; } = new ReportStatuses();
+            public string ReportType { get; set; }
+            public string ReportFormat { get; set; }
         }
         #endregion
     }

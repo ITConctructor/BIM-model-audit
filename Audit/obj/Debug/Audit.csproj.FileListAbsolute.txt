@@ -16,3 +16,9 @@ C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\Audit.csproj.CoreComp
 C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\Audit.csproj.CopyComplete
 C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\Audit.dll
 C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\Audit.pdb
+C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\Interop.ACTIVEXLib.dll
+C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\Interop.LCC11.dll
+C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\Interop.MsoEuro.dll
+C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\Interop.MsoScreenRecorderLib.dll
+C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\Interop.TASKLAUNCHLib.dll
+C:\Users\Evgeniy.maslov\source\repos\Audit\Audit\obj\Debug\Audit.csproj.ResolveComReference.cache

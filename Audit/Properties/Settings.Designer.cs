@@ -70,5 +70,17 @@ namespace Audit.Properties {
                 this["logFilesPaths"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ReportSettings {
+            get {
+                return ((string)(this["ReportSettings"]));
+            }
+            set {
+                this["ReportSettings"] = value;
+            }
+        }
     }
 }
