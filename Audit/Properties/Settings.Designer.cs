@@ -82,5 +82,17 @@ namespace Audit.Properties {
                 this["ReportSettings"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LastReportPath {
+            get {
+                return ((string)(this["LastReportPath"]));
+            }
+            set {
+                this["LastReportPath"] = value;
+            }
+        }
     }
 }

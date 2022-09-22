@@ -18,18 +18,41 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Image = System.Drawing.Image;
+using Autodesk.Revit.UI.Events;
+using System.Runtime.InteropServices;
 
 namespace Audit
 {
     [Transaction(TransactionMode.Manual)]
-    internal class CommandLauncher : IExternalCommand
+    public class CommandLauncher : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
+            commandData.Application.DialogBoxShowing += DialogHandler;
+            uiapp = commandData.Application;
+            app = commandData.Application.Application;
             StartWindow win = new StartWindow();
             ApplicationViewModel ViewModel = new ApplicationViewModel(win);
             win.Show();
+            //commandData.Application.DialogBoxShowing -= DialogHandler;
             return Result.Succeeded;
         }
+        private async void DialogHandler(object sender, DialogBoxShowingEventArgs e)
+        {
+            switch (e)
+            {
+                case DialogBoxShowingEventArgs args1:
+                    if (e.DialogId != "")
+                    {
+                        string id = e.DialogId;
+                        e.OverrideResult(1);
+                    }
+                    break;
+                default:
+                    return;
+            }
+        }
+        public static Autodesk.Revit.ApplicationServices.Application app { get; private set; }
+        public static UIApplication uiapp { get; private set; }   
     }
 }

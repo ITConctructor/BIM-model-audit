@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -13,9 +15,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Interop;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Xml;
@@ -107,12 +111,16 @@ namespace Audit
             }
         }
 
-        private ReportSettings _reportsSettings = new ReportSettings() { ReportType = "Все тесты", ReportFormat = "Excel" };
+        private ReportSettings _reportsSettings = new ReportSettings() { Type = "Все тесты", Format = "Excel" };
         public ReportSettings ReportsSettings
         { 
             get => _reportsSettings; 
             set { SetProperty(ref _reportsSettings, value); } 
         }
+
+        public List<string> ReportTypes { get; set; } = new List<string>() { "Все тесты", "Выбранные тесты" };
+
+        public List<string> ReportFormats { get; set; } = new List<string>() { "Excel", "HTML" };
         #endregion
 
         #region Методы
@@ -224,6 +232,7 @@ namespace Audit
             if (Name.EndsWith(".rvt") && !filesToAnalysAsText.Contains(Name))
             {
                 PreanalysFiles.Add(selectedFile);
+                FirstLaunchDataInitializing();
             }
         }
 
@@ -415,16 +424,8 @@ namespace Audit
                 lastAnalysFilesString = lastAnalysFilesString + fileToSaveInList.Name + "|";
                 lastAnalysFilesPathsString = lastAnalysFilesPathsString + fileToSaveInList.Path + "|";
             }
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(ReportSettings));
-            string reportSettings = "";
-            using(StringWriter writer = new StringWriter())
-            {
-                xmlSerializer.Serialize(writer, ReportsSettings);
-                reportSettings = writer.ToString();
-            }
             Properties.Settings.Default.lastCheckedFiles = lastAnalysFilesString;
             Properties.Settings.Default.lastCheckedFilesPaths = lastAnalysFilesPathsString;
-            Properties.Settings.Default.ReportSettings = reportSettings;
             Properties.Settings.Default.Save();
         }
 
@@ -451,6 +452,7 @@ namespace Audit
                                 NewChecking.Dep = Checking.Dep;
                                 NewChecking.Name = Checking.Name;
                                 NewChecking.Running = Checking;
+                                NewChecking.ElementCheckingResults = new BindingList<ElementCheckingResult>();
                                 FileInfo.CheckingResults[0].Checkings.Add(NewChecking);
                             }
                         }
@@ -469,7 +471,7 @@ namespace Audit
             {
                 foreach (RvtFileInfo fileInfo in PreanalysFiles)
                 {
-                    if (item.IndexOf(fileInfo.Name.Replace(".rvt", "")) != -1)
+                    if (item.IndexOf(fileInfo.Name.Replace(".rvt", "")) != -1 && File.Exists(item))
                     {
                         fileInfo.CheckingResults[0] = Deserialize(item);
                     }
@@ -521,14 +523,13 @@ namespace Audit
         }
 
         /// <summary>
-        /// Создает результаты проверок в формат excel
+        /// Выгружает отчет о проверках
         /// </summary>
-        private void CreateExcel()
+        public void CreateReport()
         {
-            TaskDialog dialog = new TaskDialog("Test");
-            dialog.MainContent = "Excel created";
-            dialog.Show();
+            ReportsSettings.CreateReport(_win, PreanalysFiles);
         }
+
         #endregion
 
         #region Комманды
@@ -562,10 +563,10 @@ namespace Audit
             get { return _updateSelectedCommand ?? (_updateSelectedCommand = new RelayCommand(UpdateSelected)); }
         }
 
-        private RelayCommand _createExcelCommand;
-        public RelayCommand CreateExcelCommand
+        private RelayCommand _createReportCommand;
+        public RelayCommand CreateReportCommand
         {
-            get { return _createExcelCommand ?? (_createExcelCommand = new RelayCommand(CreateExcel)); }
+            get { return _createReportCommand ?? (_createReportCommand = new RelayCommand(CreateReport)); }
         }
         #endregion
 
@@ -583,26 +584,153 @@ namespace Audit
 
         public class ReportSettings
         {
-            public class ReportFields
-            {
-                public bool Name { get; set; }
-                public bool Status { get; set; }
-                public bool Id { get; set; }
-                public bool Comment { get; set; }
-                public bool Time { get; set; }
-            }
-            public class ReportStatuses
-            {
-                public bool Created { get; set; }
-                public bool Active { get; set; }
-                public bool Checked { get; set; }
-                public bool Corrected { get; set; }
-            }
             public ReportFields Fields { get; set; } = new ReportFields();
             public ReportStatuses Statuses { get; set; } = new ReportStatuses();
-            public string ReportType { get; set; }
-            public string ReportFormat { get; set; }
+            public string Type { get; set; }
+            public string Format { get; set; }
+            /// <summary>
+            /// Создает отчеты о проверках
+            /// </summary>
+            public void CreateReport(StartWindow view, ObservableCollection<RvtFileInfo> data)
+            {
+                if (Format.ToString() == "Excel")
+                {
+                    CreateExcel(view, data);
+                }
+                else if (Format.ToString() == "HTML")
+                {
+
+                }
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(ReportSettings));
+                string reportSettings = "";
+                using (StringWriter writer = new StringWriter())
+                {
+                    xmlSerializer.Serialize(writer, this);
+                    reportSettings = writer.ToString();
+                }
+                Properties.Settings.Default.ReportSettings = reportSettings;
+                Properties.Settings.Default.Save();
+            }
+            /// <summary>
+            /// Создает результаты проверок в формат excel
+            /// </summary>
+            private void CreateExcel(StartWindow view, ObservableCollection<RvtFileInfo> data)
+            {
+                FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+                folderBrowserDialog.Description = "Выберите папку для сохранения отчетов";
+                if (Properties.Settings.Default.LastReportPath != "")
+                {
+                    folderBrowserDialog.SelectedPath = Properties.Settings.Default.LastReportPath;
+                }
+                folderBrowserDialog.ShowDialog();
+                string path = folderBrowserDialog.SelectedPath;
+                Properties.Settings.Default.LastReportPath = path;
+                Properties.Settings.Default.Save();
+                Excel.Application app = new Excel.Application();
+                app.DisplayAlerts = false;
+                if (path != "" && path != null)
+                {
+                    foreach (RvtFileInfo file in data)
+                    {
+                        Excel.Workbook wb = app.Workbooks.Add();
+                        wb.Title = file.Name;
+                        if (Type.ToString() == "Все тесты")
+                        {
+                            foreach (CheckingTemplate checking in file.CheckingResults[0].Checkings)
+                            {
+                                CreateExcelCheckingWorksheet(wb, checking);
+                            }
+                        }
+                        else if (Type.ToString() == "Выбранные тесты")
+                        {
+                            TabItem selectedTabItem = view.CheckingsTabControl.SelectedItem as TabItem;
+                            DataGrid selectedDataGrid = selectedTabItem.Content as DataGrid;
+                            foreach (var item in selectedDataGrid.SelectedItems)
+                            {
+                                CheckingTemplate activeChecking = (CheckingTemplate)item;
+                                foreach (CheckingTemplate checking in file.CheckingResults[0].Checkings)
+                                {
+                                    CreateExcelCheckingWorksheet(wb, checking);
+                                }
+                            }
+                        }
+
+                        string fullPath = path + "\\" + file.Name.Replace(".rvt", ".xlsx");
+                        while (File.Exists(fullPath))
+                        {
+                            fullPath = fullPath.Replace(".xlsx", "") + "(1)" + ".xlsx";
+                        }
+                        wb.SaveAs(fullPath);
+                        app.Quit();
+                    }
+                }
+            }
+            /// <summary>
+            /// Создает лист с результатом проверки для одной проверки одного файла. Метод используется для предотвращения дублирования кода внутри CreateExcel()
+            /// </summary>
+            private void CreateExcelCheckingWorksheet(Excel.Workbook wb, CheckingTemplate checking)
+            {
+                Excel.Worksheet sheet = wb.Worksheets.Add();
+                if (checking.Name.Length > 29)
+                {
+                    sheet.Name = checking.Name.Substring(0, 30);
+                }
+                else
+                {
+                    sheet.Name = checking.Name;
+                }
+                ///Создаем булевые маски из настроек отчета и по ним фильтруем список с информацией о файлах
+                bool[] fieldBoolMask = { Fields.Name,
+                            Fields.Status,
+                            Fields.Id,
+                            Fields.Comment,
+                            Fields.Time };
+                List<string> rawFields = new List<string>() { "Имя", "Статус", "ID элемента", "Комментарий", "Время обнаружения" };
+                List<string> readyFields = rawFields.Where(x => fieldBoolMask[rawFields.IndexOf(x)] == true).ToList();
+                bool[] statusesBoolMask = { Statuses.Created,
+                        Statuses.Active, Statuses.Checked, Statuses.Corrected};
+                List<string> rawStatuses = new List<string>() { "Созданная", "Активная", "Проверенная", "Исправленная" };
+                List<string> readyStatuses = rawStatuses.Where(x => statusesBoolMask[rawStatuses.IndexOf(x)] == true).ToList();
+                List<List<string>> data = new List<List<string>>();
+                data.Add(readyFields);
+                foreach (ElementCheckingResult elementResult in checking.ElementCheckingResults.Where(x => readyStatuses.Contains(x.Status)))
+                {
+                    List<string> values = new List<string>();
+                    for (int i = 0; i < elementResult.GetType().GetTypeInfo().GetProperties().Length; i++)
+                    {
+                        if (fieldBoolMask[i] == true)
+                        {
+                            values.Add((string)elementResult.GetType().GetTypeInfo().GetProperties()[i].GetValue(elementResult));
+                        }
+                    }
+                    data.Add(values);
+                }
+                for (int i = 0; i < data.Count; i++)
+                {
+                    for (int j = 0; j < data[i].Count; j++)
+                    {
+                        sheet.Cells[i + 1, j + 1] = data[i][j];
+                    }
+                }
+            }
         }
+        public class ReportFields
+        {
+            public bool Name { get; set; }
+            public bool Status { get; set; }
+            public bool Id { get; set; }
+            public bool Comment { get; set; }
+            public bool Time { get; set; }
+        }
+
+        public class ReportStatuses
+        {
+            public bool Created { get; set; }
+            public bool Active { get; set; }
+            public bool Checked { get; set; }
+            public bool Corrected { get; set; }
+        }
+
         #endregion
     }
 }

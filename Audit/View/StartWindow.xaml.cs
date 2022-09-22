@@ -98,6 +98,9 @@ namespace Audit
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             GetDrivers();
+            activeFileComboBox.SelectedIndex = 0;
+            activeGrid.SelectedIndex = 0;
+
         }
 
         private void CheckingsTabControl_LostFocus(object sender, RoutedEventArgs e)

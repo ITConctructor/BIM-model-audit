@@ -232,7 +232,7 @@
                             <DataGridTextColumn Binding="{Binding Path=Status}" Header="Статус" Width="Auto" IsReadOnly="True"/>
                             <DataGridTextColumn Binding="{Binding Path=ID}" Header="ID элемента" Width="Auto" IsReadOnly="True"/>
                             <DataGridTextColumn Binding="{Binding Path=Time}" Header="Время обнаружения" Width="Auto" IsReadOnly="True"/>
-                            <DataGridTextColumn Binding="{Binding Path=Comment}" Header="Комментарий"/>
+                            <DataGridTextColumn Binding="{Binding Path=Comment, Mode=TwoWay}" Header="Комментарий"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
@@ -249,7 +249,7 @@
                                 <CheckBox x:Name="NameField" Content="Имя" IsChecked="{Binding ReportsSettings.Fields.Name, Mode=TwoWay}"/>
                                 <CheckBox x:Name="StatusField" Content="Статус" IsChecked="{Binding ReportsSettings.Fields.Status, Mode=TwoWay}"/>
                                 <CheckBox x:Name="IdField" Content="ID элемента" IsChecked="{Binding ReportsSettings.Fields.Id, Mode=TwoWay}"/>
-                                <CheckBox x:Name="CommentField" Content="Комментарий" IsChecked="{Binding ReportsSettings.Fieldss.Comment, Mode=TwoWay}"/>
+                                <CheckBox x:Name="CommentField" Content="Комментарий" IsChecked="{Binding ReportsSettings.Fields.Comment, Mode=TwoWay}"/>
                                 <CheckBox x:Name="TimeField" Content="Время обнаружения" IsChecked="{Binding ReportsSettings.Fields.Time, Mode=TwoWay}"/>
                             </ItemsControl>
                         </GroupBox>
@@ -266,19 +266,13 @@
                         <StackPanel Orientation="Horizontal">
                             <UniformGrid Rows="2" Margin="5, 5, 5, 5">
                                 <TextBlock Text="Тип отчета"/>
-                                <ComboBox x:Name="ReportTypeComboBox" SelectedIndex="0" SelectedItem="{Binding ReportsSettings.ReportType, Mode=TwoWay}">
-                                    <ComboBoxItem Content="Все тесты"/>
-                                    <ComboBoxItem Content="Выбранные тесты"/>
-                                </ComboBox>
+                                <ComboBox SelectedIndex="0" x:Name="ReportTypeComboBox" SelectedItem="{Binding ReportsSettings.Type, Mode=TwoWay}" ItemsSource="{Binding ReportTypes}"/>
                             </UniformGrid>
                             <UniformGrid Rows="2" Margin="5, 5, 5, 5">
                                 <TextBlock Text="Формат отчета"/>
-                                <ComboBox SelectedIndex="0" SelectedItem="{Binding ReportsSettings.ReportFormat, Mode=TwoWay}">
-                                    <ComboBoxItem Content="Excel"/>
-                                    <ComboBoxItem Content="HTML (Табличное представление)"/>
-                                </ComboBox>
+                                <ComboBox SelectedIndex="0" SelectedItem="{Binding ReportsSettings.Format, Mode=TwoWay}" ItemsSource="{Binding ReportFormats}"/>
                             </UniformGrid>
-                            <Button Content="Записать отчет" Height="25" Width="Auto" Command="{Binding CreateExcelCommand}"/>
+                            <Button Content="Записать отчет" Height="25" Width="Auto" Command="{Binding CreateReportCommand}"/>
                         </StackPanel>
                     </GroupBox>
                 </Grid>
