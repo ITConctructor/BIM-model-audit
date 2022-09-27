@@ -24,10 +24,10 @@ namespace Audit.Checkings
         }
         public override void Run(string filePath, BindingList<ElementCheckingResult> oldResults)
         {
-            ElementCheckingResult newResult = new ElementCheckingResult() { Name = "elementName", ID = "elementID", Time = System.DateTime.Now.ToString() };
-            ElementCheckingResult newResult2 = new ElementCheckingResult() { Name = "elementName2", ID = "elementID2", Time = System.DateTime.Now.ToString() };
-            ApplicationViewModel.AddElementCheckingResult(newResult2, oldResults);
-            ApplicationViewModel.AddElementCheckingResult(newResult, oldResults);
+            //ElementCheckingResult newResult = new ElementCheckingResult() { Name = "elementName", ID = "elementID", Time = System.DateTime.Now.ToString() };
+            //ElementCheckingResult newResult2 = new ElementCheckingResult() { Name = "elementName2", ID = "elementID2", Time = System.DateTime.Now.ToString() };
+            //ApplicationViewModel.AddElementCheckingResult(newResult2, oldResults);
+            //ApplicationViewModel.AddElementCheckingResult(newResult, oldResults);
 
             //Открытие документа с отсоединением
             UIApplication uiapp = CommandLauncher.uiapp;
@@ -47,6 +47,27 @@ namespace Audit.Checkings
             IList<Element> levels = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Levels).WhereElementIsNotElementType().ToElements();
             IList<Element> good_levels = new List<Element>();
             IList<Element> results = new List<Element>();
+            //Сортировка списка с уровнями по отметке
+            List<double> marks = new List<double>();
+            foreach (Element level in levels)
+            {
+                double num = double.Parse(level.LookupParameter("Фасад").AsValueString());
+                marks.Add(num);
+            }
+            for (int i = 0; i < marks.Count; i++)
+            {
+                int j = i;
+                while (j > 0 && marks[j - 1] > marks[j])
+                {
+                    double buf = marks[j - 1];
+                    Element buf1 = levels[j - 1];
+                    marks[j - 1] = marks[j];
+                    levels[j - 1] = levels[j];
+                    marks[j] = buf;
+                    levels[j] = buf1;
+                    j--;
+                }
+            }
             //Отбираем уровни, название которых состоит из 3-х блоков, разделенных "_"
             foreach (Element level in levels)
             {
@@ -178,7 +199,7 @@ namespace Audit.Checkings
                             {
                                 code = "0" + (int.Parse(floor.Name.Split('_')[1].Substring(6)) + 1).ToString();
                             }
-                            if (floor.Name.Split('_')[0] == code)
+                            if (floor.Name.Split('_')[0] != code)
                             {
                                 results.Add(floor);
                             }
@@ -208,27 +229,6 @@ namespace Audit.Checkings
                 catch (Exception)
                 {
                     results.Add(floor);
-                }
-            }
-            //Сортировка списка с уровнями по отметке
-            List<double> marks = new List<double>();
-            foreach (Element level in levels)
-            {
-                double num = double.Parse(level.LookupParameter("Фасад").AsValueString());
-                marks.Add(num);
-            }
-            for (int i = 0; i < marks.Count; i++)
-            {
-                int j = i;
-                while (j > 0 && marks[j - 1] > marks[j])
-                {
-                    double buf = marks[j - 1];
-                    Element buf1 = levels[j - 1];
-                    marks[j - 1] = marks[j];
-                    levels[j - 1] = levels[j];
-                    marks[j] = buf;
-                    levels[j] = buf1;
-                    j--;
                 }
             }
             //Анализ технических этажей
@@ -270,13 +270,17 @@ namespace Audit.Checkings
                     //try нужен на случай, если substring вывалится с исключением, что будет означать, что название кровли не содержит 01 или 02
                     try
                     {
-                        if (roof.Name.Split('_')[1].Substring(6).StartsWith(" "))
+                        if (roof.Name.Split('_')[1].Substring(6).Length > 0)
                         {
                             code = "2" + roof.Name.Split('_')[1].Substring(7);
                             if (roof.Name.Split('_')[0] != code)
                             {
                                 results.Add(roof);
                             }
+                        }
+                        else
+                        {
+                            results.Add(roof);
                         }
                     }
                     catch (Exception)
@@ -290,9 +294,15 @@ namespace Audit.Checkings
             IList<Element> good_parapets = new List<Element>();
             foreach (Element par in parapets)
             {
-                good_parapets.Add(par);
                 Element underLevel = levels[levels.IndexOf(par) - 1];
-                if (!underLevel.Name.Split('_')[1].StartsWith("Кровля") || underLevel.Name.Substring(0, 3) != par.Name.Split('_')[0])
+                string code = "";
+                good_parapets.Add(par);
+                code = "20" + (parapets.IndexOf(par) + 1).ToString();
+                if (par.Name.Split('_')[0] != code && roofs.Count >= parapets.Count)
+                {
+                    results.Add(par);
+                }
+                else if (!underLevel.Name.Split('_')[1].StartsWith("Кровля"))
                 {
                     results.Add(par);
                 }
@@ -302,7 +312,7 @@ namespace Audit.Checkings
             foreach (Element ground in grounds)
             {
                 good_grounds.Add(ground);
-                if (ground.Name.Split('_')[0] == "000")
+                if (ground.Name.Split('_')[0] != "000")
                 {
                     results.Add(ground);
                 }
@@ -331,7 +341,26 @@ namespace Audit.Checkings
                 ElementCheckingResult result = new ElementCheckingResult() { Name = element.Name, ID = element.Id.ToString(), Time = System.DateTime.Now.ToString() };
                 ApplicationViewModel.AddElementCheckingResult(result, oldResults);
             }
-            //doc.Close();
+            //Проверяем, есть ли среди прошлого результата проверок какой-либо результат из новой. Если нет, то ставим этому результату статус "Исправленная"
+            foreach (ElementCheckingResult item in oldResults)
+            {
+                int flag = 0;
+                foreach (Element level in results)
+                {
+                    if (item.Name == level.Name)
+                    {
+                        flag = 1;
+                    }
+                    if (flag == 1)
+                    {
+                        break;
+                    }
+                }
+                if (flag == 0)
+                {
+                    item.Status = "Исправленная";
+                }
+            }
         }
     }
 }

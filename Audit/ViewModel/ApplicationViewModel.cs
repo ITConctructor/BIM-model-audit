@@ -648,10 +648,7 @@ namespace Audit
                             foreach (var item in selectedDataGrid.SelectedItems)
                             {
                                 CheckingTemplate activeChecking = (CheckingTemplate)item;
-                                foreach (CheckingTemplate checking in file.CheckingResults[0].Checkings)
-                                {
-                                    CreateExcelCheckingWorksheet(wb, checking);
-                                }
+                                CreateExcelCheckingWorksheet(wb, activeChecking);
                             }
                         }
 

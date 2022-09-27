@@ -5,42 +5,25 @@
       <CheckingTemplate>
         <Dep>ОБЩ</Dep>
         <Name>ОБЩ_Корректность наименований уровней</Name>
-        <LastRun>22.09.2022 17:24:03</LastRun>
-        <Amount>4</Amount>
-        <Created>4</Created>
+        <LastRun>27.09.2022 15:53:36</LastRun>
+        <Amount>1</Amount>
+        <Created>0</Created>
         <Active>0</Active>
         <Checked>0</Checked>
-        <Corrected>0</Corrected>
+        <Corrected>1</Corrected>
         <ElementCheckingResults>
           <ElementCheckingResult>
-            <Name>elementName2</Name>
-            <Status>Созданная</Status>
-            <ID>elementID2</ID>
-            <Time>22.09.2022 17:24:03</Time>
-          </ElementCheckingResult>
-          <ElementCheckingResult>
-            <Name>elementName</Name>
-            <Status>Созданная</Status>
-            <ID>elementID</ID>
-            <Time>22.09.2022 17:24:03</Time>
-          </ElementCheckingResult>
-          <ElementCheckingResult>
             <Name>102_Этаж 02_(+3,300)</Name>
-            <Status>Созданная</Status>
+            <Status>Исправленная</Status>
             <ID>131600</ID>
-            <Time>22.09.2022 17:24:05</Time>
-          </ElementCheckingResult>
-          <ElementCheckingResult>
-            <Name>002_Этаж -01_(-3,000)</Name>
-            <Status>Созданная</Status>
-            <ID>812998</ID>
-            <Time>22.09.2022 17:24:05</Time>
+            <Time>27.09.2022 15:53:36</Time>
           </ElementCheckingResult>
         </ElementCheckingResults>
         <Running
           xsi:type="IfLevelNamesAreCorrectChecking">
           <Dep>ОБЩ</Dep>
           <Name>ОБЩ_Корректность наименований уровней</Name>
+          <ElementCheckingResults />
         </Running>
       </CheckingTemplate>
       <CheckingTemplate>
@@ -51,6 +34,7 @@
           xsi:type="IfLevelsAreNotDuplicated">
           <Dep>ОБЩ</Dep>
           <Name>ОБЩ_Уровни не дублируются</Name>
+          <ElementCheckingResults />
         </Running>
       </CheckingTemplate>
       <CheckingTemplate>
@@ -61,6 +45,7 @@
           xsi:type="IfLinkInCorrectWorksetChecking">
           <Dep>ОБЩ</Dep>
           <Name>ОБЩ_Корректность рабочих наборов связей</Name>
+          <ElementCheckingResults />
         </Running>
       </CheckingTemplate>
       <CheckingTemplate>
@@ -71,6 +56,7 @@
           xsi:type="IfAllRoomsArePlaced">
           <Dep>АР</Dep>
           <Name>АР_Нет неразмещенных помещений</Name>
+          <ElementCheckingResults />
         </Running>
       </CheckingTemplate>
       <CheckingTemplate>
@@ -81,6 +67,7 @@
           xsi:type="IfPilesAreMadeOfColumns">
           <Dep>КР</Dep>
           <Name>КР_Сваи замоделированы колоннами</Name>
+          <ElementCheckingResults />
         </Running>
       </CheckingTemplate>
     </Checkings>
