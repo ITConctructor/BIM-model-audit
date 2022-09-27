@@ -81,6 +81,16 @@ namespace Audit
         private string _logFilesPath = Properties.Settings.Default.folderToSaveLog;
         public string LogFilesPath { get => _logFilesPath; set { SetProperty(ref _logFilesPath, value); } }
 
+        private bool _updateForSelectedFile;
+        public bool UpdateForSelectedFile
+        {
+            get { return _updateForSelectedFile; }
+            set 
+            { 
+                SetProperty(ref _updateForSelectedFile, value);
+            }
+        }
+
         private RvtFileInfo _selectedFile;
         public RvtFileInfo SelectedFile 
         { 
@@ -354,12 +364,22 @@ namespace Audit
         /// </summary>
         private void UpdateAll()
         {
-            for (int i = 0; i < PreanalysFiles.Count; i++)
+            if (UpdateForSelectedFile == true)
             {
-                _win.activeFileComboBox.SelectedIndex = i;
-                foreach (CheckingTemplate Checking in PreanalysFiles[i].CheckingResults[0].Checkings)
+                foreach (CheckingTemplate Checking in SelectedFile?.CheckingResults[0].Checkings)
                 {
-                    UpdateChecking(Checking, PreanalysFiles[i].Path);
+                    UpdateChecking(Checking, SelectedFile?.Path);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < PreanalysFiles.Count; i++)
+                {
+                    _win.activeFileComboBox.SelectedIndex = i;
+                    foreach (CheckingTemplate Checking in PreanalysFiles[i].CheckingResults[0].Checkings)
+                    {
+                        UpdateChecking(Checking, PreanalysFiles[i].Path);
+                    }
                 }
             }
             UpdateSettings();
@@ -371,18 +391,37 @@ namespace Audit
         /// </summary>
         private void UpdateSelected()
         {
-            foreach (RvtFileInfo file in PreanalysFiles)
+            if (UpdateForSelectedFile == true)
             {
                 TabItem selectedTabItem = _win.CheckingsTabControl.SelectedItem as TabItem;
                 DataGrid selectedDataGrid = selectedTabItem.Content as DataGrid;
                 foreach (var item in selectedDataGrid.SelectedItems)
                 {
                     CheckingTemplate activeChecking = (CheckingTemplate)item;
-                    foreach (CheckingTemplate checking in file.CheckingResults[0].Checkings)
+                    foreach (CheckingTemplate checking in SelectedFile?.CheckingResults[0].Checkings)
                     {
                         if (checking.Name == activeChecking.Name)
                         {
-                            UpdateChecking(checking, file.Path);
+                            UpdateChecking(checking, SelectedFile?.Path);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                foreach (RvtFileInfo file in PreanalysFiles)
+                {
+                    TabItem selectedTabItem = _win.CheckingsTabControl.SelectedItem as TabItem;
+                    DataGrid selectedDataGrid = selectedTabItem.Content as DataGrid;
+                    foreach (var item in selectedDataGrid.SelectedItems)
+                    {
+                        CheckingTemplate activeChecking = (CheckingTemplate)item;
+                        foreach (CheckingTemplate checking in file.CheckingResults[0].Checkings)
+                        {
+                            if (checking.Name == activeChecking.Name)
+                            {
+                                UpdateChecking(checking, file.Path);
+                            }
                         }
                     }
                 }
@@ -401,13 +440,6 @@ namespace Audit
             Checking.Amount = Checking.ElementCheckingResults.Count.ToString();
             Checking.Created = Checking.ElementCheckingResults.Where(t => t.Status == "Созданная").ToList().Count.ToString();
             Checking.Active = Checking.ElementCheckingResults.Where(t => t.Status == "Активная").ToList().Count.ToString();
-            foreach (ElementCheckingResult result in Checking.ElementCheckingResults)
-            {
-                if (result.Status == null)
-                {
-                    result.Status = "Исправленная";
-                }
-            }
             Checking.Corrected = Checking.ElementCheckingResults.Where(t => t.Status == "Исправленная").ToList().Count.ToString();
             Checking.Checked = Checking.ElementCheckingResults.Where(t => t.Status == "Проверенная").ToList().Count.ToString();
         }
@@ -588,6 +620,7 @@ namespace Audit
             public ReportStatuses Statuses { get; set; } = new ReportStatuses();
             public string Type { get; set; }
             public string Format { get; set; }
+            public bool WriteForSelectedFile { get; set; }
             /// <summary>
             /// Создает отчеты о проверках
             /// </summary>
@@ -630,8 +663,9 @@ namespace Audit
                 app.DisplayAlerts = false;
                 if (path != "" && path != null)
                 {
-                    foreach (RvtFileInfo file in data)
+                    if (WriteForSelectedFile == true)
                     {
+                        RvtFileInfo file = view.activeFileComboBox.SelectedItem as RvtFileInfo;
                         Excel.Workbook wb = app.Workbooks.Add();
                         wb.Title = file.Name;
                         if (Type.ToString() == "Все тесты")
@@ -660,6 +694,40 @@ namespace Audit
                         wb.SaveAs(fullPath);
                         app.Quit();
                     }
+                    else
+                    {
+                        foreach (RvtFileInfo file in data)
+                        {
+                            Excel.Workbook wb = app.Workbooks.Add();
+                            wb.Title = file.Name;
+                            if (Type.ToString() == "Все тесты")
+                            {
+                                foreach (CheckingTemplate checking in file.CheckingResults[0].Checkings)
+                                {
+                                    CreateExcelCheckingWorksheet(wb, checking);
+                                }
+                            }
+                            else if (Type.ToString() == "Выбранные тесты")
+                            {
+                                TabItem selectedTabItem = view.CheckingsTabControl.SelectedItem as TabItem;
+                                DataGrid selectedDataGrid = selectedTabItem.Content as DataGrid;
+                                foreach (var item in selectedDataGrid.SelectedItems)
+                                {
+                                    CheckingTemplate activeChecking = (CheckingTemplate)item;
+                                    CreateExcelCheckingWorksheet(wb, activeChecking);
+                                }
+                            }
+
+                            string fullPath = path + "\\" + file.Name.Replace(".rvt", ".xlsx");
+                            while (File.Exists(fullPath))
+                            {
+                                fullPath = fullPath.Replace(".xlsx", "") + "(1)" + ".xlsx";
+                            }
+                            wb.SaveAs(fullPath);
+                            app.Quit();
+                        }
+                    }
+                    
                 }
             }
             /// <summary>

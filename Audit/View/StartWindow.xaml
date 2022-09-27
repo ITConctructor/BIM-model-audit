@@ -38,7 +38,7 @@
             <RowDefinition Height="*" MinHeight="120" x:Name="FilesRow"/>
         </Grid.RowDefinitions>
         <UniformGrid Columns="2">
-            <TextBlock Grid.Row="0" x:Name="CheckingName" Text="{Binding ElementName=CheckingsTabControl, Path=SelectedItem.Content.SelectedItems[0].Name}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20" Height="30"/>
+            <TextBlock Grid.Row="0" x:Name="CheckingName" Text="{Binding ElementName=CheckingsTabControl, Path=SelectedItem.Content.SelectedItems[0].Name}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30" Height="30" FontSize="20" FontFamily="Verdana"/>
             <Image Source="/Audit;component/Resources/logoEtalon.png" Width="100" HorizontalAlignment="Right" Margin="20, 20, 20, 20"/>
         </UniformGrid>
         <Separator Grid.Row="1" BorderThickness="50" BorderBrush="Black"/>
@@ -147,6 +147,8 @@
                 <Button HorizontalAlignment="Left" Margin="20, 0, 0, 0" x:Name="UpdateSelected" Command="{Binding UpdateSelectedCommand}">
                     <TextBlock Text="Обновить выбранное"/>
                 </Button>
+                <CheckBox Margin="20, 5, 0, 5" VerticalAlignment="Center" IsChecked="{Binding UpdateForSelectedFile, Mode=TwoWay}"/>
+                <TextBlock Text="Обновить только для выбранного файла" VerticalAlignment="Center" Margin="5"/>
             </StackPanel>
         </Grid>
         <local:CustomGridSplitter SplitterDirection="Horizontal" MinimumDistanceFromEdge="250" x:Name="splitterCenter" Grid.Row="3" HorizontalAlignment="Stretch" Height="5" MouseDown="splitterCenter_MouseDown" PreviewMouseMove="splitterCenter_PreviewMouseMove"/>
@@ -264,15 +266,17 @@
                     </UniformGrid>
                     <GroupBox Header="Параметры вывода" Style="{StaticResource GroupBoxStyle}" Margin="10, 10, 10, 10" Grid.Row="1">
                         <StackPanel Orientation="Horizontal">
-                            <UniformGrid Rows="2" Margin="5, 5, 5, 5">
+                            <UniformGrid Rows="2" Margin="10, 5, 5, 5">
                                 <TextBlock Text="Тип отчета"/>
                                 <ComboBox SelectedIndex="0" x:Name="ReportTypeComboBox" SelectedItem="{Binding ReportsSettings.Type, Mode=TwoWay}" ItemsSource="{Binding ReportTypes}"/>
                             </UniformGrid>
-                            <UniformGrid Rows="2" Margin="5, 5, 5, 5">
+                            <UniformGrid Rows="2" Margin="10, 5, 5, 5">
                                 <TextBlock Text="Формат отчета"/>
                                 <ComboBox SelectedIndex="0" SelectedItem="{Binding ReportsSettings.Format, Mode=TwoWay}" ItemsSource="{Binding ReportFormats}"/>
                             </UniformGrid>
-                            <Button Content="Записать отчет" Height="25" Width="Auto" Command="{Binding CreateReportCommand}"/>
+                            <CheckBox Margin="10, 5, 5, 0" VerticalAlignment="Center" IsChecked="{Binding ReportsSettings.WriteForSelectedFile, Mode=TwoWay}"/>
+                            <TextBlock Text="Выгрузить только для выбранного файла" Margin="5" VerticalAlignment="Center"/>
+                            <Button Content="Записать отчет" Height="25" Width="120" Command="{Binding CreateReportCommand}" Margin="10"/>
                         </StackPanel>
                     </GroupBox>
                 </Grid>
