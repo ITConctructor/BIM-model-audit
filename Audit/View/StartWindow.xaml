@@ -141,10 +141,10 @@
                 </TabItem>
             </TabControl>
             <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="20, 10, 20, 10" Height="30" MaxHeight="30" MinHeight="30">
-                <Button HorizontalAlignment="Left" x:Name="UpdateAll" Command="{Binding UpdateAllCommand}">
+                <Button HorizontalAlignment="Left" x:Name="UpdateAll" Command="{Binding UpdateAllCommand}" Width="100">
                     <TextBlock Text="Обновить все"/>
                 </Button>
-                <Button HorizontalAlignment="Left" Margin="20, 0, 0, 0" x:Name="UpdateSelected" Command="{Binding UpdateSelectedCommand}">
+                <Button HorizontalAlignment="Left" Margin="20, 0, 0, 0" x:Name="UpdateSelected" Command="{Binding UpdateSelectedCommand}" Width="150">
                     <TextBlock Text="Обновить выбранное"/>
                 </Button>
                 <CheckBox Margin="20, 5, 0, 5" VerticalAlignment="Center" IsChecked="{Binding UpdateForSelectedFile, Mode=TwoWay}"/>
@@ -231,7 +231,7 @@
                           Margin="10, 10, 10, 10">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Path=Name}" Header="Имя" Width="Auto" IsReadOnly="True"/>
-                            <DataGridTextColumn Binding="{Binding Path=Status}" Header="Статус" Width="Auto" IsReadOnly="True"/>
+                            <DataGridComboBoxColumn x:Name="resultStatusesColumn" SelectedValueBinding="{Binding Path=Status}" Header="Статус" Width="Auto"/>
                             <DataGridTextColumn Binding="{Binding Path=ID}" Header="ID элемента" Width="Auto" IsReadOnly="True"/>
                             <DataGridTextColumn Binding="{Binding Path=Time}" Header="Время обнаружения" Width="Auto" IsReadOnly="True"/>
                             <DataGridTextColumn Binding="{Binding Path=Comment, Mode=TwoWay}" Header="Комментарий"/>
@@ -243,7 +243,7 @@
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
-                        <RowDefinition Height="90"/>
+                        <RowDefinition Height="100"/>
                     </Grid.RowDefinitions>
                     <UniformGrid Columns="2" Grid.Row="0">
                         <GroupBox Header="Включить поля" Style="{StaticResource GroupBoxStyle}" Margin="10, 10, 10, 10">
@@ -264,13 +264,13 @@
                             </StackPanel>
                         </GroupBox>
                     </UniformGrid>
-                    <GroupBox Header="Параметры вывода" Style="{StaticResource GroupBoxStyle}" Margin="10, 10, 10, 10" Grid.Row="1">
+                    <GroupBox Header="Параметры вывода" Style="{StaticResource GroupBoxStyle}" Margin="10, 10, 10, 10" Grid.Row="1" Height="Auto">
                         <StackPanel Orientation="Horizontal">
-                            <UniformGrid Rows="2" Margin="10, 5, 5, 5">
+                            <UniformGrid Rows="2" Margin="10, 5, 5, 5" Height="40">
                                 <TextBlock Text="Тип отчета"/>
                                 <ComboBox SelectedIndex="0" x:Name="ReportTypeComboBox" SelectedItem="{Binding ReportsSettings.Type, Mode=TwoWay}" ItemsSource="{Binding ReportTypes}"/>
                             </UniformGrid>
-                            <UniformGrid Rows="2" Margin="10, 5, 5, 5">
+                            <UniformGrid Rows="2" Margin="10, 5, 5, 5" Height="40">
                                 <TextBlock Text="Формат отчета"/>
                                 <ComboBox SelectedIndex="0" SelectedItem="{Binding ReportsSettings.Format, Mode=TwoWay}" ItemsSource="{Binding ReportFormats}"/>
                             </UniformGrid>

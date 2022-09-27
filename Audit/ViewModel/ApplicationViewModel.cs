@@ -85,17 +85,17 @@ namespace Audit
         public bool UpdateForSelectedFile
         {
             get { return _updateForSelectedFile; }
-            set 
-            { 
+            set
+            {
                 SetProperty(ref _updateForSelectedFile, value);
             }
         }
 
         private RvtFileInfo _selectedFile;
-        public RvtFileInfo SelectedFile 
-        { 
-            get => _selectedFile; 
-            set 
+        public RvtFileInfo SelectedFile
+        {
+            get => _selectedFile;
+            set
             {
                 RvtFileInfo buf = value as RvtFileInfo;
                 SetProperty(ref _selectedFile, buf);
@@ -106,38 +106,41 @@ namespace Audit
                 _win.VKCheckingGrid.ItemsSource = _selectedFile?.CheckingResults[0].Checkings.Where(t => t.Dep == "ВК").ToList();
                 _win.OVCheckingGrid.ItemsSource = _selectedFile?.CheckingResults[0].Checkings.Where(t => t.Dep == "ОВ").ToList();
                 _win.SSCheckingGrid.ItemsSource = _selectedFile?.CheckingResults[0].Checkings.Where(t => t.Dep == "СС").ToList();
-            } 
+            }
         }
 
         private CheckingTemplate _selectedChecking;
         public CheckingTemplate SelectedChecking
         {
             get { return _selectedChecking; }
-            set 
-            { 
+            set
+            {
                 CheckingTemplate buf = value as CheckingTemplate;
                 SetProperty(ref _selectedChecking, buf);
                 _win.ResultsGrid.ItemsSource = _selectedChecking?.ElementCheckingResults;
+                _win.resultStatusesColumn.ItemsSource = ResultStatuses;
             }
         }
 
         private ReportSettings _reportsSettings = new ReportSettings() { Type = "Все тесты", Format = "Excel" };
         public ReportSettings ReportsSettings
-        { 
-            get => _reportsSettings; 
-            set { SetProperty(ref _reportsSettings, value); } 
+        {
+            get => _reportsSettings;
+            set { SetProperty(ref _reportsSettings, value); }
         }
 
         public List<string> ReportTypes { get; set; } = new List<string>() { "Все тесты", "Выбранные тесты" };
 
         public List<string> ReportFormats { get; set; } = new List<string>() { "Excel", "HTML" };
-        #endregion
 
-        #region Методы
-        /// <summary>
-        /// Загружает файловую структуру с ПК для просмотрщика TreeView
-        /// </summary>
-        private static List<object> GetFileStructure(Bitmap DriveIcon, Bitmap FolderIcon, string type = "")
+        public static List<string> ResultStatuses { get; set; } = new List<string>() { "Созданная", "Активная", "Проверенная", "Исправленная" };
+    #endregion
+
+    #region Методы
+    /// <summary>
+    /// Загружает файловую структуру с ПК для просмотрщика TreeView
+    /// </summary>
+    private static List<object> GetFileStructure(Bitmap DriveIcon, Bitmap FolderIcon, string type = "")
         {
             List<object> FileStructure = new List<object>();
             foreach (string drive in Directory.GetLogicalDrives())

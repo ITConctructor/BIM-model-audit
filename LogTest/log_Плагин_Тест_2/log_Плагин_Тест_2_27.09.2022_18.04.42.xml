@@ -5,7 +5,7 @@
       <CheckingTemplate>
         <Dep>ОБЩ</Dep>
         <Name>ОБЩ_Корректность наименований уровней</Name>
-        <LastRun>27.09.2022 16:57:32</LastRun>
+        <LastRun>27.09.2022 18:04:42</LastRun>
         <Amount>1</Amount>
         <Created>1</Created>
         <Active>0</Active>
@@ -16,7 +16,7 @@
             <Name>102_Этаж 02_(+3,300)</Name>
             <Status>Созданная</Status>
             <ID>131600</ID>
-            <Time>27.09.2022 16:57:32</Time>
+            <Time>27.09.2022 18:04:42</Time>
           </ElementCheckingResult>
         </ElementCheckingResults>
         <Running
