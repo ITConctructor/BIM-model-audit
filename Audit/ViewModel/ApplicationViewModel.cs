@@ -137,10 +137,10 @@ namespace Audit
     #endregion
 
     #region Методы
-    /// <summary>
+        /// <summary>
     /// Загружает файловую структуру с ПК для просмотрщика TreeView
     /// </summary>
-    private static List<object> GetFileStructure(Bitmap DriveIcon, Bitmap FolderIcon, string type = "")
+        private static List<object> GetFileStructure(Bitmap DriveIcon, Bitmap FolderIcon, string type = "")
         {
             List<object> FileStructure = new List<object>();
             foreach (string drive in Directory.GetLogicalDrives())
@@ -269,7 +269,7 @@ namespace Audit
         /// <param name="value">Передаваемое значение</param>
         /// <param name="propertyName">Имя свойства</param>
         /// <returns></returns>
-        private protected bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
+        public bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
         {
             if (EqualityComparer<T>.Default.Equals(storage, value)) return false;
             storage = value;
@@ -322,7 +322,7 @@ namespace Audit
         /// <summary>
         /// Сохраняет результаты проверок для последующей работы приложения
         /// </summary>
-        private void WriteLog()
+        public void WriteLog()
         {
             string logFilesPaths = "";
             foreach (RvtFileInfo File in PreanalysFiles)
@@ -564,7 +564,6 @@ namespace Audit
         {
             ReportsSettings.CreateReport(_win, PreanalysFiles);
         }
-
         #endregion
 
         #region Комманды

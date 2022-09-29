@@ -8,7 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800" Loaded="Window_Loaded"
              x:Name="BaseWindow"
              Title="Аудит модели"
-             MinHeight="450" MinWidth="450" ResizeMode="CanResizeWithGrip">
+             MinHeight="450" MinWidth="450" ResizeMode="CanResizeWithGrip" >
     <Window.Resources>
         <Style x:Key="CheckingsDataGridStyle" TargetType="DataGrid">
             <Style.Setters>
@@ -28,6 +28,37 @@
                 <Setter Property="BorderThickness" Value="2"/>
             </Style.Setters>
         </Style>
+        <!--<Style TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="5" BorderThickness="5">
+                            <ContentPresenter Content="{TemplateBinding Content}"/>
+                            <Border.BorderBrush>
+                                <RadialGradientBrush >
+                                    <GradientStop Color="Black" Offset="0.0" />
+                                    <GradientStop Color="DarkGray" Offset="0.5" />
+                                    <GradientStop Color="WhiteSmoke" Offset="1.0" />
+                                </RadialGradientBrush>
+                            </Border.BorderBrush>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>-->
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="WhiteSmoke"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect/>
+                </Setter.Value>
+            </Setter>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Style.Resources>
+        </Style>
     </Window.Resources>
     <Grid Margin="0, 0, 0, 0" MaxHeight="{Binding ElementName=BaseWindow, Path=ActualHeight}" x:Name="BaseGrid">
         <Grid.RowDefinitions>
@@ -38,6 +69,14 @@
             <RowDefinition Height="*" MinHeight="120" x:Name="FilesRow"/>
         </Grid.RowDefinitions>
         <UniformGrid Columns="2">
+            <UniformGrid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" Opacity="0.7">
+                    <GradientStop Color="#FF2A3B7C" Offset="0.0" />
+                    <GradientStop Color="MediumPurple" Offset="0.2" />
+                    <GradientStop Color="White" Offset="0.7" />
+                    <GradientStop Color="White" Offset="1.0" />
+                </LinearGradientBrush>
+            </UniformGrid.Background>
             <TextBlock Grid.Row="0" x:Name="CheckingName" Text="{Binding ElementName=CheckingsTabControl, Path=SelectedItem.Content.SelectedItems[0].Name}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30" Height="30" FontSize="20" FontFamily="Verdana"/>
             <Image Source="/Audit;component/Resources/logoEtalon.png" Width="100" HorizontalAlignment="Right" Margin="20, 20, 20, 20"/>
         </UniformGrid>
@@ -141,10 +180,10 @@
                 </TabItem>
             </TabControl>
             <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="20, 10, 20, 10" Height="30" MaxHeight="30" MinHeight="30">
-                <Button HorizontalAlignment="Left" x:Name="UpdateAll" Command="{Binding UpdateAllCommand}" Width="100">
+                <Button HorizontalAlignment="Left" x:Name="UpdateAll" Command="{Binding UpdateAllCommand}" Width="100" Style="{StaticResource ButtonStyle}">
                     <TextBlock Text="Обновить все"/>
                 </Button>
-                <Button HorizontalAlignment="Left" Margin="20, 0, 0, 0" x:Name="UpdateSelected" Command="{Binding UpdateSelectedCommand}" Width="150">
+                <Button HorizontalAlignment="Left" Margin="20, 0, 0, 0" x:Name="UpdateSelected" Command="{Binding UpdateSelectedCommand}" Width="150" Style="{StaticResource ButtonStyle}">
                     <TextBlock Text="Обновить выбранное"/>
                 </Button>
                 <CheckBox Margin="20, 5, 0, 5" VerticalAlignment="Center" IsChecked="{Binding UpdateForSelectedFile, Mode=TwoWay}"/>
@@ -276,7 +315,7 @@
                             </UniformGrid>
                             <CheckBox Margin="10, 5, 5, 0" VerticalAlignment="Center" IsChecked="{Binding ReportsSettings.WriteForSelectedFile, Mode=TwoWay}"/>
                             <TextBlock Text="Выгрузить только для выбранного файла" Margin="5" VerticalAlignment="Center"/>
-                            <Button Content="Записать отчет" Height="25" Width="120" Command="{Binding CreateReportCommand}" Margin="10"/>
+                            <Button Content="Записать отчет" Height="25" Width="120" Command="{Binding CreateReportCommand}" Margin="10" Style="{StaticResource ButtonStyle}"/>
                         </StackPanel>
                     </GroupBox>
                 </Grid>
