@@ -469,7 +469,7 @@ namespace Audit
         /// </summary>
         private void FirstLaunchDataInitializing()
         {
-            Type[] checkings = Assembly.GetExecutingAssembly().GetTypes().Where(t => t.Namespace == "Audit.Checkings").ToArray();
+            Type[] checkings = Assembly.GetExecutingAssembly().GetTypes().Where(t => t.Namespace == "Audit.Model.Checkings").ToArray();
             foreach (RvtFileInfo FileInfo in PreanalysFiles)
             {
                 if (FileInfo.CheckingResults.Count == 0)

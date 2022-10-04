@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfFileCheckingResult xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <FileCheckingResult>
+    <Checkings>
+      <CheckingTemplate>
+        <Dep>ОБЩ</Dep>
+        <Name>ОБЩ_Отсутствуют чужие семейства</Name>
+        <LastRun>04.10.2022 16:48:52</LastRun>
+        <Amount>47</Amount>
+        <Created>47</Created>
+        <Active>0</Active>
+        <Checked>0</Checked>
+        <Corrected>0</Corrected>
+        <ElementCheckingResults>
+          <ElementCheckingResult>
+            <Name>Системная панель</Name>
+            <Status>Созданная</Status>
+            <ID>1560</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Прямоугольный импост</Name>
+            <Status>Созданная</Status>
+            <ID>1595</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Круглый импост</Name>
+            <Status>Созданная</Status>
+            <ID>1599</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Угловой L-импост</Name>
+            <Status>Созданная</Status>
+            <ID>1603</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Угловой V-импост</Name>
+            <Status>Созданная</Status>
+            <ID>1607</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Трапецеидальный угловой импост</Name>
+            <Status>Созданная</Status>
+            <ID>1611</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Квадратный угловой импост</Name>
+            <Status>Созданная</Status>
+            <ID>1615</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Профиль_Ограждения поручень прямоугольный</Name>
+            <Status>Созданная</Status>
+            <ID>2535</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Профиль_Крыша бордюрная рейка плоская</Name>
+            <Status>Созданная</Status>
+            <ID>2619</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Профиль_Крыша желоб скос</Name>
+            <Status>Созданная</Status>
+            <ID>2636</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Балясина_Квадратная</Name>
+            <Status>Созданная</Status>
+            <ID>2649</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Профиль_Ограждения поручень круглый</Name>
+            <Status>Созданная</Status>
+            <ID>2672</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Профиль_Ребро перекрытия прямоугольное</Name>
+            <Status>Созданная</Status>
+            <ID>2694</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Несъемная опалубка перекрытия</Name>
+            <Status>Созданная</Status>
+            <ID>2728</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Профиль_Крыша желоб круглый</Name>
+            <Status>Созданная</Status>
+            <ID>2745</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Профиль_Врезанный</Name>
+            <Status>Созданная</Status>
+            <ID>2758</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Профиль_Ограждения поручень деревянный</Name>
+            <Status>Созданная</Status>
+            <ID>2771</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Профиль_Ступени ЛС</Name>
+            <Status>Созданная</Status>
+            <ID>2803</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Балясина_Круглая</Name>
+            <Status>Созданная</Status>
+            <ID>3396</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Балясина_Стальная плоская вертикальная</Name>
+            <Status>Созданная</Status>
+            <ID>3409</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Балясина_Парапет кровли</Name>
+            <Status>Созданная</Status>
+            <ID>3422</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Опоры_Г образная</Name>
+            <Status>Созданная</Status>
+            <ID>3435</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Балясина_МГН</Name>
+            <Status>Созданная</Status>
+            <ID>3449</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограничение_Дуга на 2 поручня</Name>
+            <Status>Созданная</Status>
+            <ID>3462</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограничение_Завершение поручня круглое</Name>
+            <Status>Созданная</Status>
+            <ID>3673</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>НастилФормы_Составной_H75</Name>
+            <Status>Созданная</Status>
+            <ID>62296</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Балка_Швеллер_ПолкиПараллельные_ГОСТ8240-97</Name>
+            <Status>Созданная</Status>
+            <ID>129576</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Пустая системная панель</Name>
+            <Status>Созданная</Status>
+            <ID>131493</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>AC_links</Name>
+            <Status>Созданная</Status>
+            <ID>157212</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Заголовок уровня - Окружность</Name>
+            <Status>Созданная</Status>
+            <ID>2145235</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>M_Название вида</Name>
+            <Status>Созданная</Status>
+            <ID>2181311</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Фартук из стального листа -БАЛКОН</Name>
+            <Status>Созданная</Status>
+            <ID>2355778</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>!_ПУСТО</Name>
+            <Status>Созданная</Status>
+            <ID>2387345</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Профиль_Отлив парапета</Name>
+            <Status>Созданная</Status>
+            <ID>2402865</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Профиль_Ограждения окна прямоугольный</Name>
+            <Status>Созданная</Status>
+            <ID>2529393</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Профиль_Выступающий</Name>
+            <Status>Созданная</Status>
+            <ID>2531114</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Стрелки</Name>
+            <Status>Созданная</Status>
+            <ID>2537606</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Коридор_Пути эвакуации</Name>
+            <Status>Созданная</Status>
+            <ID>2537620</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Профиль траектории пути</Name>
+            <Status>Созданная</Status>
+            <ID>2537663</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Профиль_Круглый поручень_D75</Name>
+            <Status>Созданная</Status>
+            <ID>2548848</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Балясина_Круглая_С квадратной основой</Name>
+            <Status>Созданная</Status>
+            <ID>2548854</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>M_Балясина - Квадратного сечения</Name>
+            <Status>Созданная</Status>
+            <ID>2548881</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограничение_Квадратное</Name>
+            <Status>Созданная</Status>
+            <ID>2548912</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Опоры с креплением_Г образная</Name>
+            <Status>Созданная</Status>
+            <ID>2666917</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>353_Труба вертикально (НесАрм_РабПлоск)</Name>
+            <Status>Созданная</Status>
+            <ID>2677794</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>353_Труба горизонтально (НесАрм_РабПлоск)</Name>
+            <Status>Созданная</Status>
+            <ID>2683738</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Профиль_Отлив оконный</Name>
+            <Status>Созданная</Status>
+            <ID>2689138</ID>
+            <Time>04.10.2022 16:49:06</Time>
+          </ElementCheckingResult>
+        </ElementCheckingResults>
+        <Running
+          xsi:type="IfNoForeignFamilies">
+          <Dep>ОБЩ</Dep>
+          <Name>ОБЩ_Отсутствуют чужие семейства</Name>
+        </Running>
+      </CheckingTemplate>
+      <CheckingTemplate>
+        <Dep>ОБЩ</Dep>
+        <Name>ОБЩ_Корректность наименований уровней</Name>
+        <ElementCheckingResults />
+        <Running
+          xsi:type="IfLevelNamesAreCorrectChecking">
+          <Dep>ОБЩ</Dep>
+          <Name>ОБЩ_Корректность наименований уровней</Name>
+        </Running>
+      </CheckingTemplate>
+      <CheckingTemplate>
+        <Dep>ОБЩ</Dep>
+        <Name>ОБЩ_Уровни не дублируются</Name>
+        <ElementCheckingResults />
+        <Running
+          xsi:type="IfLevelsAreNotDuplicated">
+          <Dep>ОБЩ</Dep>
+          <Name>ОБЩ_Уровни не дублируются</Name>
+        </Running>
+      </CheckingTemplate>
+      <CheckingTemplate>
+        <Dep>ОБЩ</Dep>
+        <Name>ОБЩ_Корректность рабочих наборов связей</Name>
+        <ElementCheckingResults />
+        <Running
+          xsi:type="IfLinkInCorrectWorksetChecking">
+          <Dep>ОБЩ</Dep>
+          <Name>ОБЩ_Корректность рабочих наборов связей</Name>
+        </Running>
+      </CheckingTemplate>
+      <CheckingTemplate>
+        <Dep>АР</Dep>
+        <Name>АР_Нет неразмещенных помещений</Name>
+        <ElementCheckingResults />
+        <Running
+          xsi:type="IfAllRoomsArePlaced">
+          <Dep>АР</Dep>
+          <Name>АР_Нет неразмещенных помещений</Name>
+        </Running>
+      </CheckingTemplate>
+      <CheckingTemplate>
+        <Dep>КР</Dep>
+        <Name>КР_Сваи замоделированы колоннами</Name>
+        <ElementCheckingResults />
+        <Running
+          xsi:type="IfPilesAreMadeOfColumns">
+          <Dep>КР</Dep>
+          <Name>КР_Сваи замоделированы колоннами</Name>
+        </Running>
+      </CheckingTemplate>
+    </Checkings>
+  </FileCheckingResult>
+</ArrayOfFileCheckingResult>

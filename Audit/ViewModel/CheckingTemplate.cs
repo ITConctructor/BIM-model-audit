@@ -8,7 +8,7 @@ using Autodesk.Revit.UI;
 using Autodesk.Revit.Attributes;
 using System.ComponentModel;
 using System.Xml.Serialization;
-using Audit.Checkings;
+using Audit.Model.Checkings;
 
 namespace Audit
 {
@@ -16,7 +16,8 @@ namespace Audit
         XmlInclude(typeof(IfLevelNamesAreCorrectChecking)), 
         XmlInclude(typeof(IfLevelsAreNotDuplicated)), 
         XmlInclude(typeof(IfLinkInCorrectWorksetChecking)), 
-        XmlInclude(typeof(IfPilesAreMadeOfColumns))]
+        XmlInclude(typeof(IfPilesAreMadeOfColumns)),
+        XmlInclude(typeof(IfNoForeignFamilies))]
     public class CheckingTemplate
     {
         public string Dep { get; set; }

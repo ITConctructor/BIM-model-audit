@@ -8,7 +8,7 @@ using Autodesk.Revit.UI;
 using Autodesk.Revit.Attributes;
 using System.ComponentModel;
 
-namespace Audit.Checkings
+namespace Audit.Model.Checkings
 {
     [Transaction(TransactionMode.Manual)]
     public class IfAllRoomsArePlaced : CheckingTemplate

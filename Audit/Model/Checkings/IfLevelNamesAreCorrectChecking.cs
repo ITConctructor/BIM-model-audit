@@ -12,7 +12,7 @@ using System.ComponentModel;
 using System.Reflection;
 using System.Text.RegularExpressions;
 
-namespace Audit.Checkings
+namespace Audit.Model.Checkings
 {
     [Transaction(TransactionMode.Manual)]
     public class IfLevelNamesAreCorrectChecking : CheckingTemplate

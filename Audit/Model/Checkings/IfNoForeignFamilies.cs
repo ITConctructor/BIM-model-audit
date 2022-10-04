@@ -1,27 +1,25 @@
-﻿using System;
+﻿using Autodesk.Revit.ApplicationServices;
+using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Autodesk.Revit.DB;
-using Autodesk.Revit.UI;
-using Autodesk.Revit.Attributes;
-using System.ComponentModel;
-using Autodesk.Revit.ApplicationServices;
 
 namespace Audit.Model.Checkings
 {
-    [Transaction(TransactionMode.Manual)]
-    public class IfLinkInCorrectWorksetChecking : CheckingTemplate
+    public class IfNoForeignFamilies : CheckingTemplate
     {
-        public IfLinkInCorrectWorksetChecking()
+        public IfNoForeignFamilies()
         {
-            Name = "ОБЩ_Корректность рабочих наборов связей";
+            Name = "ОБЩ_Отсутствуют чужие семейства";
             Dep = "ОБЩ";
         }
         public override void Run(string filePath, BindingList<ElementCheckingResult> oldResults)
         {
-            //Открытие документа с отсоединением
+            //Открытие документа с отсоединением и закрытием всех рабочих наборов
             UIApplication uiapp = CommandLauncher.uiapp;
             ModelPath path = ModelPathUtils.ConvertUserVisiblePathToModelPath(filePath);
             OpenOptions openOptions = new OpenOptions();
@@ -30,23 +28,20 @@ namespace Audit.Model.Checkings
             openOptions.SetOpenWorksetsConfiguration(worksets);
             Application app = CommandLauncher.app;
             Document doc = app.OpenDocumentFile(path, openOptions);
-            
-            //Получаем связи в файле
-            IList<Element> links = new List<Element>();
-            links = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_RvtLinks).WhereElementIsNotElementType().ToElements();
 
-            //Проверяем корректность рабочего набора связи, если документ поддерживает совместную работу
+            //Получение всех семейств в проекте
+            IList <Element> families = new FilteredElementCollector(doc).OfClass(typeof(Family)).ToElements();
+
+            //Проверяем семейства на наличие в имени префикса ETL, ADSK или MC
             IList<Element> results = new List<Element>();
-            if (doc.IsWorkshared)
+            foreach (Element elem in families)
             {
-                foreach (Element elem in links)
+                if (!elem.Name.Contains("ETL") && !elem.Name.Contains("ADSK") && !elem.Name.Contains("MC"))
                 {
-                    if (!elem.LookupParameter("Рабочий набор").AsValueString().Contains("Связи") || !elem.Name.Contains(elem.LookupParameter("Рабочий набор").AsValueString().Substring(8)))
-                    {
-                        results.Add(elem);
-                    }
+                    results.Add(elem);
                 }
             }
+
             //Из списка элементов заполняем отчет
             foreach (Element element in results)
             {
