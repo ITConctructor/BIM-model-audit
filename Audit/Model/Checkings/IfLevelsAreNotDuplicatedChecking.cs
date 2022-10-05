@@ -43,11 +43,15 @@ namespace Audit.Model.Checkings
             }
 
             //Проверяем наличие повторяющихся отметок
-            for (int i = 0; i < marks.Count; i++)
+            for (int i = 0; i < marks.Count; i = i)
             {
-                if (marks.Count(x => x.Equals(marks[i])) > 1)
+                double mark = marks[i];
+                marks.RemoveAt(i);
+                Element level = levels[i];
+                levels.RemoveAt(i);
+                if (marks.Contains(mark))
                 {
-                    results.Add(levels[i]);
+                    results.Add(level);
                 }
             }
 
