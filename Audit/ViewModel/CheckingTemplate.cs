@@ -18,7 +18,10 @@ namespace Audit
         XmlInclude(typeof(IfLinkInCorrectWorksetChecking)), 
         XmlInclude(typeof(IfPilesAreMadeOfColumns)),
         XmlInclude(typeof(IfNoForeignFamilies)),
-        XmlInclude(typeof(IfLinksArePinned))]
+        XmlInclude(typeof(IfLinksArePinned)),
+        XmlInclude(typeof(IfNoCADFiles)),
+        XmlInclude(typeof(IfNoRoomsWithoutNames)),
+        XmlInclude(typeof(IfNavisworksViewExist))]
     public class CheckingTemplate
     {
         public BindingList<ElementCheckingResult> ElementCheckingResults { get; set; }

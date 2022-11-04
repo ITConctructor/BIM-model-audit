@@ -269,6 +269,7 @@
                         <Image Source="{Binding SelectedChecking.Status, Converter={StaticResource statusToImage}}"  Height="20" Margin="10, 0, 10, 0"/>
                         <TextBlock Text="{Binding SelectedChecking.Status, Converter={StaticResource statusToText}}" VerticalAlignment="Center"/>
                     </StackPanel>
+                    <TextBlock x:Name="MessageTextBlock" Grid.Row="3" Text="{Binding SelectedChecking.Message}"/>
                     <DataGrid x:Name="ResultsGrid"
                           Grid.Row="3"
                           CanUserAddRows="False"
@@ -276,8 +277,7 @@
                           VerticalScrollBarVisibility="Visible"
                           HorizontalScrollBarVisibility="Visible"
                           AutoGenerateColumns="False"
-                          Margin="10, 10, 10, 10"
-                          Visibility="{Binding SelectedChecking.Result, Converter={StaticResource boolToVisNeg}}">
+                          Margin="10, 10, 10, 10">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Path=Name}" Header="Имя" Width="Auto" IsReadOnly="True"/>
                             <DataGridComboBoxColumn x:Name="resultStatusesColumn" SelectedValueBinding="{Binding Path=Status, Mode=TwoWay}" Header="Статус" Width="Auto"/>

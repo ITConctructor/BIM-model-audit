@@ -121,6 +121,16 @@ namespace Audit
                 SetProperty(ref _selectedChecking, buf);
                 _win.ResultsGrid.ItemsSource = _selectedChecking?.ElementCheckingResults;
                 _win.resultStatusesColumn.ItemsSource = ResultStatuses;
+                if (buf != null && buf.ResultType == CheckingResultType.ElementsList)
+                {
+                    _win.ResultsGrid.Visibility = System.Windows.Visibility.Visible;
+                    _win.MessageTextBlock.Visibility = System.Windows.Visibility.Hidden;
+                }
+                else if (buf != null && buf.ResultType == CheckingResultType.Message)
+                {
+                    _win.ResultsGrid.Visibility = System.Windows.Visibility.Hidden;
+                    _win.MessageTextBlock.Visibility = System.Windows.Visibility.Visible;
+                }
             }
         }
 
@@ -136,6 +146,7 @@ namespace Audit
         public List<string> ReportFormats { get; set; } = new List<string>() { "Excel", "HTML" };
 
         public static List<string> ResultStatuses { get; set; } = new List<string>() { "Созданная", "Активная", "Проверенная", "Исправленная" };
+
     #endregion
 
     #region Методы
@@ -511,13 +522,17 @@ namespace Audit
             {
                 foreach (RvtFileInfo fileInfo in PreanalysFiles)
                 {
+                    foreach (CheckingTemplate checking in fileInfo.CheckingResults[0].Checkings)
+                    {
+                        checking.Status = CheckingStatus.NotLaunched;
+                    }
                     if (item.IndexOf(fileInfo.Name.Replace(".rvt", "")) != -1 && File.Exists(item))
                     {
                         fileInfo.CheckingResults[0] = Deserialize(item);
-                    }
-                    foreach (CheckingTemplate checking in fileInfo.CheckingResults[0].Checkings)
-                    {
-                        checking.Status = CheckingStatus.NotUpdated;
+                        foreach (CheckingTemplate checking in fileInfo.CheckingResults[0].Checkings)
+                        {
+                            checking.Status = CheckingStatus.NotUpdated;
+                        }
                     }
                 }
             }
@@ -773,38 +788,48 @@ namespace Audit
                 {
                     sheet.Name = checking.Name;
                 }
-                ///Создаем булевые маски из настроек отчета и по ним фильтруем список с информацией о файлах
-                bool[] fieldBoolMask = { Fields.Name,
+                if (checking.ResultType == CheckingResultType.ElementsList)
+                {
+                    ///Создаем булевые маски из настроек отчета и по ним фильтруем список с информацией о файлах
+                    bool[] fieldBoolMask = { Fields.Name,
                             Fields.Status,
                             Fields.Id,
                             Fields.Comment,
                             Fields.Time };
-                List<string> rawFields = new List<string>() { "Имя", "Статус", "ID элемента", "Комментарий", "Время обнаружения" };
-                List<string> readyFields = rawFields.Where(x => fieldBoolMask[rawFields.IndexOf(x)] == true).ToList();
-                bool[] statusesBoolMask = { Statuses.Created,
+                    List<string> rawFields = new List<string>() { "Имя", "Статус", "ID элемента", "Комментарий", "Время обнаружения" };
+                    List<string> readyFields = rawFields.Where(x => fieldBoolMask[rawFields.IndexOf(x)] == true).ToList();
+                    bool[] statusesBoolMask = { Statuses.Created,
                         Statuses.Active, Statuses.Checked, Statuses.Corrected};
-                List<string> rawStatuses = new List<string>() { "Созданная", "Активная", "Проверенная", "Исправленная" };
-                List<string> readyStatuses = rawStatuses.Where(x => statusesBoolMask[rawStatuses.IndexOf(x)] == true).ToList();
-                List<List<string>> data = new List<List<string>>();
-                data.Add(readyFields);
-                foreach (ElementCheckingResult elementResult in checking.ElementCheckingResults.Where(x => readyStatuses.Contains(x.Status)))
-                {
-                    List<string> values = new List<string>();
-                    for (int i = 0; i < elementResult.GetType().GetTypeInfo().GetProperties().Length; i++)
+                    List<string> rawStatuses = new List<string>() { "Созданная", "Активная", "Проверенная", "Исправленная" };
+                    List<string> readyStatuses = rawStatuses.Where(x => statusesBoolMask[rawStatuses.IndexOf(x)] == true).ToList();
+                    List<List<string>> data = new List<List<string>>();
+                    CheckingStatusToTextConverter statusConverter = new CheckingStatusToTextConverter();
+                    string strStatus = (string)statusConverter.Convert(checking.Status, typeof(string), new object(), new CultureInfo(0x040A, false));
+                    data.Add(new List<string>() { strStatus });
+                    data.Add(readyFields);
+                    foreach (ElementCheckingResult elementResult in checking.ElementCheckingResults.Where(x => readyStatuses.Contains(x.Status)))
                     {
-                        if (fieldBoolMask[i] == true)
+                        List<string> values = new List<string>();
+                        for (int i = 0; i < elementResult.GetType().GetTypeInfo().GetProperties().Length; i++)
                         {
-                            values.Add((string)elementResult.GetType().GetTypeInfo().GetProperties()[i].GetValue(elementResult));
+                            if (fieldBoolMask[i] == true)
+                            {
+                                values.Add((string)elementResult.GetType().GetTypeInfo().GetProperties()[i].GetValue(elementResult));
+                            }
+                        }
+                        data.Add(values);
+                    }
+                    for (int i = 0; i < data.Count; i++)
+                    {
+                        for (int j = 0; j < data[i].Count; j++)
+                        {
+                            sheet.Cells[i + 1, j + 1] = data[i][j];
                         }
                     }
-                    data.Add(values);
                 }
-                for (int i = 0; i < data.Count; i++)
+                else if (checking.ResultType == CheckingResultType.Message)
                 {
-                    for (int j = 0; j < data[i].Count; j++)
-                    {
-                        sheet.Cells[i + 1, j + 1] = data[i][j];
-                    }
+                    sheet.Cells[1, 1] = checking.Message;
                 }
             }
         }
@@ -838,6 +863,7 @@ namespace Audit
             NotUpdated,
             NotLaunched
         }
+
         #endregion
     }
 }
