@@ -20,23 +20,13 @@ namespace Audit.Model.Checkings
             Name = "АР_Нет неразмещенных помещений";
             Dep = "АР";
         }
-        public override void Run(string filePath, BindingList<ElementCheckingResult> oldResults)
+        public override void Run(Document doc, BindingList<ElementCheckingResult> oldResults)
         {
             IList<Element> results = new List<Element>();
 
             //Проверяем, что в имени файла содержится "АР"
-            if (filePath.Split(new string[] { "\\" }, StringSplitOptions.None).Last().Contains(Dep))
+            if (doc.Title.Split(new string[] { "\\" }, StringSplitOptions.None).Last().Contains(Dep))
             {
-                //Открытие документа с отсоединением и закрытием всех рабочих наборов
-                UIApplication uiapp = CommandLauncher.uiapp;
-                ModelPath path = ModelPathUtils.ConvertUserVisiblePathToModelPath(filePath);
-                OpenOptions openOptions = new OpenOptions();
-                openOptions.DetachFromCentralOption = DetachFromCentralOption.DetachAndPreserveWorksets;
-                WorksetConfiguration worksets = new WorksetConfiguration(WorksetConfigurationOption.CloseAllWorksets);
-                openOptions.SetOpenWorksetsConfiguration(worksets);
-                Application app = CommandLauncher.app;
-                Document doc = app.OpenDocumentFile(path, openOptions);
-
                 //Получаем все помещения
                 IList<Element> rooms = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Rooms).WhereElementIsNotElementType().ToElements();
 

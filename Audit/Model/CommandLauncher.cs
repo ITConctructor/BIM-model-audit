@@ -33,10 +33,7 @@ namespace Audit
             app = commandData.Application.Application;
             StartWindow win = new StartWindow();
             ApplicationViewModel model = new ApplicationViewModel(win);
-            //ViewModel = model;
-            //win.Closing += BaseWindow_Closing;
             win.Show();
-            //commandData.Application.DialogBoxShowing -= DialogHandler;
             return Result.Succeeded;
         }
         private async void DialogHandler(object sender, DialogBoxShowingEventArgs e)
@@ -57,10 +54,5 @@ namespace Audit
         public static Autodesk.Revit.ApplicationServices.Application app { get; private set; }
         public static UIApplication uiapp { get; private set; }
         public static ApplicationViewModel ViewModel;
-
-        //private void BaseWindow_Closing(object sender, EventArgs e)
-        //{
-        //    model.WriteLog();
-        //}
     }
 }

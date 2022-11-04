@@ -1,34 +1,36 @@
-﻿using Autodesk.Revit.ApplicationServices;
-using Autodesk.Revit.DB;
-using Autodesk.Revit.UI;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
+using Autodesk.Revit.Attributes;
+using System.ComponentModel;
+using Autodesk.Revit.ApplicationServices;
 
 namespace Audit.Model.Checkings
 {
-    public class IfNoForeignFamilies : CheckingTemplate
+    [Transaction(TransactionMode.Manual)]
+    public class IfLinksArePinned : CheckingTemplate
     {
-        public IfNoForeignFamilies()
+        public IfLinksArePinned()
         {
-            Name = "ОБЩ_Отсутствуют чужие семейства";
+            Name = "ОБЩ_Закрепление связей";
             Dep = "ОБЩ";
         }
         public override void Run(Document doc, BindingList<ElementCheckingResult> oldResults)
         {
-            //Получение всех семейств в проекте
-            IList <Element> families = new FilteredElementCollector(doc).OfClass(typeof(Family)).ToElements();
+            //Получение всех связей из файла
+            IList<Element> links = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_RvtLinks).WhereElementIsNotElementType().ToElements();
 
-            //Проверяем семейства на наличие в имени префикса ETL, ADSK или MC
+            //Проверка закрепления связей
             IList<Element> results = new List<Element>();
-            foreach (Element elem in families)
+            foreach (Element link in links)
             {
-                if (!elem.Name.Contains("ETL") && !elem.Name.Contains("ADSK") && !elem.Name.Contains("MC"))
+                if (link.Pinned == false)
                 {
-                    results.Add(elem);
+                    results.Add(link);
                 }
             }
 

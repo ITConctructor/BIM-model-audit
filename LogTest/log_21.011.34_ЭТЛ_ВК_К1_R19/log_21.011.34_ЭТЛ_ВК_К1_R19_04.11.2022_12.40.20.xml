@@ -1,0 +1,530 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfFileCheckingResult xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <FileCheckingResult>
+    <Checkings>
+      <CheckingTemplate
+        xsi:type="IfLinksArePinned">
+        <ElementCheckingResults>
+          <ElementCheckingResult>
+            <Name>21.011.34_ЭТЛ_ОВ_К1_В_R19.rvt : 5 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>11447686</ID>
+            <Time>04.11.2022 12:39:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21.011.34_ЭТЛ_ОВ_К1_К_R19.rvt : 6 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>11447689</ID>
+            <Time>04.11.2022 12:39:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21.011.34_ЭТЛ_ВК_Паркинг_R19.rvt : 7 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>11450559</ID>
+            <Time>04.11.2022 12:39:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21.011.34_ЭТЛ_АР_Паркинг_R19.rvt : 8 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>11450569</ID>
+            <Time>04.11.2022 12:39:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21.011.34_ЭТЛ_ОВ_Паркинг_В_R19.rvt : 10 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>11452720</ID>
+            <Time>04.11.2022 12:39:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21.011.34_ЭТЛ_ОВ_Паркинг_О_R19.rvt : 11 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>11452723</ID>
+            <Time>04.11.2022 12:39:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>200.002.34_ЭТЛ_КР_ПП_Паркинг_R19_310122.rvt : 12 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>11452726</ID>
+            <Time>04.11.2022 12:39:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21.011.34_ЭТЛ_ОВ_К1_О_R19.rvt : 13 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>11452729</ID>
+            <Time>04.11.2022 12:39:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21.011.34_ЭТЛ_СС_К1_R19.rvt : 17 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12617022</ID>
+            <Time>04.11.2022 12:39:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21.011.34_ЭТЛ_ЭОМ_К1_R19.rvt : 18 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12617025</ID>
+            <Time>04.11.2022 12:39:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21.011.34_ЭТЛ_КР_K1_R19.rvt : 19 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12617028</ID>
+            <Time>04.11.2022 12:39:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21-011-34_ЭТЛ_ВК_Этаж 01 (-0,250)_Задание_ВК_20220518.rvt : 35 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12776307</ID>
+            <Time>04.11.2022 12:39:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21-011-34_ЭТЛ_ВК_Техпространство (+5,660)_Задание_ВК_20220616.rvt : 36 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12776952</ID>
+            <Time>04.11.2022 12:39:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21-011-34_ЭТЛ_ВК_Этаж 02 (+7,800)_Задание_ВК_20220616.rvt : 37 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12776956</ID>
+            <Time>04.11.2022 12:39:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21-011-34_ЭТЛ_ВК_Этаж 03 (+11,250)_Задание_ВК_20220616.rvt : 38 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12776962</ID>
+            <Time>04.11.2022 12:39:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21-011-34_ЭТЛ_ВК_Этаж 04 (+14,700)_Задание_ВК_20220616.rvt : 39 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12776966</ID>
+            <Time>04.11.2022 12:39:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21-011-34_ЭТЛ_ВК_Этаж 05 (+18,150)_Задание_ВК_20220616.rvt : 40 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12776970</ID>
+            <Time>04.11.2022 12:39:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21-011-34_ЭТЛ_ВК_Этаж 06 (+21,600)_Задание_ВК_20220616.rvt : 41 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12776974</ID>
+            <Time>04.11.2022 12:39:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21-011-34_ЭТЛ_ВК_Этаж 07 (+25,050)_Задание_ВК_20220616.rvt : 42 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12776996</ID>
+            <Time>04.11.2022 12:39:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21-011-34_ЭТЛ_ВК_Этаж 08 (+28,500)_Задание_ВК_20220616.rvt : 43 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12777004</ID>
+            <Time>04.11.2022 12:39:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21-011-34_ЭТЛ_ВК_Этаж 09 (+31,950)_Задание_ВК_20220616.rvt : 44 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12777016</ID>
+            <Time>04.11.2022 12:39:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21-011-34_ЭТЛ_ВК_Этаж 10 (+35,400)_Задание_ВК_20220616.rvt : 45 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12777020</ID>
+            <Time>04.11.2022 12:39:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21-011-34_ЭТЛ_ВК_Этаж 11 (+38,850)_Задание_ВК_20220616.rvt : 46 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12777024</ID>
+            <Time>04.11.2022 12:39:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21-011-34_ЭТЛ_ВК_Этаж 12 (+42,300)_Задание_ВК_20220616.rvt : 47 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12777028</ID>
+            <Time>04.11.2022 12:39:06</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21-011-34_ЭТЛ_ВК_Кровля (+45,750)_Задание_ВК_20220616.rvt : 48 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12777032</ID>
+            <Time>04.11.2022 12:39:06</Time>
+          </ElementCheckingResult>
+        </ElementCheckingResults>
+        <Dep>ОБЩ</Dep>
+        <Name>ОБЩ_Закрепление связей</Name>
+        <LastRun>04.11.2022 12:37:09</LastRun>
+      </CheckingTemplate>
+      <CheckingTemplate
+        xsi:type="IfNoForeignFamilies">
+        <ElementCheckingResults>
+          <ElementCheckingResult>
+            <Name>Системная панель</Name>
+            <Status>Созданная</Status>
+            <ID>1560</ID>
+            <Time>04.11.2022 12:39:13</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Прямоугольный импост</Name>
+            <Status>Созданная</Status>
+            <ID>1595</ID>
+            <Time>04.11.2022 12:39:13</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Круглый импост</Name>
+            <Status>Созданная</Status>
+            <ID>1599</ID>
+            <Time>04.11.2022 12:39:13</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Угловой L-импост</Name>
+            <Status>Созданная</Status>
+            <ID>1603</ID>
+            <Time>04.11.2022 12:39:13</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Угловой V-импост</Name>
+            <Status>Созданная</Status>
+            <ID>1607</ID>
+            <Time>04.11.2022 12:39:13</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Трапецеидальный угловой импост</Name>
+            <Status>Созданная</Status>
+            <ID>1611</ID>
+            <Time>04.11.2022 12:39:13</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Квадратный угловой импост</Name>
+            <Status>Созданная</Status>
+            <ID>1615</ID>
+            <Time>04.11.2022 12:39:13</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Пустая системная панель</Name>
+            <Status>Созданная</Status>
+            <ID>131493</ID>
+            <Time>04.11.2022 12:39:13</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>!_ПУСТО</Name>
+            <Status>Созданная</Status>
+            <ID>10872056</ID>
+            <Time>04.11.2022 12:39:13</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>010_Текст с выноской</Name>
+            <Status>Созданная</Status>
+            <ID>12227076</ID>
+            <Time>04.11.2022 12:39:13</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>DN_Диаметр трубы</Name>
+            <Status>Созданная</Status>
+            <ID>12230382</ID>
+            <Time>04.11.2022 12:39:13</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>401И_Труб(Уклон 0.02)</Name>
+            <Status>Созданная</Status>
+            <ID>12230688</ID>
+            <Time>04.11.2022 12:39:13</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>401И_Труб(Уклон 0.005)</Name>
+            <Status>Созданная</Status>
+            <ID>12255159</ID>
+            <Time>04.11.2022 12:39:13</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>КАЗАНИНА</Name>
+            <Status>Созданная</Status>
+            <ID>12371329</ID>
+            <Time>04.11.2022 12:39:13</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>КОРЧЕВСКИЙ</Name>
+            <Status>Созданная</Status>
+            <ID>12371747</ID>
+            <Time>04.11.2022 12:39:13</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>БОРЖАКОВСКИЙ</Name>
+            <Status>Созданная</Status>
+            <ID>12574410</ID>
+            <Time>04.11.2022 12:39:13</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Жук 3.4_С4_одна_секция</Name>
+            <Status>Созданная</Status>
+            <ID>13821489</ID>
+            <Time>04.11.2022 12:39:13</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>353_Труба вертикально (НесАрм_РабПлоск)</Name>
+            <Status>Созданная</Status>
+            <ID>13838950</ID>
+            <Time>04.11.2022 12:39:13</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>353_Труба горизонтально (НесАрм_РабПлоск)</Name>
+            <Status>Созданная</Status>
+            <ID>13848379</ID>
+            <Time>04.11.2022 12:39:13</Time>
+          </ElementCheckingResult>
+        </ElementCheckingResults>
+        <Dep>ОБЩ</Dep>
+        <Name>ОБЩ_Отсутствуют чужие семейства</Name>
+        <LastRun>04.11.2022 12:39:06</LastRun>
+      </CheckingTemplate>
+      <CheckingTemplate
+        xsi:type="IfLevelNamesAreCorrectChecking">
+        <ElementCheckingResults>
+          <ElementCheckingResult>
+            <Name>003_Этаж -02_(-9,380</Name>
+            <Status>Активная</Status>
+            <ID>10986610</ID>
+            <Time>04.11.2022 12:39:20</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>002_Этаж -01_(-6,080)</Name>
+            <Status>Созданная</Status>
+            <ID>10986609</ID>
+            <Time>04.11.2022 12:39:20</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>001_Техническое пространство_(-2,190)</Name>
+            <Status>Созданная</Status>
+            <ID>10986600</ID>
+            <Time>04.11.2022 12:39:20</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>103_Этаж 03_(+11,250)</Name>
+            <Status>Созданная</Status>
+            <ID>10986597</ID>
+            <Time>04.11.2022 12:39:20</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>106_Этаж 06_(+22,050)</Name>
+            <Status>Созданная</Status>
+            <ID>10986601</ID>
+            <Time>04.11.2022 12:39:20</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>108_Этаж 08_(+28,950)</Name>
+            <Status>Созданная</Status>
+            <ID>10986603</ID>
+            <Time>04.11.2022 12:39:20</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>110_Этаж 10_(+35,850)</Name>
+            <Status>Созданная</Status>
+            <ID>10986605</ID>
+            <Time>04.11.2022 12:39:20</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>112_Этаж 12_(+42,750)</Name>
+            <Status>Созданная</Status>
+            <ID>10986607</ID>
+            <Time>04.11.2022 12:39:20</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>201_Парапет_(+49,650)</Name>
+            <Status>Созданная</Status>
+            <ID>10986612</ID>
+            <Time>04.11.2022 12:39:20</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>101_Этаж 01_(-0,250)</Name>
+            <Status>Активная</Status>
+            <ID>1526</ID>
+            <Time>04.11.2022 12:39:20</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>101_Техническое пространство_(+5,660)</Name>
+            <Status>Активная</Status>
+            <ID>10986611</ID>
+            <Time>04.11.2022 12:39:20</Time>
+          </ElementCheckingResult>
+        </ElementCheckingResults>
+        <Dep>ОБЩ</Dep>
+        <Name>ОБЩ_Корректность наименований уровней</Name>
+        <LastRun>04.11.2022 12:39:13</LastRun>
+      </CheckingTemplate>
+      <CheckingTemplate
+        xsi:type="IfLevelsAreNotDuplicated">
+        <ElementCheckingResults>
+          <ElementCheckingResult>
+            <Name>101_Этаж 01_(-0,250)</Name>
+            <Status>Созданная</Status>
+            <ID>1526</ID>
+            <Time>04.11.2022 12:39:28</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>101_Техническое пространство_(+5,660)</Name>
+            <Status>Созданная</Status>
+            <ID>10986611</ID>
+            <Time>04.11.2022 12:39:28</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Этаж 10</Name>
+            <Status>Созданная</Status>
+            <ID>12878455</ID>
+            <Time>04.11.2022 12:39:28</Time>
+          </ElementCheckingResult>
+        </ElementCheckingResults>
+        <Dep>ОБЩ</Dep>
+        <Name>ОБЩ_Уровни не дублируются</Name>
+        <LastRun>04.11.2022 12:39:20</LastRun>
+      </CheckingTemplate>
+      <CheckingTemplate
+        xsi:type="IfLinkInCorrectWorksetChecking">
+        <ElementCheckingResults>
+          <ElementCheckingResult>
+            <Name>200.002.34_ЭТЛ_КР_ПП_Паркинг_R19_310122.rvt : 12 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>11452726</ID>
+            <Time>04.11.2022 12:39:35</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21.011.34_ЭТЛ_СС_К1_R19.rvt : 17 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12617022</ID>
+            <Time>04.11.2022 12:39:35</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21.011.34_ЭТЛ_ЭОМ_К1_R19.rvt : 18 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12617025</ID>
+            <Time>04.11.2022 12:39:35</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21.011.34_ЭТЛ_КР_K1_R19.rvt : 19 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12617028</ID>
+            <Time>04.11.2022 12:39:35</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21-011-34_ЭТЛ_ВК_Этаж 01 (-0,250)_Задание_ВК_20220518.rvt : 35 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12776307</ID>
+            <Time>04.11.2022 12:39:35</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21-011-34_ЭТЛ_ВК_Техпространство (+5,660)_Задание_ВК_20220616.rvt : 36 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12776952</ID>
+            <Time>04.11.2022 12:39:35</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21-011-34_ЭТЛ_ВК_Этаж 02 (+7,800)_Задание_ВК_20220616.rvt : 37 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12776956</ID>
+            <Time>04.11.2022 12:39:35</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21-011-34_ЭТЛ_ВК_Этаж 03 (+11,250)_Задание_ВК_20220616.rvt : 38 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12776962</ID>
+            <Time>04.11.2022 12:39:35</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21-011-34_ЭТЛ_ВК_Этаж 04 (+14,700)_Задание_ВК_20220616.rvt : 39 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12776966</ID>
+            <Time>04.11.2022 12:39:35</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21-011-34_ЭТЛ_ВК_Этаж 05 (+18,150)_Задание_ВК_20220616.rvt : 40 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12776970</ID>
+            <Time>04.11.2022 12:39:35</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21-011-34_ЭТЛ_ВК_Этаж 06 (+21,600)_Задание_ВК_20220616.rvt : 41 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12776974</ID>
+            <Time>04.11.2022 12:39:35</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21-011-34_ЭТЛ_ВК_Этаж 07 (+25,050)_Задание_ВК_20220616.rvt : 42 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12776996</ID>
+            <Time>04.11.2022 12:39:35</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21-011-34_ЭТЛ_ВК_Этаж 08 (+28,500)_Задание_ВК_20220616.rvt : 43 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12777004</ID>
+            <Time>04.11.2022 12:39:35</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21-011-34_ЭТЛ_ВК_Этаж 09 (+31,950)_Задание_ВК_20220616.rvt : 44 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12777016</ID>
+            <Time>04.11.2022 12:39:35</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21-011-34_ЭТЛ_ВК_Этаж 10 (+35,400)_Задание_ВК_20220616.rvt : 45 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12777020</ID>
+            <Time>04.11.2022 12:39:35</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21-011-34_ЭТЛ_ВК_Этаж 11 (+38,850)_Задание_ВК_20220616.rvt : 46 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12777024</ID>
+            <Time>04.11.2022 12:39:35</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21-011-34_ЭТЛ_ВК_Этаж 12 (+42,300)_Задание_ВК_20220616.rvt : 47 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12777028</ID>
+            <Time>04.11.2022 12:39:35</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21-011-34_ЭТЛ_ВК_Кровля (+45,750)_Задание_ВК_20220616.rvt : 48 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>12777032</ID>
+            <Time>04.11.2022 12:39:35</Time>
+          </ElementCheckingResult>
+        </ElementCheckingResults>
+        <Dep>ОБЩ</Dep>
+        <Name>ОБЩ_Корректность рабочих наборов связей</Name>
+        <LastRun>04.11.2022 12:39:28</LastRun>
+      </CheckingTemplate>
+      <CheckingTemplate
+        xsi:type="IfAllRoomsArePlaced">
+        <ElementCheckingResults />
+        <Dep>АР</Dep>
+        <Name>АР_Нет неразмещенных помещений</Name>
+        <LastRun>04.11.2022 12:39:35</LastRun>
+      </CheckingTemplate>
+      <CheckingTemplate
+        xsi:type="IfPilesAreMadeOfColumns">
+        <ElementCheckingResults>
+          <ElementCheckingResult>
+            <Name>elementName2</Name>
+            <Status>Созданная</Status>
+            <ID>elementID2</ID>
+            <Time>04.11.2022 12:39:50</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>elementName</Name>
+            <Status>Созданная</Status>
+            <ID>elementID</ID>
+            <Time>04.11.2022 12:39:50</Time>
+          </ElementCheckingResult>
+        </ElementCheckingResults>
+        <Dep>КР</Dep>
+        <Name>КР_Сваи замоделированы колоннами</Name>
+        <LastRun>04.11.2022 12:39:42</LastRun>
+      </CheckingTemplate>
+    </Checkings>
+  </FileCheckingResult>
+</ArrayOfFileCheckingResult>

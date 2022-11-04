@@ -22,27 +22,8 @@ namespace Audit.Model.Checkings
             Name = "ОБЩ_Корректность наименований уровней";
             Dep = "ОБЩ";
         }
-        public override void Run(string filePath, BindingList<ElementCheckingResult> oldResults)
+        public override void Run(Document doc, BindingList<ElementCheckingResult> oldResults)
         {
-            //ElementCheckingResult newResult = new ElementCheckingResult() { Name = "elementName", ID = "elementID", Time = System.DateTime.Now.ToString() };
-            //ElementCheckingResult newResult2 = new ElementCheckingResult() { Name = "elementName2", ID = "elementID2", Time = System.DateTime.Now.ToString() };
-            //ApplicationViewModel.AddElementCheckingResult(newResult2, oldResults);
-            //ApplicationViewModel.AddElementCheckingResult(newResult, oldResults);
-
-            //Открытие документа с отсоединением
-            UIApplication uiapp = CommandLauncher.uiapp;
-            ModelPath path = ModelPathUtils.ConvertUserVisiblePathToModelPath(filePath);
-            OpenOptions openOptions = new OpenOptions();
-            openOptions.DetachFromCentralOption = DetachFromCentralOption.DetachAndPreserveWorksets;
-            //Document doc = uiapp.OpenAndActivateDocument(path, openOptions, false).Document;
-            //IList<Element> pipes = new FilteredElementCollector(doc).OfClass(typeof(Pipe)).WhereElementIsNotElementType().ToElements();
-            //TaskDialog dialog = new TaskDialog("Test");
-            //dialog.MainContent = pipes.Count.ToString();
-            //dialog.Show();
-
-            Application app = CommandLauncher.app;
-            Document doc = app.OpenDocumentFile(path, openOptions);
-
             //Получаем уровни
             IList<Element> levels = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Levels).WhereElementIsNotElementType().ToElements();
             IList<Element> good_levels = new List<Element>();

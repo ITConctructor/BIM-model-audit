@@ -19,18 +19,8 @@ namespace Audit.Model.Checkings
             Name = "ОБЩ_Корректность рабочих наборов связей";
             Dep = "ОБЩ";
         }
-        public override void Run(string filePath, BindingList<ElementCheckingResult> oldResults)
+        public override void Run(Document doc, BindingList<ElementCheckingResult> oldResults)
         {
-            //Открытие документа с отсоединением
-            UIApplication uiapp = CommandLauncher.uiapp;
-            ModelPath path = ModelPathUtils.ConvertUserVisiblePathToModelPath(filePath);
-            OpenOptions openOptions = new OpenOptions();
-            openOptions.DetachFromCentralOption = DetachFromCentralOption.DetachAndPreserveWorksets;
-            WorksetConfiguration worksets = new WorksetConfiguration(WorksetConfigurationOption.CloseAllWorksets);
-            openOptions.SetOpenWorksetsConfiguration(worksets);
-            Application app = CommandLauncher.app;
-            Document doc = app.OpenDocumentFile(path, openOptions);
-            
             //Получаем связи в файле
             IList<Element> links = new List<Element>();
             links = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_RvtLinks).WhereElementIsNotElementType().ToElements();

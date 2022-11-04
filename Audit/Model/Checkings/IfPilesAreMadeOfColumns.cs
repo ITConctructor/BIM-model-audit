@@ -18,7 +18,7 @@ namespace Audit.Model.Checkings
             Name = "КР_Сваи замоделированы колоннами";
             Dep = "КР";
         }
-        public override void Run(string filePath, BindingList<ElementCheckingResult> oldResults)
+        public override void Run(Document doc, BindingList<ElementCheckingResult> oldResults)
         {
             ElementCheckingResult newResult = new ElementCheckingResult() { Name = "elementName", ID = "elementID", Time = System.DateTime.Now.ToString() };
             ElementCheckingResult newResult2 = new ElementCheckingResult() { Name = "elementName2", ID = "elementID2", Time = System.DateTime.Now.ToString() };

@@ -19,18 +19,8 @@ namespace Audit.Model.Checkings
             Name = "ОБЩ_Уровни не дублируются";
             Dep = "ОБЩ";
         }
-        public override void Run(string filePath, BindingList<ElementCheckingResult> oldResults)
+        public override void Run(Document doc, BindingList<ElementCheckingResult> oldResults)
         {
-            //Открытие документа с отсоединением и закрытием всех рабочих наборов
-            UIApplication uiapp = CommandLauncher.uiapp;
-            ModelPath path = ModelPathUtils.ConvertUserVisiblePathToModelPath(filePath);
-            OpenOptions openOptions = new OpenOptions();
-            openOptions.DetachFromCentralOption = DetachFromCentralOption.DetachAndPreserveWorksets;
-            WorksetConfiguration worksets = new WorksetConfiguration(WorksetConfigurationOption.CloseAllWorksets);
-            openOptions.SetOpenWorksetsConfiguration(worksets);
-            Application app = CommandLauncher.app;
-            Document doc = app.OpenDocumentFile(path, openOptions);
-
             //Получаем уровни
             IList<Element> levels = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Levels).WhereElementIsNotElementType().ToElements();
             IList<Element> results = new List<Element>();

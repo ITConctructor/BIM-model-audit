@@ -1,4 +1,5 @@
-﻿using Autodesk.Revit.UI;
+﻿using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -106,6 +107,7 @@ namespace Audit
                 _win.VKCheckingGrid.ItemsSource = _selectedFile?.CheckingResults[0].Checkings.Where(t => t.Dep == "ВК").ToList();
                 _win.OVCheckingGrid.ItemsSource = _selectedFile?.CheckingResults[0].Checkings.Where(t => t.Dep == "ОВ").ToList();
                 _win.SSCheckingGrid.ItemsSource = _selectedFile?.CheckingResults[0].Checkings.Where(t => t.Dep == "СС").ToList();
+                SelectedChecking = _selectedFile?.CheckingResults[0].Checkings[0];
             }
         }
 
@@ -283,6 +285,11 @@ namespace Audit
         private void SelectFolderToSaveLog()
         {
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+            folderBrowserDialog.Description = "Выберите папку для сохранения результатов проверок";
+            if (Properties.Settings.Default.folderToSaveLog != "")
+            {
+                folderBrowserDialog.SelectedPath = Properties.Settings.Default.folderToSaveLog;
+            }
             folderBrowserDialog.ShowDialog();
             LogFilesPath = folderBrowserDialog.SelectedPath;
             Properties.Settings.Default.folderToSaveLog = LogFilesPath;
@@ -439,12 +446,13 @@ namespace Audit
         private void UpdateChecking(CheckingTemplate Checking, string filePath)
         {
             Checking.LastRun = System.DateTime.Now.ToString();
-            Checking.Running.Run(filePath, Checking.ElementCheckingResults);
-            Checking.Amount = Checking.ElementCheckingResults.Count.ToString();
-            Checking.Created = Checking.ElementCheckingResults.Where(t => t.Status == "Созданная").ToList().Count.ToString();
-            Checking.Active = Checking.ElementCheckingResults.Where(t => t.Status == "Активная").ToList().Count.ToString();
-            Checking.Corrected = Checking.ElementCheckingResults.Where(t => t.Status == "Исправленная").ToList().Count.ToString();
-            Checking.Checked = Checking.ElementCheckingResults.Where(t => t.Status == "Проверенная").ToList().Count.ToString();
+            Document doc = OpenRvtFile(filePath);
+            Checking.Run(doc, Checking.ElementCheckingResults);
+            //Checking.Amount = Checking.ElementCheckingResults.Count.ToString();
+            //Checking.Created = Checking.ElementCheckingResults.Where(t => t.Status == "Созданная").ToList().Count.ToString();
+            //Checking.Active = Checking.ElementCheckingResults.Where(t => t.Status == "Активная").ToList().Count.ToString();
+            //Checking.Corrected = Checking.ElementCheckingResults.Where(t => t.Status == "Исправленная").ToList().Count.ToString();
+            //Checking.Checked = Checking.ElementCheckingResults.Where(t => t.Status == "Проверенная").ToList().Count.ToString();
         }
 
         /// <summary>
@@ -483,12 +491,13 @@ namespace Audit
                             CheckingTemplate Checking = Activator.CreateInstance(Type.GetType(checking.FullName)) as CheckingTemplate;
                             if (item.Header.ToString() == Checking.Dep)
                             {
-                                CheckingTemplate NewChecking = new CheckingTemplate();
-                                NewChecking.Dep = Checking.Dep;
-                                NewChecking.Name = Checking.Name;
-                                NewChecking.Running = Checking;
-                                NewChecking.ElementCheckingResults = new BindingList<ElementCheckingResult>();
-                                FileInfo.CheckingResults[0].Checkings.Add(NewChecking);
+                                Checking.ElementCheckingResults = new BindingList<ElementCheckingResult>();
+                                //CheckingTemplate NewChecking = new CheckingTemplate();
+                                //NewChecking.Dep = Checking.Dep;
+                                //NewChecking.Name = Checking.Name;
+                                //NewChecking.Running = Checking;
+                                //NewChecking.ElementCheckingResults = new BindingList<ElementCheckingResult>();
+                                FileInfo.CheckingResults[0].Checkings.Add(Checking);
                             }
                         }
                     }
@@ -563,6 +572,24 @@ namespace Audit
         public void CreateReport()
         {
             ReportsSettings.CreateReport(_win, PreanalysFiles);
+        }
+
+        /// <summary>
+        /// Открывает файл rvt и возвращает его в виде объекта Document
+        /// </summary>
+        /// <param name="filePath"> Путь к файлу</param>
+        /// <returns></returns>
+        private Document OpenRvtFile(string filePath)
+        {
+            UIApplication uiapp = CommandLauncher.uiapp;
+            ModelPath path = ModelPathUtils.ConvertUserVisiblePathToModelPath(filePath);
+            OpenOptions openOptions = new OpenOptions();
+            openOptions.DetachFromCentralOption = DetachFromCentralOption.DetachAndPreserveWorksets;
+            WorksetConfiguration worksets = new WorksetConfiguration(WorksetConfigurationOption.CloseAllWorksets);
+            openOptions.SetOpenWorksetsConfiguration(worksets);
+            Autodesk.Revit.ApplicationServices.Application app = CommandLauncher.app;
+            Document doc = app.OpenDocumentFile(path, openOptions);
+            return doc;
         }
         #endregion
 

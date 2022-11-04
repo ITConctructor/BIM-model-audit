@@ -77,7 +77,7 @@
                     <GradientStop Color="White" Offset="1.0" />
                 </LinearGradientBrush>
             </UniformGrid.Background>
-            <TextBlock Grid.Row="0" x:Name="CheckingName" Text="{Binding ElementName=CheckingsTabControl, Path=SelectedItem.Content.SelectedItems[0].Name}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30" Height="30" FontSize="20" FontFamily="Verdana"/>
+            <TextBlock Grid.Row="0" x:Name="CheckingName" Text="{Binding SelectedChecking.Name}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30" Height="30" FontSize="20" FontFamily="Verdana"/>
             <Image Source="/Audit;component/Resources/logoEtalon.png" Width="100" HorizontalAlignment="Right" Margin="20, 20, 20, 20"/>
         </UniformGrid>
         <Separator Grid.Row="1" BorderThickness="50" BorderBrush="Black"/>
@@ -270,7 +270,7 @@
                           Margin="10, 10, 10, 10">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Path=Name}" Header="Имя" Width="Auto" IsReadOnly="True"/>
-                            <DataGridComboBoxColumn x:Name="resultStatusesColumn" SelectedValueBinding="{Binding Path=Status}" Header="Статус" Width="Auto"/>
+                            <DataGridComboBoxColumn x:Name="resultStatusesColumn" SelectedValueBinding="{Binding Path=Status, Mode=TwoWay}" Header="Статус" Width="Auto"/>
                             <DataGridTextColumn Binding="{Binding Path=ID}" Header="ID элемента" Width="Auto" IsReadOnly="True"/>
                             <DataGridTextColumn Binding="{Binding Path=Time}" Header="Время обнаружения" Width="Auto" IsReadOnly="True"/>
                             <DataGridTextColumn Binding="{Binding Path=Comment, Mode=TwoWay}" Header="Комментарий"/>
