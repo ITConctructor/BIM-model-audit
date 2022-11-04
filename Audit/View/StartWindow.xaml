@@ -59,6 +59,10 @@
                 </Style>
             </Style.Resources>
         </Style>
+        <BooleanToVisibilityConverter x:Key="boolToVis"/>
+        <local:BooleanToVisibilityNegativeConverter x:Key="boolToVisNeg"/>
+        <local:CheckingStatusToImageConverter x:Key="statusToImage"/>
+        <local:CheckingStatusToTextConverter x:Key="statusToText"/>
     </Window.Resources>
     <Grid Margin="0, 0, 0, 0" MaxHeight="{Binding ElementName=BaseWindow, Path=ActualHeight}" x:Name="BaseGrid">
         <Grid.RowDefinitions>
@@ -256,18 +260,24 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <TextBlock Margin="10, 10, 10, 10" Text="Показать для файла:" Grid.Row="0" VerticalAlignment="Center"/>
                     <ComboBox Grid.Row="1" x:Name="activeFileComboBox" Margin="10, 0, 10, 0" ItemsSource="{Binding PreanalysFiles}" SelectedItem="{Binding SelectedFile, Mode=TwoWay}"/>
+                    <StackPanel Grid.Row="2" Margin="5, 10, 5, 5" Orientation="Horizontal">
+                        <Image Source="{Binding SelectedChecking.Status, Converter={StaticResource statusToImage}}"  Height="20" Margin="10, 0, 10, 0"/>
+                        <TextBlock Text="{Binding SelectedChecking.Status, Converter={StaticResource statusToText}}" VerticalAlignment="Center"/>
+                    </StackPanel>
                     <DataGrid x:Name="ResultsGrid"
-                          Grid.Row="2"
+                          Grid.Row="3"
                           CanUserAddRows="False"
                           CanUserResizeRows="False"
                           VerticalScrollBarVisibility="Visible"
                           HorizontalScrollBarVisibility="Visible"
                           AutoGenerateColumns="False"
-                          Margin="10, 10, 10, 10">
+                          Margin="10, 10, 10, 10"
+                          Visibility="{Binding SelectedChecking.Result, Converter={StaticResource boolToVisNeg}}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Path=Name}" Header="Имя" Width="Auto" IsReadOnly="True"/>
                             <DataGridComboBoxColumn x:Name="resultStatusesColumn" SelectedValueBinding="{Binding Path=Status, Mode=TwoWay}" Header="Статус" Width="Auto"/>

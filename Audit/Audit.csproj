@@ -74,6 +74,10 @@
     <Compile Include="ViewModel\ApplicationViewModel.cs" />
     <Compile Include="ViewModel\CheckingTemplate.cs" />
     <Compile Include="Model\CommandLauncher.cs" />
+    <Compile Include="View\BooleanToVisibilityConverter.cs" />
+    <Compile Include="View\BooleanToVisibilityNegativeConverter.cs" />
+    <Compile Include="View\CheckingStatusToImageConverter.cs" />
+    <Compile Include="View\CheckingStatusToTextConverter.cs" />
     <Compile Include="View\CustomGridSplitter.cs" />
     <Compile Include="ViewModel\ElementCheckingResult.cs" />
     <Compile Include="ViewModel\FileCheckingResult.cs" />
@@ -196,6 +200,18 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CheckingSuccessful.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CheckingFailed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\NotUpdated.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NotLaunched.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

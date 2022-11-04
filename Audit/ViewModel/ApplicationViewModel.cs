@@ -447,7 +447,7 @@ namespace Audit
         {
             Checking.LastRun = System.DateTime.Now.ToString();
             Document doc = OpenRvtFile(filePath);
-            Checking.Run(doc, Checking.ElementCheckingResults);
+            Checking.Status = Checking.Run(doc, Checking.ElementCheckingResults);
             //Checking.Amount = Checking.ElementCheckingResults.Count.ToString();
             //Checking.Created = Checking.ElementCheckingResults.Where(t => t.Status == "Созданная").ToList().Count.ToString();
             //Checking.Active = Checking.ElementCheckingResults.Where(t => t.Status == "Активная").ToList().Count.ToString();
@@ -492,11 +492,7 @@ namespace Audit
                             if (item.Header.ToString() == Checking.Dep)
                             {
                                 Checking.ElementCheckingResults = new BindingList<ElementCheckingResult>();
-                                //CheckingTemplate NewChecking = new CheckingTemplate();
-                                //NewChecking.Dep = Checking.Dep;
-                                //NewChecking.Name = Checking.Name;
-                                //NewChecking.Running = Checking;
-                                //NewChecking.ElementCheckingResults = new BindingList<ElementCheckingResult>();
+                                Checking.Status = CheckingStatus.NotLaunched;
                                 FileInfo.CheckingResults[0].Checkings.Add(Checking);
                             }
                         }
@@ -518,6 +514,10 @@ namespace Audit
                     if (item.IndexOf(fileInfo.Name.Replace(".rvt", "")) != -1 && File.Exists(item))
                     {
                         fileInfo.CheckingResults[0] = Deserialize(item);
+                    }
+                    foreach (CheckingTemplate checking in fileInfo.CheckingResults[0].Checkings)
+                    {
+                        checking.Status = CheckingStatus.NotUpdated;
                     }
                 }
             }
@@ -825,6 +825,19 @@ namespace Audit
             public bool Corrected { get; set; }
         }
 
+        public enum CheckingResultType
+        {
+            Message,
+            ElementsList 
+        }
+        
+        public enum CheckingStatus
+        {
+            CheckingSuccessful,
+            CheckingFailed,
+            NotUpdated,
+            NotLaunched
+        }
         #endregion
     }
 }

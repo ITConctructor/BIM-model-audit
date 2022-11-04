@@ -17,16 +17,25 @@ namespace Audit.Model.Checkings
         {
             Name = "КР_Сваи замоделированы колоннами";
             Dep = "КР";
+            ResultType = ApplicationViewModel.CheckingResultType.ElementsList;
         }
-        public override void Run(Document doc, BindingList<ElementCheckingResult> oldResults)
+        public override ApplicationViewModel.CheckingStatus Run(Document doc, BindingList<ElementCheckingResult> oldResults)
         {
             ElementCheckingResult newResult = new ElementCheckingResult() { Name = "elementName", ID = "elementID", Time = System.DateTime.Now.ToString() };
             ElementCheckingResult newResult2 = new ElementCheckingResult() { Name = "elementName2", ID = "elementID2", Time = System.DateTime.Now.ToString() };
             ApplicationViewModel.AddElementCheckingResult(newResult2, oldResults);
             ApplicationViewModel.AddElementCheckingResult(newResult, oldResults);
-            TaskDialog dialog = new TaskDialog("Test");
-            dialog.MainContent = Name;
-            dialog.Show();
+            IList<Element> results = new List<Element>();
+
+            //Возвращаем результат проверки - пройдена или нет
+            if (results.Count == 0)
+            {
+                return ApplicationViewModel.CheckingStatus.CheckingSuccessful;
+            }
+            else
+            {
+                return ApplicationViewModel.CheckingStatus.CheckingFailed;
+            }
         }
     }
 }

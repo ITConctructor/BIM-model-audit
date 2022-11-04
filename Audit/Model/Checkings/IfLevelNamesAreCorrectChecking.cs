@@ -21,8 +21,9 @@ namespace Audit.Model.Checkings
         {
             Name = "ОБЩ_Корректность наименований уровней";
             Dep = "ОБЩ";
+            ResultType = ApplicationViewModel.CheckingResultType.ElementsList;
         }
-        public override void Run(Document doc, BindingList<ElementCheckingResult> oldResults)
+        public override ApplicationViewModel.CheckingStatus Run(Document doc, BindingList<ElementCheckingResult> oldResults)
         {
             //Получаем уровни
             IList<Element> levels = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Levels).WhereElementIsNotElementType().ToElements();
@@ -341,6 +342,16 @@ namespace Audit.Model.Checkings
                 {
                     item.Status = "Исправленная";
                 }
+            }
+
+            //Возвращаем результат проверки - пройдена или нет
+            if (results.Count == 0)
+            {
+                return ApplicationViewModel.CheckingStatus.CheckingSuccessful;
+            }
+            else
+            {
+                return ApplicationViewModel.CheckingStatus.CheckingFailed;
             }
         }
     }

@@ -16,8 +16,9 @@ namespace Audit.Model.Checkings
         {
             Name = "ОБЩ_Отсутствуют чужие семейства";
             Dep = "ОБЩ";
+            ResultType = ApplicationViewModel.CheckingResultType.ElementsList;
         }
-        public override void Run(Document doc, BindingList<ElementCheckingResult> oldResults)
+        public override ApplicationViewModel.CheckingStatus Run(Document doc, BindingList<ElementCheckingResult> oldResults)
         {
             //Получение всех семейств в проекте
             IList <Element> families = new FilteredElementCollector(doc).OfClass(typeof(Family)).ToElements();
@@ -58,6 +59,16 @@ namespace Audit.Model.Checkings
                 {
                     item.Status = "Исправленная";
                 }
+            }
+
+            //Возвращаем результат проверки - пройдена или нет
+            if (results.Count == 0)
+            {
+                return ApplicationViewModel.CheckingStatus.CheckingSuccessful;
+            }
+            else
+            {
+                return ApplicationViewModel.CheckingStatus.CheckingFailed;
             }
         }
     }

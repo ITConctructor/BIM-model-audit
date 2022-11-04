@@ -22,6 +22,9 @@ namespace Audit
     public class CheckingTemplate
     {
         public BindingList<ElementCheckingResult> ElementCheckingResults { get; set; }
+        public ApplicationViewModel.CheckingStatus Status { get; set; }
+        public ApplicationViewModel.CheckingResultType ResultType { get; set; }
+        public string Message { get; set; }
         public string Dep { get; set; }
         public string Name { get; set; }
         public string LastRun { get; set; }
@@ -124,9 +127,9 @@ namespace Audit
                 }
             }
         }
-        public virtual void Run(Document doc, BindingList<ElementCheckingResult> oldResults)
+        public virtual ApplicationViewModel.CheckingStatus Run(Document doc, BindingList<ElementCheckingResult> oldResults)
         {
-
+            return ApplicationViewModel.CheckingStatus.CheckingSuccessful;
         }
     }
 }

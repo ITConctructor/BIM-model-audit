@@ -63,6 +63,26 @@ namespace Audit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap CheckingFailed {
+            get {
+                object obj = ResourceManager.GetObject("CheckingFailed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap CheckingSuccessful {
+            get {
+                object obj = ResourceManager.GetObject("CheckingSuccessful", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap driveImage {
             get {
                 object obj = ResourceManager.GetObject("driveImage", resourceCulture);
@@ -96,6 +116,26 @@ namespace Audit.Properties {
         public static System.Drawing.Bitmap logoEtalon {
             get {
                 object obj = ResourceManager.GetObject("logoEtalon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap NotLaunched {
+            get {
+                object obj = ResourceManager.GetObject("NotLaunched", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap NotUpdated {
+            get {
+                object obj = ResourceManager.GetObject("NotUpdated", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
