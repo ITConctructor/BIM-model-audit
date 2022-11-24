@@ -64,11 +64,14 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Checkings\IfARWallsNamesAreCorrect.cs" />
     <Compile Include="Model\Checkings\IfLinksArePinned.cs" />
     <Compile Include="Model\Checkings\IfNavisworksViewExist.cs" />
     <Compile Include="Model\Checkings\IfNoCADFiles.cs" />
     <Compile Include="Model\Checkings\IfNoForeignFamilies.cs" />
     <Compile Include="Model\Checkings\IfNoRoomsWithoutNames.cs" />
+    <Compile Include="Model\Checkings\IfNoSheetsWithoutNames.cs" />
+    <Compile Include="Model\Checkings\IfViewsNamesAreCorrect.cs" />
     <Compile Include="Properties\Resource1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

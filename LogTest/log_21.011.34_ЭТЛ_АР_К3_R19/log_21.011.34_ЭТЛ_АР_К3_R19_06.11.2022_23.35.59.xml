@@ -1,0 +1,3037 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfFileCheckingResult xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <FileCheckingResult>
+    <Checkings>
+      <CheckingTemplate
+        xsi:type="IfLinksArePinned">
+        <ElementCheckingResults>
+          <ElementCheckingResult>
+            <Name>21.011.34_ЭТЛ_АР_К1_R19.rvt : 6 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>2630229</ID>
+            <Time>06.11.2022 23:18:57</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21.011.34_ЭТЛ_АР_К2_R19.rvt : 9 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>3756787</ID>
+            <Time>06.11.2022 23:18:57</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21.011.34_ЭТЛ_ВК_К3_R19.rvt : 10 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>3829054</ID>
+            <Time>06.11.2022 23:18:57</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21.011.34_ЭТЛ_ОВ_К3_К_R19.rvt : 16 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>4983848</ID>
+            <Time>06.11.2022 23:18:57</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21.011.34_ЭТЛ_ОВ_К3_В_R19.rvt : 17 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>4983887</ID>
+            <Time>06.11.2022 23:18:57</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21.011.34_ЭТЛ_КР_R19.rvt : 18 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>4985300</ID>
+            <Time>06.11.2022 23:18:57</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21.011.34_ЭТЛ_ОВ_К3_О_R19.rvt : 37 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>5172917</ID>
+            <Time>06.11.2022 23:18:57</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21.011.34_ЭТЛ_СС_К3_R19.rvt : 54 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>5370952</ID>
+            <Time>06.11.2022 23:18:57</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21.011.34_ЭТЛ_АР_Паркинг_R19.rvt : 85 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>5816626</ID>
+            <Time>06.11.2022 23:18:57</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21.011.34_ЭТЛ_ЭОМ_К3_R19.rvt : 101 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>6045100</ID>
+            <Time>06.11.2022 23:18:57</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>2022-10-25_К3_ОВ3_лючки.rvt : 129 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>6682441</ID>
+            <Time>06.11.2022 23:18:57</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>2022-10-26_К3_Гильзы.rvt : 130 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>6699949</ID>
+            <Time>06.11.2022 23:18:57</Time>
+          </ElementCheckingResult>
+        </ElementCheckingResults>
+        <Status>CheckingFailed</Status>
+        <ResultType>ElementsList</ResultType>
+        <Dep>ОБЩ</Dep>
+        <Name>ОБЩ_Закрепление связей</Name>
+        <LastRun>06.11.2022 23:15:34</LastRun>
+      </CheckingTemplate>
+      <CheckingTemplate
+        xsi:type="IfNavisworksViewExist">
+        <ElementCheckingResults />
+        <Status>CheckingSuccessful</Status>
+        <ResultType>Message</ResultType>
+        <Message>Вид Navisworks существует</Message>
+        <Dep>ОБЩ</Dep>
+        <Name>ОБЩ_Наличие вида Navisworks</Name>
+        <LastRun>06.11.2022 23:18:57</LastRun>
+      </CheckingTemplate>
+      <CheckingTemplate
+        xsi:type="IfNoCADFiles">
+        <ElementCheckingResults>
+          <ElementCheckingResult>
+            <Name>Фрагмент плана универсальной кабины.dwg.A$C53944A89</Name>
+            <Status>Активная</Status>
+            <ID>4302715</ID>
+            <Time>06.11.2022 23:22:23</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Фрагмент плана универсальной кабины.dwg.A$C31982157</Name>
+            <Status>Активная</Status>
+            <ID>4302716</ID>
+            <Time>06.11.2022 23:22:23</Time>
+          </ElementCheckingResult>
+        </ElementCheckingResults>
+        <Status>CheckingFailed</Status>
+        <ResultType>ElementsList</ResultType>
+        <Dep>ОБЩ</Dep>
+        <Name>ОБЩ_Нет импортов DWG</Name>
+        <LastRun>06.11.2022 23:21:22</LastRun>
+      </CheckingTemplate>
+      <CheckingTemplate
+        xsi:type="IfNoForeignFamilies">
+        <ElementCheckingResults>
+          <ElementCheckingResult>
+            <Name>Системная панель</Name>
+            <Status>Созданная</Status>
+            <ID>1560</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Прямоугольный импост</Name>
+            <Status>Созданная</Status>
+            <ID>1595</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Круглый импост</Name>
+            <Status>Созданная</Status>
+            <ID>1599</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Угловой L-импост</Name>
+            <Status>Созданная</Status>
+            <ID>1603</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Угловой V-импост</Name>
+            <Status>Созданная</Status>
+            <ID>1607</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Трапецеидальный угловой импост</Name>
+            <Status>Созданная</Status>
+            <ID>1611</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Квадратный угловой импост</Name>
+            <Status>Созданная</Status>
+            <ID>1615</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Профиль_Ограждения поручень прямоугольный</Name>
+            <Status>Созданная</Status>
+            <ID>2535</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Профиль_Крыша бордюрная рейка плоская</Name>
+            <Status>Созданная</Status>
+            <ID>2619</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Профиль_Крыша желоб скос</Name>
+            <Status>Созданная</Status>
+            <ID>2636</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Балясина_Квадратная</Name>
+            <Status>Созданная</Status>
+            <ID>2649</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Профиль_Ограждения поручень круглый</Name>
+            <Status>Созданная</Status>
+            <ID>2672</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Профиль_Ребро перекрытия прямоугольное</Name>
+            <Status>Созданная</Status>
+            <ID>2694</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Несъемная опалубка перекрытия</Name>
+            <Status>Созданная</Status>
+            <ID>2728</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Профиль_Крыша желоб круглый</Name>
+            <Status>Созданная</Status>
+            <ID>2745</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Профиль_Врезанный</Name>
+            <Status>Созданная</Status>
+            <ID>2758</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Профиль_Ограждения поручень деревянный</Name>
+            <Status>Созданная</Status>
+            <ID>2771</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Профиль_Ступени ЛС</Name>
+            <Status>Созданная</Status>
+            <ID>2803</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Балясина_Круглая</Name>
+            <Status>Созданная</Status>
+            <ID>3396</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Балясина_Стальная плоская вертикальная</Name>
+            <Status>Созданная</Status>
+            <ID>3409</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Балясина_Парапет кровли</Name>
+            <Status>Созданная</Status>
+            <ID>3422</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Опоры_Г образная</Name>
+            <Status>Созданная</Status>
+            <ID>3435</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Балясина_МГН</Name>
+            <Status>Созданная</Status>
+            <ID>3449</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограничение_Дуга на 2 поручня</Name>
+            <Status>Созданная</Status>
+            <ID>3462</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограничение_Завершение поручня круглое</Name>
+            <Status>Созданная</Status>
+            <ID>3673</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>НастилФормы_Составной_H75</Name>
+            <Status>Созданная</Status>
+            <ID>62296</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Балка_Швеллер_ПолкиПараллельные_ГОСТ8240-97</Name>
+            <Status>Созданная</Status>
+            <ID>129576</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Пустая системная панель</Name>
+            <Status>Созданная</Status>
+            <ID>131493</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>AC_links</Name>
+            <Status>Созданная</Status>
+            <ID>157212</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Заголовок уровня - Окружность</Name>
+            <Status>Созданная</Status>
+            <ID>2145235</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>M_Название вида</Name>
+            <Status>Созданная</Status>
+            <ID>2181311</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Фартук из стального листа -БАЛКОН</Name>
+            <Status>Созданная</Status>
+            <ID>2355778</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>!_ПУСТО</Name>
+            <Status>Созданная</Status>
+            <ID>2387345</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Профиль_Отлив парапета</Name>
+            <Status>Созданная</Status>
+            <ID>2402865</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Профиль_Ограждения окна прямоугольный</Name>
+            <Status>Созданная</Status>
+            <ID>2529393</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Профиль_Выступающий</Name>
+            <Status>Созданная</Status>
+            <ID>2531114</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Стрелки</Name>
+            <Status>Созданная</Status>
+            <ID>2537606</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Коридор_Пути эвакуации</Name>
+            <Status>Созданная</Status>
+            <ID>2537620</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Профиль траектории пути</Name>
+            <Status>Созданная</Status>
+            <ID>2537663</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Профиль_Круглый поручень_D75</Name>
+            <Status>Созданная</Status>
+            <ID>2548848</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Балясина_Круглая_С квадратной основой</Name>
+            <Status>Созданная</Status>
+            <ID>2548854</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>M_Балясина - Квадратного сечения</Name>
+            <Status>Созданная</Status>
+            <ID>2548881</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограничение_Квадратное</Name>
+            <Status>Созданная</Status>
+            <ID>2548912</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>ГУСЕВА</Name>
+            <Status>Созданная</Status>
+            <ID>2729154</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>SND_2D_Унитаз2</Name>
+            <Status>Созданная</Status>
+            <ID>2816425</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>FRT_2D_Журнальный стол</Name>
+            <Status>Созданная</Status>
+            <ID>2816528</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Кресло</Name>
+            <Status>Созданная</Status>
+            <ID>2816546</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>SEQ_2D_Лифт1</Name>
+            <Status>Созданная</Status>
+            <ID>2824095</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>FRT_2D_Комбинация ТВ+стол</Name>
+            <Status>Созданная</Status>
+            <ID>2901919</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>FRT_2D_Двуспальная кровать</Name>
+            <Status>Созданная</Status>
+            <ID>2901941</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>SEQ_2D_Стиральная машина</Name>
+            <Status>Созданная</Status>
+            <ID>2901998</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>FRT_2D_Диван прямой</Name>
+            <Status>Созданная</Status>
+            <ID>2902026</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>SND_2D_Раковина2</Name>
+            <Status>Созданная</Status>
+            <ID>2902044</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>SND_2D_Мойка_Кухня</Name>
+            <Status>Созданная</Status>
+            <ID>2902067</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>FRT_2D_Шкаф1</Name>
+            <Status>Созданная</Status>
+            <ID>2902104</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>SND_2D_Посудомоечная машина1</Name>
+            <Status>Созданная</Status>
+            <ID>2902218</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>FRT_2D_Обеденная групп 4 стула параллельно1</Name>
+            <Status>Созданная</Status>
+            <ID>2902232</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>FRT_2D_Пуф</Name>
+            <Status>Созданная</Status>
+            <ID>2902250</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>FRT_2D_Кровать односпальная</Name>
+            <Status>Созданная</Status>
+            <ID>2902274</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Tub Bath Corner</Name>
+            <Status>Созданная</Status>
+            <ID>2902476</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>FRT_2D_Стол со стулом_Вар1</Name>
+            <Status>Созданная</Status>
+            <ID>2902644</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Стол обеденный</Name>
+            <Status>Созданная</Status>
+            <ID>2926553</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>SEQ_2D_Плита электрическая(х4)2</Name>
+            <Status>Созданная</Status>
+            <ID>2929628</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>SEQ_2D_Холодильник1</Name>
+            <Status>Созданная</Status>
+            <ID>2929720</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>ЛЮК</Name>
+            <Status>Созданная</Status>
+            <ID>3025444</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>АР_Шахта с приямком</Name>
+            <Status>Созданная</Status>
+            <ID>3058392</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Поручень</Name>
+            <Status>Созданная</Status>
+            <ID>3137001</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение связь</Name>
+            <Status>Созданная</Status>
+            <ID>3137015</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение хомут</Name>
+            <Status>Созданная</Status>
+            <ID>3137029</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>ATR_Символы МГН2</Name>
+            <Status>Созданная</Status>
+            <ID>3144380</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Решетка напольная</Name>
+            <Status>Созданная</Status>
+            <ID>3159769</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>AVW_Название вида_(ISO-5(1KB)</Name>
+            <Status>Созданная</Status>
+            <ID>3186926</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>ALV_Уровень_Отметка+Имя_(ISO_1.7 (0.9K)</Name>
+            <Status>Созданная</Status>
+            <ID>3186936</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>M_Заголовок фрагмента</Name>
+            <Status>Созданная</Status>
+            <ID>3186965</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>AVW_Обозначение_Фрагмент_(ISO-2(1KB)</Name>
+            <Status>Созданная</Status>
+            <ID>3186976</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Обозачение_С_У1</Name>
+            <Status>Созданная</Status>
+            <ID>3208829</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Прямоугольный поручень</Name>
+            <Status>Созданная</Status>
+            <ID>3241304</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Панель - С остеклением1</Name>
+            <Status>Созданная</Status>
+            <ID>3241320</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>TN_ПВХ воронка парапетная</Name>
+            <Status>Созданная</Status>
+            <ID>3269137</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>ATP_Отметка аннатационная_План_ISO2.1</Name>
+            <Status>Созданная</Status>
+            <ID>3315504</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Вертикальный импост витража9</Name>
+            <Status>Созданная</Status>
+            <ID>3627912</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Вертикальный импост витража10</Name>
+            <Status>Созданная</Status>
+            <ID>3627952</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Вертикальный импост витража19</Name>
+            <Status>Созданная</Status>
+            <ID>3659425</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Вертикальный импост витража20</Name>
+            <Status>Созданная</Status>
+            <ID>3659445</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>PRF_Импост_Структурный с накладкой</Name>
+            <Status>Созданная</Status>
+            <ID>3696155</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Крыши 1</Name>
+            <Status>Созданная</Status>
+            <ID>3713435</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение_Балясина_парапет кровли_2</Name>
+            <Status>Созданная</Status>
+            <ID>3867465</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Жук 3.4_С4_одна_секция1</Name>
+            <Status>Созданная</Status>
+            <ID>3875550</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>ATP_Отметка аннатационная_План_ISO1.5</Name>
+            <Status>Созданная</Status>
+            <ID>3886182</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Профиль парапета ПЗ 600</Name>
+            <Status>Созданная</Status>
+            <ID>3993356</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка</Name>
+            <Status>Созданная</Status>
+            <ID>3999454</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Крыши 2</Name>
+            <Status>Созданная</Status>
+            <ID>4021264</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Обобщенные модели 2</Name>
+            <Status>Созданная</Status>
+            <ID>4067307</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Труба квадратная</Name>
+            <Status>Созданная</Status>
+            <ID>4084927</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка1</Name>
+            <Status>Созданная</Status>
+            <ID>4086942</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка2</Name>
+            <Status>Созданная</Status>
+            <ID>4086976</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка3</Name>
+            <Status>Созданная</Status>
+            <ID>4087000</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка4</Name>
+            <Status>Созданная</Status>
+            <ID>4087024</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка5</Name>
+            <Status>Созданная</Status>
+            <ID>4087048</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка6</Name>
+            <Status>Созданная</Status>
+            <ID>4087074</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка7</Name>
+            <Status>Созданная</Status>
+            <ID>4087100</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка8</Name>
+            <Status>Созданная</Status>
+            <ID>4087124</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка9</Name>
+            <Status>Созданная</Status>
+            <ID>4087148</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка10</Name>
+            <Status>Созданная</Status>
+            <ID>4087172</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка11</Name>
+            <Status>Созданная</Status>
+            <ID>4087196</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка12</Name>
+            <Status>Созданная</Status>
+            <ID>4087222</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка13</Name>
+            <Status>Созданная</Status>
+            <ID>4087248</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка14</Name>
+            <Status>Созданная</Status>
+            <ID>4087272</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка15</Name>
+            <Status>Созданная</Status>
+            <ID>4087296</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка16</Name>
+            <Status>Созданная</Status>
+            <ID>4087320</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка17</Name>
+            <Status>Созданная</Status>
+            <ID>4087346</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка18</Name>
+            <Status>Созданная</Status>
+            <ID>4087370</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка19</Name>
+            <Status>Созданная</Status>
+            <ID>4087394</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка20</Name>
+            <Status>Созданная</Status>
+            <ID>4087420</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка21</Name>
+            <Status>Созданная</Status>
+            <ID>4087444</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка22</Name>
+            <Status>Созданная</Status>
+            <ID>4087468</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка23</Name>
+            <Status>Созданная</Status>
+            <ID>4087492</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка24</Name>
+            <Status>Созданная</Status>
+            <ID>4087806</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка25</Name>
+            <Status>Созданная</Status>
+            <ID>4087826</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка26</Name>
+            <Status>Созданная</Status>
+            <ID>4087846</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка27</Name>
+            <Status>Созданная</Status>
+            <ID>4087866</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка28</Name>
+            <Status>Созданная</Status>
+            <ID>4087886</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка29</Name>
+            <Status>Созданная</Status>
+            <ID>4087906</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка30</Name>
+            <Status>Созданная</Status>
+            <ID>4087926</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка31</Name>
+            <Status>Созданная</Status>
+            <ID>4087946</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка32</Name>
+            <Status>Созданная</Status>
+            <ID>4087966</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка33</Name>
+            <Status>Созданная</Status>
+            <ID>4087986</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка34</Name>
+            <Status>Созданная</Status>
+            <ID>4088006</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка35</Name>
+            <Status>Созданная</Status>
+            <ID>4088026</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка36</Name>
+            <Status>Созданная</Status>
+            <ID>4088046</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка37</Name>
+            <Status>Созданная</Status>
+            <ID>4088066</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка38</Name>
+            <Status>Созданная</Status>
+            <ID>4088086</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка39</Name>
+            <Status>Созданная</Status>
+            <ID>4088106</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка40</Name>
+            <Status>Созданная</Status>
+            <ID>4088126</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка41</Name>
+            <Status>Созданная</Status>
+            <ID>4088146</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка42</Name>
+            <Status>Созданная</Status>
+            <ID>4088166</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка43</Name>
+            <Status>Созданная</Status>
+            <ID>4088186</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка44</Name>
+            <Status>Созданная</Status>
+            <ID>4088206</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка45</Name>
+            <Status>Созданная</Status>
+            <ID>4088226</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка46</Name>
+            <Status>Созданная</Status>
+            <ID>4088246</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка47</Name>
+            <Status>Созданная</Status>
+            <ID>4088299</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка48</Name>
+            <Status>Созданная</Status>
+            <ID>4088319</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка49</Name>
+            <Status>Созданная</Status>
+            <ID>4088339</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка50</Name>
+            <Status>Созданная</Status>
+            <ID>4088359</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка51</Name>
+            <Status>Созданная</Status>
+            <ID>4088379</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка52</Name>
+            <Status>Созданная</Status>
+            <ID>4088399</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка53</Name>
+            <Status>Созданная</Status>
+            <ID>4088419</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка54</Name>
+            <Status>Созданная</Status>
+            <ID>4088439</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка55</Name>
+            <Status>Созданная</Status>
+            <ID>4088459</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка56</Name>
+            <Status>Созданная</Status>
+            <ID>4088479</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка57</Name>
+            <Status>Созданная</Status>
+            <ID>4088499</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка58</Name>
+            <Status>Созданная</Status>
+            <ID>4088519</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка59</Name>
+            <Status>Созданная</Status>
+            <ID>4088539</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка60</Name>
+            <Status>Созданная</Status>
+            <ID>4088559</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка61</Name>
+            <Status>Созданная</Status>
+            <ID>4088579</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка62</Name>
+            <Status>Созданная</Status>
+            <ID>4088599</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка63</Name>
+            <Status>Созданная</Status>
+            <ID>4088619</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка64</Name>
+            <Status>Созданная</Status>
+            <ID>4088639</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка65</Name>
+            <Status>Созданная</Status>
+            <ID>4088659</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка66</Name>
+            <Status>Созданная</Status>
+            <ID>4088679</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка67</Name>
+            <Status>Созданная</Status>
+            <ID>4088699</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка68</Name>
+            <Status>Созданная</Status>
+            <ID>4088719</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка69</Name>
+            <Status>Созданная</Status>
+            <ID>4088739</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка70</Name>
+            <Status>Созданная</Status>
+            <ID>4088759</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка71</Name>
+            <Status>Созданная</Status>
+            <ID>4088779</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка72</Name>
+            <Status>Созданная</Status>
+            <ID>4088799</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка73</Name>
+            <Status>Созданная</Status>
+            <ID>4088819</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка74</Name>
+            <Status>Созданная</Status>
+            <ID>4088839</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка75</Name>
+            <Status>Созданная</Status>
+            <ID>4088859</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка76</Name>
+            <Status>Созданная</Status>
+            <ID>4088879</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка77</Name>
+            <Status>Созданная</Status>
+            <ID>4088899</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка78</Name>
+            <Status>Созданная</Status>
+            <ID>4088919</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка79</Name>
+            <Status>Созданная</Status>
+            <ID>4088939</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка80</Name>
+            <Status>Созданная</Status>
+            <ID>4088959</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка81</Name>
+            <Status>Созданная</Status>
+            <ID>4088979</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка82</Name>
+            <Status>Созданная</Status>
+            <ID>4088999</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка83</Name>
+            <Status>Созданная</Status>
+            <ID>4089019</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка84</Name>
+            <Status>Созданная</Status>
+            <ID>4089039</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка85</Name>
+            <Status>Созданная</Status>
+            <ID>4089059</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка86</Name>
+            <Status>Созданная</Status>
+            <ID>4089079</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка87</Name>
+            <Status>Созданная</Status>
+            <ID>4089099</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка88</Name>
+            <Status>Созданная</Status>
+            <ID>4089119</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка89</Name>
+            <Status>Созданная</Status>
+            <ID>4089139</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка90</Name>
+            <Status>Созданная</Status>
+            <ID>4089159</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка91</Name>
+            <Status>Созданная</Status>
+            <ID>4089179</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка92</Name>
+            <Status>Созданная</Status>
+            <ID>4089228</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка93</Name>
+            <Status>Созданная</Status>
+            <ID>4089248</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка94</Name>
+            <Status>Созданная</Status>
+            <ID>4089268</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка95</Name>
+            <Status>Созданная</Status>
+            <ID>4089288</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка96</Name>
+            <Status>Созданная</Status>
+            <ID>4089308</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка97</Name>
+            <Status>Созданная</Status>
+            <ID>4089328</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка98</Name>
+            <Status>Созданная</Status>
+            <ID>4089348</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка99</Name>
+            <Status>Созданная</Status>
+            <ID>4089368</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка100</Name>
+            <Status>Созданная</Status>
+            <ID>4089388</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка101</Name>
+            <Status>Созданная</Status>
+            <ID>4089408</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка102</Name>
+            <Status>Созданная</Status>
+            <ID>4089428</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка103</Name>
+            <Status>Созданная</Status>
+            <ID>4089448</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка104</Name>
+            <Status>Созданная</Status>
+            <ID>4089468</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка107</Name>
+            <Status>Созданная</Status>
+            <ID>4089574</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка108</Name>
+            <Status>Созданная</Status>
+            <ID>4089594</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка109</Name>
+            <Status>Созданная</Status>
+            <ID>4089614</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка110</Name>
+            <Status>Созданная</Status>
+            <ID>4089634</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка111</Name>
+            <Status>Созданная</Status>
+            <ID>4089654</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка112</Name>
+            <Status>Созданная</Status>
+            <ID>4089674</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка113</Name>
+            <Status>Созданная</Status>
+            <ID>4089694</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка114</Name>
+            <Status>Созданная</Status>
+            <ID>4089714</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка115</Name>
+            <Status>Созданная</Status>
+            <ID>4089734</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка116</Name>
+            <Status>Созданная</Status>
+            <ID>4089754</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка117</Name>
+            <Status>Созданная</Status>
+            <ID>4089774</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка118</Name>
+            <Status>Созданная</Status>
+            <ID>4089794</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка119</Name>
+            <Status>Созданная</Status>
+            <ID>4089814</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка120</Name>
+            <Status>Созданная</Status>
+            <ID>4089834</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка121</Name>
+            <Status>Созданная</Status>
+            <ID>4089854</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка122</Name>
+            <Status>Созданная</Status>
+            <ID>4089874</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка123</Name>
+            <Status>Созданная</Status>
+            <ID>4089894</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка124</Name>
+            <Status>Созданная</Status>
+            <ID>4089914</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка125</Name>
+            <Status>Созданная</Status>
+            <ID>4089934</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка126</Name>
+            <Status>Созданная</Status>
+            <ID>4089954</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка127</Name>
+            <Status>Созданная</Status>
+            <ID>4089974</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка128</Name>
+            <Status>Созданная</Status>
+            <ID>4089994</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка152</Name>
+            <Status>Созданная</Status>
+            <ID>4090474</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка153</Name>
+            <Status>Созданная</Status>
+            <ID>4090494</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка154</Name>
+            <Status>Созданная</Status>
+            <ID>4090514</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка155</Name>
+            <Status>Созданная</Status>
+            <ID>4090534</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка156</Name>
+            <Status>Созданная</Status>
+            <ID>4090554</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка157</Name>
+            <Status>Созданная</Status>
+            <ID>4090574</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка158</Name>
+            <Status>Созданная</Status>
+            <ID>4090594</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка159</Name>
+            <Status>Созданная</Status>
+            <ID>4090614</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка160</Name>
+            <Status>Созданная</Status>
+            <ID>4090634</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка161</Name>
+            <Status>Созданная</Status>
+            <ID>4090654</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка162</Name>
+            <Status>Созданная</Status>
+            <ID>4090674</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка163</Name>
+            <Status>Созданная</Status>
+            <ID>4090694</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка164</Name>
+            <Status>Созданная</Status>
+            <ID>4090726</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка165</Name>
+            <Status>Созданная</Status>
+            <ID>4090746</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка166</Name>
+            <Status>Созданная</Status>
+            <ID>4090766</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка167</Name>
+            <Status>Созданная</Status>
+            <ID>4090786</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка168</Name>
+            <Status>Созданная</Status>
+            <ID>4090806</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка169</Name>
+            <Status>Созданная</Status>
+            <ID>4090826</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка170</Name>
+            <Status>Созданная</Status>
+            <ID>4090846</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка171</Name>
+            <Status>Созданная</Status>
+            <ID>4090866</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка172</Name>
+            <Status>Созданная</Status>
+            <ID>4090886</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка173</Name>
+            <Status>Созданная</Status>
+            <ID>4090906</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка174</Name>
+            <Status>Созданная</Status>
+            <ID>4090926</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка175</Name>
+            <Status>Созданная</Status>
+            <ID>4090946</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка176</Name>
+            <Status>Созданная</Status>
+            <ID>4090966</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка177</Name>
+            <Status>Созданная</Status>
+            <ID>4090986</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка178</Name>
+            <Status>Созданная</Status>
+            <ID>4091006</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка179</Name>
+            <Status>Созданная</Status>
+            <ID>4091026</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка180</Name>
+            <Status>Созданная</Status>
+            <ID>4091046</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка181</Name>
+            <Status>Созданная</Status>
+            <ID>4091066</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка182</Name>
+            <Status>Созданная</Status>
+            <ID>4091086</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка183</Name>
+            <Status>Созданная</Status>
+            <ID>4091106</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка184</Name>
+            <Status>Созданная</Status>
+            <ID>4091126</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка185</Name>
+            <Status>Созданная</Status>
+            <ID>4091146</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка186</Name>
+            <Status>Созданная</Status>
+            <ID>4091166</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка187</Name>
+            <Status>Созданная</Status>
+            <ID>4091186</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка188</Name>
+            <Status>Созданная</Status>
+            <ID>4091206</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка189</Name>
+            <Status>Созданная</Status>
+            <ID>4091226</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка190</Name>
+            <Status>Созданная</Status>
+            <ID>4091246</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка191</Name>
+            <Status>Созданная</Status>
+            <ID>4091266</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка192</Name>
+            <Status>Созданная</Status>
+            <ID>4091286</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка193</Name>
+            <Status>Созданная</Status>
+            <ID>4091306</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка194</Name>
+            <Status>Созданная</Status>
+            <ID>4091326</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка195</Name>
+            <Status>Созданная</Status>
+            <ID>4091346</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка196</Name>
+            <Status>Созданная</Status>
+            <ID>4091366</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка197</Name>
+            <Status>Созданная</Status>
+            <ID>4091386</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка198</Name>
+            <Status>Созданная</Status>
+            <ID>4091406</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка199</Name>
+            <Status>Созданная</Status>
+            <ID>4091426</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка200</Name>
+            <Status>Созданная</Status>
+            <ID>4091446</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка201</Name>
+            <Status>Созданная</Status>
+            <ID>4091466</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка202</Name>
+            <Status>Созданная</Status>
+            <ID>4091486</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка203</Name>
+            <Status>Созданная</Status>
+            <ID>4091506</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка204</Name>
+            <Status>Созданная</Status>
+            <ID>4091526</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка205</Name>
+            <Status>Созданная</Status>
+            <ID>4091546</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка206</Name>
+            <Status>Созданная</Status>
+            <ID>4091566</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка207</Name>
+            <Status>Созданная</Status>
+            <ID>4091586</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка208</Name>
+            <Status>Созданная</Status>
+            <ID>4091606</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка209</Name>
+            <Status>Созданная</Status>
+            <ID>4091626</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка210</Name>
+            <Status>Созданная</Status>
+            <ID>4091646</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка235</Name>
+            <Status>Созданная</Status>
+            <ID>4092146</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка236</Name>
+            <Status>Созданная</Status>
+            <ID>4092166</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка237</Name>
+            <Status>Созданная</Status>
+            <ID>4092186</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка238</Name>
+            <Status>Созданная</Status>
+            <ID>4092206</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка239</Name>
+            <Status>Созданная</Status>
+            <ID>4092226</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка240</Name>
+            <Status>Созданная</Status>
+            <ID>4092246</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка241</Name>
+            <Status>Созданная</Status>
+            <ID>4092266</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка242</Name>
+            <Status>Созданная</Status>
+            <ID>4092286</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка243</Name>
+            <Status>Созданная</Status>
+            <ID>4092306</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка244</Name>
+            <Status>Созданная</Status>
+            <ID>4092326</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка245</Name>
+            <Status>Созданная</Status>
+            <ID>4092346</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка246</Name>
+            <Status>Созданная</Status>
+            <ID>4092366</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка269</Name>
+            <Status>Созданная</Status>
+            <ID>4092826</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка270</Name>
+            <Status>Созданная</Status>
+            <ID>4092846</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка271</Name>
+            <Status>Созданная</Status>
+            <ID>4092866</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка272</Name>
+            <Status>Созданная</Status>
+            <ID>4092886</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка273</Name>
+            <Status>Созданная</Status>
+            <ID>4092906</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка274</Name>
+            <Status>Созданная</Status>
+            <ID>4092926</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка275</Name>
+            <Status>Созданная</Status>
+            <ID>4092946</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка276</Name>
+            <Status>Созданная</Status>
+            <ID>4092966</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка277</Name>
+            <Status>Созданная</Status>
+            <ID>4092986</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка278</Name>
+            <Status>Созданная</Status>
+            <ID>4093006</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка279</Name>
+            <Status>Созданная</Status>
+            <ID>4093026</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка280</Name>
+            <Status>Созданная</Status>
+            <ID>4093046</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка281</Name>
+            <Status>Созданная</Status>
+            <ID>4093066</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка282</Name>
+            <Status>Созданная</Status>
+            <ID>4093086</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка283</Name>
+            <Status>Созданная</Status>
+            <ID>4093106</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка284</Name>
+            <Status>Созданная</Status>
+            <ID>4093126</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка285</Name>
+            <Status>Созданная</Status>
+            <ID>4093146</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка286</Name>
+            <Status>Созданная</Status>
+            <ID>4093166</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка287</Name>
+            <Status>Созданная</Status>
+            <ID>4093186</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка288</Name>
+            <Status>Созданная</Status>
+            <ID>4093206</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка289</Name>
+            <Status>Созданная</Status>
+            <ID>4093226</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка290</Name>
+            <Status>Созданная</Status>
+            <ID>4093246</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка291</Name>
+            <Status>Созданная</Status>
+            <ID>4093266</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка292</Name>
+            <Status>Созданная</Status>
+            <ID>4093286</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка293</Name>
+            <Status>Созданная</Status>
+            <ID>4093306</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка294</Name>
+            <Status>Созданная</Status>
+            <ID>4093326</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка295</Name>
+            <Status>Созданная</Status>
+            <ID>4093346</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка296</Name>
+            <Status>Созданная</Status>
+            <ID>4093366</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка297</Name>
+            <Status>Созданная</Status>
+            <ID>4093386</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка298</Name>
+            <Status>Созданная</Status>
+            <ID>4093406</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка299</Name>
+            <Status>Созданная</Status>
+            <ID>4093426</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка300</Name>
+            <Status>Созданная</Status>
+            <ID>4093446</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка301</Name>
+            <Status>Созданная</Status>
+            <ID>4093466</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка302</Name>
+            <Status>Созданная</Status>
+            <ID>4093486</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка303</Name>
+            <Status>Созданная</Status>
+            <ID>4093506</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка304</Name>
+            <Status>Созданная</Status>
+            <ID>4093526</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка305</Name>
+            <Status>Созданная</Status>
+            <ID>4093546</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка306</Name>
+            <Status>Созданная</Status>
+            <ID>4093566</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка307</Name>
+            <Status>Созданная</Status>
+            <ID>4093586</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка308</Name>
+            <Status>Созданная</Status>
+            <ID>4093606</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка309</Name>
+            <Status>Созданная</Status>
+            <ID>4093626</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка310</Name>
+            <Status>Созданная</Status>
+            <ID>4093646</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка311</Name>
+            <Status>Созданная</Status>
+            <ID>4093666</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка312</Name>
+            <Status>Созданная</Status>
+            <ID>4093686</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка313</Name>
+            <Status>Созданная</Status>
+            <ID>4093706</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка314</Name>
+            <Status>Созданная</Status>
+            <ID>4093726</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка315</Name>
+            <Status>Созданная</Status>
+            <ID>4093746</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка316</Name>
+            <Status>Созданная</Status>
+            <ID>4093766</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка317</Name>
+            <Status>Созданная</Status>
+            <ID>4093786</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка318</Name>
+            <Status>Созданная</Status>
+            <ID>4093806</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка319</Name>
+            <Status>Созданная</Status>
+            <ID>4093826</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка320</Name>
+            <Status>Созданная</Status>
+            <ID>4093846</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка321</Name>
+            <Status>Созданная</Status>
+            <ID>4093866</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка322</Name>
+            <Status>Созданная</Status>
+            <ID>4093886</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка323</Name>
+            <Status>Созданная</Status>
+            <ID>4093906</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка324</Name>
+            <Status>Созданная</Status>
+            <ID>4093926</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка325</Name>
+            <Status>Созданная</Status>
+            <ID>4093946</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка326</Name>
+            <Status>Созданная</Status>
+            <ID>4093966</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка327</Name>
+            <Status>Созданная</Status>
+            <ID>4093986</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка328</Name>
+            <Status>Созданная</Status>
+            <ID>4106672</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка329</Name>
+            <Status>Созданная</Status>
+            <ID>4106692</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка330</Name>
+            <Status>Созданная</Status>
+            <ID>4106712</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка331</Name>
+            <Status>Созданная</Status>
+            <ID>4106732</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка332</Name>
+            <Status>Созданная</Status>
+            <ID>4106752</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка333</Name>
+            <Status>Созданная</Status>
+            <ID>4106772</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка334</Name>
+            <Status>Созданная</Status>
+            <ID>4106792</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка335</Name>
+            <Status>Созданная</Status>
+            <ID>4106812</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка336</Name>
+            <Status>Созданная</Status>
+            <ID>4106832</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка337</Name>
+            <Status>Созданная</Status>
+            <ID>4106852</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка338</Name>
+            <Status>Созданная</Status>
+            <ID>4106872</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка339</Name>
+            <Status>Созданная</Status>
+            <ID>4106892</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка340</Name>
+            <Status>Созданная</Status>
+            <ID>4106912</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Обобщенные модели 3</Name>
+            <Status>Созданная</Status>
+            <ID>4120835</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка134</Name>
+            <Status>Созданная</Status>
+            <ID>4127075</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка135</Name>
+            <Status>Созданная</Status>
+            <ID>4127095</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка136</Name>
+            <Status>Созданная</Status>
+            <ID>4127115</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка137</Name>
+            <Status>Созданная</Status>
+            <ID>4127135</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка138</Name>
+            <Status>Созданная</Status>
+            <ID>4127155</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка139</Name>
+            <Status>Созданная</Status>
+            <ID>4127175</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение приямка140</Name>
+            <Status>Созданная</Status>
+            <ID>4127195</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Жук 3.4_С4_одна_секция</Name>
+            <Status>Созданная</Status>
+            <ID>4133705</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>GM_Лестница с кровли на надстройку</Name>
+            <Status>Созданная</Status>
+            <ID>4146876</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Жук 3.4_С1_гориз_одна_секция</Name>
+            <Status>Созданная</Status>
+            <ID>4260232</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Жук 3.4_К3_квартирография</Name>
+            <Status>Созданная</Status>
+            <ID>4349908</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>КВ_Жук_3 этаж_ЗИЛ 3.4</Name>
+            <Status>Созданная</Status>
+            <ID>4380845</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Семейство3</Name>
+            <Status>Созданная</Status>
+            <ID>4382609</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>жук_оси</Name>
+            <Status>Созданная</Status>
+            <ID>4382895</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>ЗИЛ_3.4_Жук_Офисография</Name>
+            <Status>Созданная</Status>
+            <ID>4471012</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Линия разрыва_М50</Name>
+            <Status>Созданная</Status>
+            <ID>4544445</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Труба квадратного сечения (ТУ 36-2287-80)-Колонна</Name>
+            <Status>Созданная</Status>
+            <ID>4559614</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Сх расположения_3.4_ОФ_К2</Name>
+            <Status>Созданная</Status>
+            <ID>4624645</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Сх расположения_3.4_ОФ_К3</Name>
+            <Status>Созданная</Status>
+            <ID>4626204</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Обобщенные модели 1</Name>
+            <Status>Созданная</Status>
+            <ID>4667690</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Семейство ЖУК_Этап 3_Серый</Name>
+            <Status>Созданная</Status>
+            <ID>4686364</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>AVW_Название вида_(ISO-3(1KB)</Name>
+            <Status>Созданная</Status>
+            <ID>4686503</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>AAR_Марка_Помещения(х3)_Отделка_(ISO-2(1)_внеквартирная зона</Name>
+            <Status>Созданная</Status>
+            <ID>4799230</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>BSC_Колонна _Прямоугольная</Name>
+            <Status>Созданная</Status>
+            <ID>4912092</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>AAR_Марка_СТК_ISO-2 (1)</Name>
+            <Status>Созданная</Status>
+            <ID>4913131</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>GRM_Решетка напольная1</Name>
+            <Status>Созданная</Status>
+            <ID>4919950</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>АКСЕНОВ</Name>
+            <Status>Созданная</Status>
+            <ID>5019289</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>ИЛЫШЕВ</Name>
+            <Status>Созданная</Status>
+            <ID>5031458</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>КВ_Жук_К3_4 этаж_ЗИЛ 3.4</Name>
+            <Status>Созданная</Status>
+            <ID>5091708</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>КВ_Жук_К3_3 этаж_ЗИЛ 3.4</Name>
+            <Status>Созданная</Status>
+            <ID>5102761</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>КВ_Жук_К3_2 этаж_ЗИЛ 3.4</Name>
+            <Status>Созданная</Status>
+            <ID>5107179</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>КВ_Жук_К3_5 этаж_ЗИЛ 3.4</Name>
+            <Status>Созданная</Status>
+            <ID>5108802</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Линия разрыва</Name>
+            <Status>Созданная</Status>
+            <ID>5603896</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Дверь_герметичная_СЕРИЯ-5-904-4</Name>
+            <Status>Созданная</Status>
+            <ID>5682154</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Обобщенные модели 4</Name>
+            <Status>Созданная</Status>
+            <ID>5998960</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>ATP_Текст % Текст_ISO-2,5_0,9-I_R19 с высотой текста</Name>
+            <Status>Созданная</Status>
+            <ID>6062707</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Потайной люк-дверь «Техно»</Name>
+            <Status>Созданная</Status>
+            <ID>6159773</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Каркас техно</Name>
+            <Status>Созданная</Status>
+            <ID>6164374</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>ДАВИДЯН</Name>
+            <Status>Созданная</Status>
+            <ID>6253582</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>AAR_Марка_Помещения(х3)_Отделка_(ISO-2(1)_санузлы внутриквартирные</Name>
+            <Status>Созданная</Status>
+            <ID>6257120</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Обобщенные модели 5</Name>
+            <Status>Созданная</Status>
+            <ID>6293969</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>DET_L_Линия разрыва</Name>
+            <Status>Созданная</Status>
+            <ID>6331017</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Профиль_Отлив оконный</Name>
+            <Status>Созданная</Status>
+            <ID>6473471</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Стрелки1</Name>
+            <Status>Созданная</Status>
+            <ID>6473502</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>СтойкаКолесоотбойника</Name>
+            <Status>Созданная</Status>
+            <ID>6473543</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Балясина - Квадратная</Name>
+            <Status>Созданная</Status>
+            <ID>6473620</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Ограждение_Балясина_наклонная</Name>
+            <Status>Созданная</Status>
+            <ID>6634775</ID>
+            <Time>06.11.2022 23:22:38</Time>
+          </ElementCheckingResult>
+        </ElementCheckingResults>
+        <Status>CheckingFailed</Status>
+        <ResultType>ElementsList</ResultType>
+        <Dep>ОБЩ</Dep>
+        <Name>ОБЩ_Отсутствуют чужие семейства</Name>
+        <LastRun>06.11.2022 23:22:23</LastRun>
+      </CheckingTemplate>
+      <CheckingTemplate
+        xsi:type="IfNoSheetsWithoutNames">
+        <ElementCheckingResults>
+          <ElementCheckingResult>
+            <Name>Без имени</Name>
+            <Status>Созданная</Status>
+            <ID>741101</ID>
+            <Time>06.11.2022 23:22:51</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Без имени</Name>
+            <Status>Созданная</Status>
+            <ID>741115</ID>
+            <Time>06.11.2022 23:22:51</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Без имени</Name>
+            <Status>Созданная</Status>
+            <ID>741129</ID>
+            <Time>06.11.2022 23:22:51</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Без имени</Name>
+            <Status>Созданная</Status>
+            <ID>741134</ID>
+            <Time>06.11.2022 23:22:51</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Без имени</Name>
+            <Status>Созданная</Status>
+            <ID>741139</ID>
+            <Time>06.11.2022 23:22:51</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Без имени</Name>
+            <Status>Созданная</Status>
+            <ID>741144</ID>
+            <Time>06.11.2022 23:22:51</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Без имени</Name>
+            <Status>Созданная</Status>
+            <ID>741149</ID>
+            <Time>06.11.2022 23:22:51</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Без имени</Name>
+            <Status>Созданная</Status>
+            <ID>741154</ID>
+            <Time>06.11.2022 23:22:51</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Без имени</Name>
+            <Status>Созданная</Status>
+            <ID>741159</ID>
+            <Time>06.11.2022 23:22:51</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Без имени</Name>
+            <Status>Созданная</Status>
+            <ID>741164</ID>
+            <Time>06.11.2022 23:22:51</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Без имени</Name>
+            <Status>Созданная</Status>
+            <ID>741169</ID>
+            <Time>06.11.2022 23:22:51</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Без имени</Name>
+            <Status>Созданная</Status>
+            <ID>741174</ID>
+            <Time>06.11.2022 23:22:51</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Без имени</Name>
+            <Status>Созданная</Status>
+            <ID>741179</ID>
+            <Time>06.11.2022 23:22:51</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Без имени</Name>
+            <Status>Созданная</Status>
+            <ID>741184</ID>
+            <Time>06.11.2022 23:22:51</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Без имени</Name>
+            <Status>Созданная</Status>
+            <ID>741189</ID>
+            <Time>06.11.2022 23:22:51</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Без имени</Name>
+            <Status>Созданная</Status>
+            <ID>2532897</ID>
+            <Time>06.11.2022 23:22:51</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Без имени</Name>
+            <Status>Созданная</Status>
+            <ID>2532903</ID>
+            <Time>06.11.2022 23:22:51</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Без имени</Name>
+            <Status>Созданная</Status>
+            <ID>2532908</ID>
+            <Time>06.11.2022 23:22:51</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Без имени</Name>
+            <Status>Созданная</Status>
+            <ID>2532913</ID>
+            <Time>06.11.2022 23:22:51</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Без имени</Name>
+            <Status>Созданная</Status>
+            <ID>2533017</ID>
+            <Time>06.11.2022 23:22:51</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Без имени</Name>
+            <Status>Созданная</Status>
+            <ID>2533022</ID>
+            <Time>06.11.2022 23:22:51</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Без имени</Name>
+            <Status>Созданная</Status>
+            <ID>2533027</ID>
+            <Time>06.11.2022 23:22:51</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Без имени</Name>
+            <Status>Созданная</Status>
+            <ID>2533032</ID>
+            <Time>06.11.2022 23:22:51</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Без имени</Name>
+            <Status>Созданная</Status>
+            <ID>4911718</ID>
+            <Time>06.11.2022 23:22:51</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Без имени</Name>
+            <Status>Созданная</Status>
+            <ID>5469860</ID>
+            <Time>06.11.2022 23:22:51</Time>
+          </ElementCheckingResult>
+        </ElementCheckingResults>
+        <Status>CheckingFailed</Status>
+        <ResultType>ElementsList</ResultType>
+        <Dep>ОБЩ</Dep>
+        <Name>ОБЩ_Наличие листов без имени</Name>
+        <LastRun>06.11.2022 23:22:38</LastRun>
+      </CheckingTemplate>
+      <CheckingTemplate
+        xsi:type="IfViewsNamesAreCorrect">
+        <ElementCheckingResults>
+          <ElementCheckingResult>
+            <Name>П_106_Этаж 06_(+21,300)_АР копия 1</Name>
+            <Status>Созданная</Status>
+            <ID>3033080</ID>
+            <Time>06.11.2022 23:23:08</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>П_Техническое пространство(+5,660) копия 1</Name>
+            <Status>Созданная</Status>
+            <ID>4461441</ID>
+            <Time>06.11.2022 23:23:08</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>102_Этаж 02_(+7,800)(1)</Name>
+            <Status>Созданная</Status>
+            <ID>4991542</ID>
+            <Time>06.11.2022 23:23:08</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Сечение Вх.Гр.1-3(1)</Name>
+            <Status>Созданная</Status>
+            <ID>5696605</ID>
+            <Time>06.11.2022 23:23:08</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Р_Южный копия 1 копия 1 копия 1 копия 1 копия 1</Name>
+            <Status>Созданная</Status>
+            <ID>5723699</ID>
+            <Time>06.11.2022 23:23:08</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Р_Северный копия 1 копия 1 копия 1</Name>
+            <Status>Созданная</Status>
+            <ID>5724653</ID>
+            <Time>06.11.2022 23:23:08</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Р_Северный копия 1 копия 1 копия 2</Name>
+            <Status>Созданная</Status>
+            <ID>5725461</ID>
+            <Time>06.11.2022 23:23:08</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Р_Зап_ ВН-21_ДВ-21 копия 1</Name>
+            <Status>Созданная</Status>
+            <ID>6151767</ID>
+            <Time>06.11.2022 23:23:08</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>АР_ПРОВЕРОЧНАЯ_Ведомость квартир_Общая копия 1</Name>
+            <Status>Созданная</Status>
+            <ID>3751238</ID>
+            <Time>06.11.2022 23:23:08</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Общая площадь квартир 2 этажа копия 1</Name>
+            <Status>Созданная</Status>
+            <ID>3841499</ID>
+            <Time>06.11.2022 23:23:08</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>КВ_Ведомость квартир копия 1</Name>
+            <Status>Созданная</Status>
+            <ID>4518809</ID>
+            <Time>06.11.2022 23:23:08</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>КВ_Сводная ведомость квартир копия 1</Name>
+            <Status>Созданная</Status>
+            <ID>4970088</ID>
+            <Time>06.11.2022 23:23:08</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>АР_(Р)_М_Спецификация внутренних витражей 1 этаж копия 1</Name>
+            <Status>Созданная</Status>
+            <ID>5937652</ID>
+            <Time>06.11.2022 23:23:08</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>АР_(Р)_Ведомость отверстий в стене технадстройки_для АР копия 1</Name>
+            <Status>Созданная</Status>
+            <ID>6110514</ID>
+            <Time>06.11.2022 23:23:08</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Спецификация окон, балконных дверей и витражей копия 1</Name>
+            <Status>Созданная</Status>
+            <ID>6153845</ID>
+            <Time>06.11.2022 23:23:08</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Спецификация дверей и люков выше отм. 0,000 копия 1</Name>
+            <Status>Созданная</Status>
+            <ID>6311226</ID>
+            <Time>06.11.2022 23:23:08</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>Площать лест. площадок П-4.2-9 копия 1</Name>
+            <Status>Созданная</Status>
+            <ID>6543837</ID>
+            <Time>06.11.2022 23:23:08</Time>
+          </ElementCheckingResult>
+        </ElementCheckingResults>
+        <Status>CheckingFailed</Status>
+        <ResultType>ElementsList</ResultType>
+        <Dep>ОБЩ</Dep>
+        <Name>ОБЩ_Наличие копий видов</Name>
+        <LastRun>06.11.2022 23:22:51</LastRun>
+      </CheckingTemplate>
+      <CheckingTemplate
+        xsi:type="IfLevelNamesAreCorrectChecking">
+        <ElementCheckingResults>
+          <ElementCheckingResult>
+            <Name>101_Этаж 01_(+0.000)</Name>
+            <Status>Созданная</Status>
+            <ID>1526</ID>
+            <Time>06.11.2022 23:24:28</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>101_Техническое пространство_(+5,660)</Name>
+            <Status>Созданная</Status>
+            <ID>2623761</ID>
+            <Time>06.11.2022 23:24:28</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>103_Этаж 03_(+11,250)</Name>
+            <Status>Созданная</Status>
+            <ID>199147</ID>
+            <Time>06.11.2022 23:24:28</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>104_Этаж 04_(+15,150)</Name>
+            <Status>Созданная</Status>
+            <ID>199164</ID>
+            <Time>06.11.2022 23:24:28</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>106_Этаж 06_(+22,050)</Name>
+            <Status>Созданная</Status>
+            <ID>2619491</ID>
+            <Time>06.11.2022 23:24:28</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>107_Этаж 07_(+25,050)</Name>
+            <Status>Созданная</Status>
+            <ID>2619502</ID>
+            <Time>06.11.2022 23:24:28</Time>
+          </ElementCheckingResult>
+        </ElementCheckingResults>
+        <Status>CheckingFailed</Status>
+        <ResultType>ElementsList</ResultType>
+        <Dep>ОБЩ</Dep>
+        <Name>ОБЩ_Корректность наименований уровней</Name>
+        <LastRun>06.11.2022 23:23:08</LastRun>
+      </CheckingTemplate>
+      <CheckingTemplate
+        xsi:type="IfLevelsAreNotDuplicated">
+        <ElementCheckingResults />
+        <Status>CheckingSuccessful</Status>
+        <ResultType>ElementsList</ResultType>
+        <Dep>ОБЩ</Dep>
+        <Name>ОБЩ_Уровни не дублируются</Name>
+        <LastRun>06.11.2022 23:24:28</LastRun>
+      </CheckingTemplate>
+      <CheckingTemplate
+        xsi:type="IfLinkInCorrectWorksetChecking">
+        <ElementCheckingResults>
+          <ElementCheckingResult>
+            <Name>21.011.34_ЭТЛ_ОВ_К3_К_R19.rvt : 16 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>4983848</ID>
+            <Time>06.11.2022 23:27:19</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21.011.34_ЭТЛ_ОВ_К3_В_R19.rvt : 17 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>4983887</ID>
+            <Time>06.11.2022 23:27:19</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21.011.34_ЭТЛ_КР_R19.rvt : 18 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>4985300</ID>
+            <Time>06.11.2022 23:27:19</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21.011.34_ЭТЛ_ОВ_К3_О_R19.rvt : 37 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>5172917</ID>
+            <Time>06.11.2022 23:27:19</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21.011.34_ЭТЛ_СС_К3_R19.rvt : 54 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>5370952</ID>
+            <Time>06.11.2022 23:27:19</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21.011.34_ЭТЛ_АР_Паркинг_R19.rvt : 85 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>5816626</ID>
+            <Time>06.11.2022 23:27:19</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>21.011.34_ЭТЛ_ЭОМ_К3_R19.rvt : 101 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>6045100</ID>
+            <Time>06.11.2022 23:27:19</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>2022-10-25_К3_ОВ3_лючки.rvt : 129 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>6682441</ID>
+            <Time>06.11.2022 23:27:19</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>2022-10-26_К3_Гильзы.rvt : 130 : позиция &lt;Не общедоступное&gt;</Name>
+            <Status>Созданная</Status>
+            <ID>6699949</ID>
+            <Time>06.11.2022 23:27:19</Time>
+          </ElementCheckingResult>
+        </ElementCheckingResults>
+        <Status>CheckingFailed</Status>
+        <ResultType>ElementsList</ResultType>
+        <Dep>ОБЩ</Dep>
+        <Name>ОБЩ_Корректность рабочих наборов связей</Name>
+        <LastRun>06.11.2022 23:25:17</LastRun>
+      </CheckingTemplate>
+      <CheckingTemplate
+        xsi:type="IfARWallsNamesAreCorrect">
+        <ElementCheckingResults />
+        <Status>CheckingSuccessful</Status>
+        <ResultType>ElementsList</ResultType>
+        <Dep>АР</Dep>
+        <Name>АР_Корректность наименований типов стен</Name>
+        <LastRun>06.11.2022 23:27:19</LastRun>
+      </CheckingTemplate>
+      <CheckingTemplate
+        xsi:type="IfNoRoomsWithoutNames">
+        <ElementCheckingResults />
+        <Status>CheckingSuccessful</Status>
+        <ResultType>ElementsList</ResultType>
+        <Dep>АР</Dep>
+        <Name>АР_Нет помещений без имени</Name>
+        <LastRun>06.11.2022 23:29:29</LastRun>
+      </CheckingTemplate>
+      <CheckingTemplate
+        xsi:type="IfAllRoomsArePlaced">
+        <ElementCheckingResults />
+        <Status>CheckingSuccessful</Status>
+        <ResultType>ElementsList</ResultType>
+        <Dep>АР</Dep>
+        <Name>АР_Нет неразмещенных помещений</Name>
+        <LastRun>06.11.2022 23:31:36</LastRun>
+      </CheckingTemplate>
+      <CheckingTemplate
+        xsi:type="IfPilesAreMadeOfColumns">
+        <ElementCheckingResults>
+          <ElementCheckingResult>
+            <Name>elementName2</Name>
+            <Status>Созданная</Status>
+            <ID>elementID2</ID>
+            <Time>06.11.2022 23:35:59</Time>
+          </ElementCheckingResult>
+          <ElementCheckingResult>
+            <Name>elementName</Name>
+            <Status>Созданная</Status>
+            <ID>elementID</ID>
+            <Time>06.11.2022 23:35:59</Time>
+          </ElementCheckingResult>
+        </ElementCheckingResults>
+        <Status>CheckingSuccessful</Status>
+        <ResultType>ElementsList</ResultType>
+        <Dep>КР</Dep>
+        <Name>КР_Сваи замоделированы колоннами</Name>
+        <LastRun>06.11.2022 23:33:42</LastRun>
+      </CheckingTemplate>
+    </Checkings>
+  </FileCheckingResult>
+</ArrayOfFileCheckingResult>

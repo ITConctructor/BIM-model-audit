@@ -269,7 +269,7 @@
                         <Image Source="{Binding SelectedChecking.Status, Converter={StaticResource statusToImage}}"  Height="20" Margin="10, 0, 10, 0"/>
                         <TextBlock Text="{Binding SelectedChecking.Status, Converter={StaticResource statusToText}}" VerticalAlignment="Center"/>
                     </StackPanel>
-                    <TextBlock x:Name="MessageTextBlock" Grid.Row="3" Text="{Binding SelectedChecking.Message}"/>
+                    <TextBlock x:Name="MessageTextBlock" Grid.Row="3" Text="{Binding SelectedChecking.Message}" Margin="10, 10, 10, 10"/>
                     <DataGrid x:Name="ResultsGrid"
                           Grid.Row="3"
                           CanUserAddRows="False"
