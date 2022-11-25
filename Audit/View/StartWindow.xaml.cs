@@ -38,8 +38,10 @@ namespace Audit
         public StartWindow()
         {
             InitializeComponent();
-            DataContext = new ApplicationViewModel(this);
+            ViewModel = new ApplicationViewModel(this);
+            DataContext = ViewModel;
         }
+        private ApplicationViewModel ViewModel { get; set; }
 
         private void GetDrivers()
         {
@@ -168,6 +170,16 @@ namespace Audit
         {
             TabItem activeTab = CheckingsTabControl.SelectedItem as TabItem;
             activeGrid = activeTab.Content as System.Windows.Controls.DataGrid;
+        }
+
+        private void ResultStatusSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ViewModel.SelectedChecking.UpdateCounts();
+        }
+
+        private void BaseWindow_Closed(object sender, EventArgs e)
+        {
+            ViewModel.WriteLog();
         }
     }
 }

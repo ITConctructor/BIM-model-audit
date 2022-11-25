@@ -8,7 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800" Loaded="Window_Loaded"
              x:Name="BaseWindow"
              Title="Аудит модели"
-             MinHeight="450" MinWidth="450" ResizeMode="CanResizeWithGrip" >
+             MinHeight="450" MinWidth="450" ResizeMode="CanResizeWithGrip" Closed="BaseWindow_Closed" >
     <Window.Resources>
         <Style x:Key="CheckingsDataGridStyle" TargetType="DataGrid">
             <Style.Setters>
@@ -20,6 +20,7 @@
                 <Setter Property="Height" Value="Auto"/>
                 <Setter Property="AutoGenerateColumns" Value="False"/>
                 <Setter Property="IsReadOnly" Value="True"/>
+                <Setter Property="SelectedItem" Value="{Binding SelectedChecking, Mode=TwoWay}"/>
             </Style.Setters>
         </Style>
         <Style x:Key="GroupBoxStyle" TargetType="GroupBox">
@@ -28,24 +29,6 @@
                 <Setter Property="BorderThickness" Value="2"/>
             </Style.Setters>
         </Style>
-        <!--<Style TargetType="Button">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border CornerRadius="5" BorderThickness="5">
-                            <ContentPresenter Content="{TemplateBinding Content}"/>
-                            <Border.BorderBrush>
-                                <RadialGradientBrush >
-                                    <GradientStop Color="Black" Offset="0.0" />
-                                    <GradientStop Color="DarkGray" Offset="0.5" />
-                                    <GradientStop Color="WhiteSmoke" Offset="1.0" />
-                                </RadialGradientBrush>
-                            </Border.BorderBrush>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>-->
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="WhiteSmoke"/>
             <Setter Property="Effect">
@@ -81,7 +64,8 @@
                     <GradientStop Color="White" Offset="1.0" />
                 </LinearGradientBrush>
             </UniformGrid.Background>
-            <TextBlock Grid.Row="0" x:Name="CheckingName" Text="{Binding SelectedChecking.Name}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30" Height="30" FontSize="20" FontFamily="Verdana"/>
+            <TextBlock Grid.Row="0" x:Name="CheckingName" Text="{Binding SelectedChecking.Name}" HorizontalAlignment="Left" VerticalAlignment="Center" 
+                       Margin="30" Height="30" FontSize="20" FontFamily="Verdana"/>
             <Image Source="/Audit;component/Resources/logoEtalon.png" Width="100" HorizontalAlignment="Right" Margin="20, 20, 20, 20"/>
         </UniformGrid>
         <Separator Grid.Row="1" BorderThickness="50" BorderBrush="Black"/>
@@ -92,7 +76,7 @@
             </Grid.RowDefinitions>
             <TabControl Margin="20, 20, 20, 10" Name="CheckingsTabControl" LostFocus="CheckingsTabControl_LostFocus" SelectionChanged="CheckingsTabControl_SelectionChanged" SelectedIndex="0">
                 <TabItem Header="ОБЩ">
-                    <DataGrid x:Name="CommonCheckingGrid" Style="{StaticResource CheckingsDataGridStyle}" SelectedItem="{Binding SelectedChecking, Mode=OneWayToSource}">
+                    <DataGrid x:Name="CommonCheckingGrid" Style="{StaticResource CheckingsDataGridStyle}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Path=Name}" Header="Имя" Width="Auto"/>
                             <DataGridTextColumn Binding="{Binding Path=LastRun}" Header="Последний запуск" Width="Auto"/>
@@ -105,7 +89,7 @@
                     </DataGrid>
                 </TabItem>
                 <TabItem Header="АР">
-                    <DataGrid x:Name="ARCheckingGrid" Style="{StaticResource CheckingsDataGridStyle}" SelectedItem="{Binding SelectedChecking, Mode=OneWayToSource}">
+                    <DataGrid x:Name="ARCheckingGrid" Style="{StaticResource CheckingsDataGridStyle}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Path=Name}" Header="Имя" Width="Auto"/>
                             <DataGridTextColumn Binding="{Binding Path=LastRun}" Header="Последний запуск" Width="Auto"/>
@@ -118,7 +102,7 @@
                     </DataGrid>
                 </TabItem>
                 <TabItem Header="КР">
-                    <DataGrid x:Name="KRCheckingGrid" Style="{StaticResource CheckingsDataGridStyle}" SelectedItem="{Binding SelectedChecking, Mode=OneWayToSource}">
+                    <DataGrid x:Name="KRCheckingGrid" Style="{StaticResource CheckingsDataGridStyle}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Path=Name}" Header="Имя" Width="Auto"/>
                             <DataGridTextColumn Binding="{Binding Path=LastRun}" Header="Последний запуск" Width="Auto"/>
@@ -131,7 +115,7 @@
                     </DataGrid>
                 </TabItem>
                 <TabItem Header="ЭОМ">
-                    <DataGrid x:Name="EOMCheckingGrid" Style="{StaticResource CheckingsDataGridStyle}" SelectedItem="{Binding SelectedChecking, Mode=OneWayToSource}">
+                    <DataGrid x:Name="EOMCheckingGrid" Style="{StaticResource CheckingsDataGridStyle}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Path=Name}" Header="Имя" Width="Auto"/>
                             <DataGridTextColumn Binding="{Binding Path=LastRun}" Header="Последний запуск" Width="Auto"/>
@@ -144,7 +128,7 @@
                     </DataGrid>
                 </TabItem>
                 <TabItem Header="ВК">
-                    <DataGrid x:Name="VKCheckingGrid" Style="{StaticResource CheckingsDataGridStyle}" SelectedItem="{Binding SelectedChecking, Mode=OneWayToSource}">
+                    <DataGrid x:Name="VKCheckingGrid" Style="{StaticResource CheckingsDataGridStyle}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Path=Name}" Header="Имя" Width="Auto"/>
                             <DataGridTextColumn Binding="{Binding Path=LastRun}" Header="Последний запуск" Width="Auto"/>
@@ -157,7 +141,7 @@
                     </DataGrid>
                 </TabItem>
                 <TabItem Header="ОВ">
-                    <DataGrid x:Name="OVCheckingGrid" Style="{StaticResource CheckingsDataGridStyle}" SelectedItem="{Binding SelectedChecking, Mode=OneWayToSource}">
+                    <DataGrid x:Name="OVCheckingGrid" Style="{StaticResource CheckingsDataGridStyle}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Path=Name}" Header="Имя" Width="Auto"/>
                             <DataGridTextColumn Binding="{Binding Path=LastRun}" Header="Последний запуск" Width="Auto"/>
@@ -170,7 +154,7 @@
                     </DataGrid>
                 </TabItem>
                 <TabItem Header="СС">
-                    <DataGrid x:Name="SSCheckingGrid" Style="{StaticResource CheckingsDataGridStyle}" SelectedItem="{Binding SelectedChecking, Mode=OneWayToSource}">
+                    <DataGrid x:Name="SSCheckingGrid" Style="{StaticResource CheckingsDataGridStyle}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Path=Name}" Header="Имя" Width="Auto"/>
                             <DataGridTextColumn Binding="{Binding Path=LastRun}" Header="Последний запуск" Width="Auto"/>
@@ -199,11 +183,12 @@
             <TabItem Header="Файлы">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
+                        <ColumnDefinition Width="86*"/>
+                        <ColumnDefinition Width="249*"/>
                         <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition Width="335*"/>
                     </Grid.ColumnDefinitions>
-                    <GroupBox Grid.Column="0" Margin="10, 10, 10, 10" Header="Выберите файлы" Style="{StaticResource GroupBoxStyle}">
+                    <GroupBox Grid.Column="0" Margin="10,10,10,10" Header="Выберите файлы" Style="{StaticResource GroupBoxStyle}" Grid.ColumnSpan="2">
                         <TreeView Grid.Column="0" x:Name="foldersItem"
                                   Width="Auto" Background="#FFFFFFFF"
                                   BorderBrush="#FFFFFFFF"
@@ -232,7 +217,7 @@
                             </TreeView.Resources>
                         </TreeView>
                     </GroupBox>
-                    <UniformGrid Rows="2" Grid.Column="1">
+                    <UniformGrid Rows="2" Grid.Column="2">
                         <Button HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20, 20, 20, 20" x:Name="AddFiles" Command="{Binding AddFilesToPreanalysListCommand}" Background="White" BorderBrush="White">
                             <Button.Content>
                                 <Image Width="40"
@@ -250,26 +235,30 @@
                             </Button.Content>
                         </Button>
                     </UniformGrid>
-                    <Border Grid.Column="2" Margin="10, 20, 10, 10" BorderBrush="MediumPurple" BorderThickness="2" CornerRadius="5">
+                    <Border Grid.Column="3" Margin="10,20,10,10" BorderBrush="MediumPurple" BorderThickness="2" CornerRadius="5">
                         <ListBox x:Name="FilesToAnalys" Margin="5, 5, 5, 5" SelectionMode="Multiple" ItemsSource="{Binding PreanalysFiles}"/>
                     </Border>
                 </Grid>
             </TabItem>
             <TabItem Header="Результаты">
                 <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="7*"/>
+                        <ColumnDefinition Width="370*"/>
+                    </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Margin="10, 10, 10, 10" Text="Показать для файла:" Grid.Row="0" VerticalAlignment="Center"/>
-                    <ComboBox Grid.Row="1" x:Name="activeFileComboBox" Margin="10, 0, 10, 0" ItemsSource="{Binding PreanalysFiles}" SelectedItem="{Binding SelectedFile, Mode=TwoWay}"/>
-                    <StackPanel Grid.Row="2" Margin="5, 10, 5, 5" Orientation="Horizontal">
+                    <TextBlock Margin="10,10,10,0" Text="Показать для файла:" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+                    <ComboBox Grid.Row="1" x:Name="activeFileComboBox" Margin="10,5,10,35" ItemsSource="{Binding PreanalysFiles}" SelectedItem="{Binding SelectedFile, Mode=TwoWay}" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                    <StackPanel Grid.Row="2" Margin="5, 10, 5, 5" Orientation="Horizontal" Grid.ColumnSpan="2">
                         <Image Source="{Binding SelectedChecking.Status, Converter={StaticResource statusToImage}}"  Height="20" Margin="10, 0, 10, 0"/>
                         <TextBlock Text="{Binding SelectedChecking.Status, Converter={StaticResource statusToText}}" VerticalAlignment="Center"/>
                     </StackPanel>
-                    <TextBlock x:Name="MessageTextBlock" Grid.Row="3" Text="{Binding SelectedChecking.Message}" Margin="10, 10, 10, 10"/>
+                    <TextBlock x:Name="MessageTextBlock" Grid.Row="3" Text="{Binding SelectedChecking.Message}" Margin="10,10,10,10" Grid.ColumnSpan="2"/>
                     <DataGrid x:Name="ResultsGrid"
                           Grid.Row="3"
                           CanUserAddRows="False"
@@ -277,10 +266,16 @@
                           VerticalScrollBarVisibility="Visible"
                           HorizontalScrollBarVisibility="Visible"
                           AutoGenerateColumns="False"
-                          Margin="10, 10, 10, 10">
+                          Margin="10,10,10,10" Grid.ColumnSpan="2">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Path=Name}" Header="Имя" Width="Auto" IsReadOnly="True"/>
-                            <DataGridComboBoxColumn x:Name="resultStatusesColumn" SelectedValueBinding="{Binding Path=Status, Mode=TwoWay}" Header="Статус" Width="Auto"/>
+                            <DataGridComboBoxColumn x:Name="resultStatusesColumn" SelectedValueBinding="{Binding Path=Status, Mode=TwoWay}" Header="Статус" Width="Auto">
+                                <DataGridComboBoxColumn.EditingElementStyle>
+                                    <Style TargetType="{x:Type ComboBox}">
+                                        <EventSetter Event="SelectionChanged" Handler="ResultStatusSelectionChanged" />
+                                    </Style>
+                                </DataGridComboBoxColumn.EditingElementStyle>
+                            </DataGridComboBoxColumn>
                             <DataGridTextColumn Binding="{Binding Path=ID}" Header="ID элемента" Width="Auto" IsReadOnly="True"/>
                             <DataGridTextColumn Binding="{Binding Path=Time}" Header="Время обнаружения" Width="Auto" IsReadOnly="True"/>
                             <DataGridTextColumn Binding="{Binding Path=Comment, Mode=TwoWay}" Header="Комментарий"/>

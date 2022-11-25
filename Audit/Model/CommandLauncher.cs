@@ -32,7 +32,7 @@ namespace Audit
             uiapp = commandData.Application;
             app = commandData.Application.Application;
             StartWindow win = new StartWindow();
-            ApplicationViewModel model = new ApplicationViewModel(win);
+            //ApplicationViewModel model = new ApplicationViewModel(win);
             win.Show();
             return Result.Succeeded;
         }
@@ -53,6 +53,5 @@ namespace Audit
         }
         public static Autodesk.Revit.ApplicationServices.Application app { get; private set; }
         public static UIApplication uiapp { get; private set; }
-        public static ApplicationViewModel ViewModel;
     }
 }

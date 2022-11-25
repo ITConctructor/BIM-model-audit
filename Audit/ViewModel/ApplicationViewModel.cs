@@ -404,7 +404,6 @@ namespace Audit
                 }
             }
             UpdateSettings();
-            WriteLog();
         }
 
         /// <summary>
@@ -448,7 +447,6 @@ namespace Audit
                 }
             }
             UpdateSettings();
-            WriteLog();
         }
 
         /// <summary>
@@ -459,11 +457,11 @@ namespace Audit
             Checking.LastRun = System.DateTime.Now.ToString();
             Document doc = OpenRvtFile(filePath);
             Checking.Status = Checking.Run(doc, Checking.ElementCheckingResults);
-            //Checking.Amount = Checking.ElementCheckingResults.Count.ToString();
-            //Checking.Created = Checking.ElementCheckingResults.Where(t => t.Status == "Созданная").ToList().Count.ToString();
-            //Checking.Active = Checking.ElementCheckingResults.Where(t => t.Status == "Активная").ToList().Count.ToString();
-            //Checking.Corrected = Checking.ElementCheckingResults.Where(t => t.Status == "Исправленная").ToList().Count.ToString();
-            //Checking.Checked = Checking.ElementCheckingResults.Where(t => t.Status == "Проверенная").ToList().Count.ToString();
+            Checking.Amount = Checking.ElementCheckingResults.Count.ToString();
+            Checking.Created = Checking.ElementCheckingResults.Where(t => t.Status == "Созданная").ToList().Count.ToString();
+            Checking.Active = Checking.ElementCheckingResults.Where(t => t.Status == "Активная").ToList().Count.ToString();
+            Checking.Corrected = Checking.ElementCheckingResults.Where(t => t.Status == "Исправленная").ToList().Count.ToString();
+            Checking.Checked = Checking.ElementCheckingResults.Where(t => t.Status == "Проверенная").ToList().Count.ToString();
         }
 
         /// <summary>
