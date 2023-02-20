@@ -94,5 +94,17 @@ namespace Audit.Properties {
                 this["LastReportPath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string CurrentFile {
+            get {
+                return ((string)(this["CurrentFile"]));
+            }
+            set {
+                this["CurrentFile"] = value;
+            }
+        }
     }
 }

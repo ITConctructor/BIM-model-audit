@@ -41,7 +41,12 @@ namespace Audit
             switch (e)
             {
                 case DialogBoxShowingEventArgs args1:
-                    if (e.DialogId != "")
+                    if (e.DialogId == "TaskDialog_Missing_Third_Party_Updaters")
+                    {
+                        TaskDialogShowingEventArgs args2 = (TaskDialogShowingEventArgs)args1;
+                        e.OverrideResult((int)TaskDialogResult.CommandLink1);
+                    }
+                    else
                     {
                         string id = e.DialogId;
                         e.OverrideResult(1);

@@ -27,6 +27,7 @@ using System.Xml;
 using System.Xml.Serialization;
 using DataGrid = System.Windows.Controls.DataGrid;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.Diagnostics;
 
 namespace Audit
 {
@@ -147,9 +148,9 @@ namespace Audit
 
         public static List<string> ResultStatuses { get; set; } = new List<string>() { "Созданная", "Активная", "Проверенная", "Исправленная" };
 
-    #endregion
+        #endregion
 
-    #region Методы
+        #region Методы
         /// <summary>
     /// Загружает файловую структуру с ПК для просмотрщика TreeView
     /// </summary>
@@ -387,9 +388,12 @@ namespace Audit
         {
             if (UpdateForSelectedFile == true)
             {
+                Document doc = OpenRvtFile(SelectedFile?.Path);
+                Properties.Settings.Default.CurrentFile = SelectedFile?.Path;
+                Properties.Settings.Default.Save();
                 foreach (CheckingTemplate Checking in SelectedFile?.CheckingResults[0].Checkings)
                 {
-                    UpdateChecking(Checking, SelectedFile?.Path);
+                    UpdateChecking(Checking, doc);
                 }
             }
             else
@@ -397,9 +401,12 @@ namespace Audit
                 for (int i = 0; i < PreanalysFiles.Count; i++)
                 {
                     _win.activeFileComboBox.SelectedIndex = i;
+                    Document doc = OpenRvtFile(PreanalysFiles[i].Path);
+                    Properties.Settings.Default.CurrentFile = PreanalysFiles[i].Path;
+                    Properties.Settings.Default.Save();
                     foreach (CheckingTemplate Checking in PreanalysFiles[i].CheckingResults[0].Checkings)
                     {
-                        UpdateChecking(Checking, PreanalysFiles[i].Path);
+                        UpdateChecking(Checking, doc);
                     }
                 }
             }
@@ -415,6 +422,9 @@ namespace Audit
             {
                 TabItem selectedTabItem = _win.CheckingsTabControl.SelectedItem as TabItem;
                 DataGrid selectedDataGrid = selectedTabItem.Content as DataGrid;
+                Document doc = OpenRvtFile(SelectedFile?.Path);
+                Properties.Settings.Default.CurrentFile = SelectedFile?.Path;
+                Properties.Settings.Default.Save();
                 foreach (var item in selectedDataGrid.SelectedItems)
                 {
                     CheckingTemplate activeChecking = (CheckingTemplate)item;
@@ -422,7 +432,7 @@ namespace Audit
                     {
                         if (checking.Name == activeChecking.Name)
                         {
-                            UpdateChecking(checking, SelectedFile?.Path);
+                            UpdateChecking(checking, doc);
                         }
                     }
                 }
@@ -431,6 +441,9 @@ namespace Audit
             {
                 foreach (RvtFileInfo file in PreanalysFiles)
                 {
+                    Document doc = OpenRvtFile(file.Path);
+                    Properties.Settings.Default.CurrentFile = file.Path;
+                    Properties.Settings.Default.Save();
                     TabItem selectedTabItem = _win.CheckingsTabControl.SelectedItem as TabItem;
                     DataGrid selectedDataGrid = selectedTabItem.Content as DataGrid;
                     foreach (var item in selectedDataGrid.SelectedItems)
@@ -440,7 +453,7 @@ namespace Audit
                         {
                             if (checking.Name == activeChecking.Name)
                             {
-                                UpdateChecking(checking, file.Path);
+                                UpdateChecking(checking, doc);
                             }
                         }
                     }
@@ -452,16 +465,19 @@ namespace Audit
         /// <summary>
         /// Общий для UpdateSelected и UpdateAll метод запуска проверки и обновления результатов
         /// </summary>
-        private void UpdateChecking(CheckingTemplate Checking, string filePath)
+        private void UpdateChecking(CheckingTemplate Checking, Document doc)
         {
             Checking.LastRun = System.DateTime.Now.ToString();
-            Document doc = OpenRvtFile(filePath);
+            
             Checking.Status = Checking.Run(doc, Checking.ElementCheckingResults);
             Checking.Amount = Checking.ElementCheckingResults.Count.ToString();
             Checking.Created = Checking.ElementCheckingResults.Where(t => t.Status == "Созданная").ToList().Count.ToString();
             Checking.Active = Checking.ElementCheckingResults.Where(t => t.Status == "Активная").ToList().Count.ToString();
             Checking.Corrected = Checking.ElementCheckingResults.Where(t => t.Status == "Исправленная").ToList().Count.ToString();
             Checking.Checked = Checking.ElementCheckingResults.Where(t => t.Status == "Проверенная").ToList().Count.ToString();
+            //TextWriterTraceListener tr = new TextWriterTraceListener(System.IO.File.CreateText("C:\\Users\\Евгений\\source\\repos\\etl_audit\\Output.txt"));
+            //Debug.Listeners.Add(tr);
+            //Debug.WriteLine("Запущена проверка");
         }
 
         /// <summary>
@@ -498,7 +514,7 @@ namespace Audit
                         foreach (Type checking in checkings)
                         {
                             CheckingTemplate Checking = Activator.CreateInstance(Type.GetType(checking.FullName)) as CheckingTemplate;
-                            if (item.Header.ToString() == Checking.Dep)
+                            if (Checking != null && item.Header.ToString() == Checking.Dep)
                             {
                                 Checking.ElementCheckingResults = new BindingList<ElementCheckingResult>();
                                 Checking.Status = CheckingStatus.NotLaunched;
@@ -592,7 +608,7 @@ namespace Audit
         /// </summary>
         /// <param name="filePath"> Путь к файлу</param>
         /// <returns></returns>
-        private Document OpenRvtFile(string filePath)
+        public static Document OpenRvtFile(string filePath)
         {
             UIApplication uiapp = CommandLauncher.uiapp;
             ModelPath path = ModelPathUtils.ConvertUserVisiblePathToModelPath(filePath);

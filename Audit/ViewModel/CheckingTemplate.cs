@@ -24,7 +24,11 @@ namespace Audit
         XmlInclude(typeof(IfNavisworksViewExist)),
         XmlInclude(typeof(IfViewsNamesAreCorrect)),
         XmlInclude(typeof(IfNoSheetsWithoutNames)),
-        XmlInclude(typeof(IfARWallsNamesAreCorrect))]
+        XmlInclude(typeof(IfARWallsNamesAreCorrect)),
+        XmlInclude(typeof(IfBasePointPlacementIsCorrect)),
+        XmlInclude(typeof(IfOnlyExistingGroups)),
+        XmlInclude(typeof(IfCoordinatesAreCorrect)),
+        XmlInclude(typeof(IfAllWorksetsInDoc))]
     public class CheckingTemplate
     {
         public BindingList<ElementCheckingResult> ElementCheckingResults { get; set; }
