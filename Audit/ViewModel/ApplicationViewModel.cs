@@ -28,6 +28,7 @@ using System.Xml.Serialization;
 using DataGrid = System.Windows.Controls.DataGrid;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Diagnostics;
+using Application = System.Windows.Forms.Application;
 
 namespace Audit
 {
@@ -347,7 +348,7 @@ namespace Audit
             foreach (RvtFileInfo File in PreanalysFiles)
             {
                 string logFileName = File.Name;
-                string directoryPath = Properties.Settings.Default.folderToSaveLog + "\\log_" + logFileName;
+                string directoryPath = CommandLauncher.resultsPath + "\\log_" + logFileName;
                 directoryPath = directoryPath.Replace(".rvt", "");
                 string fullFilePath = directoryPath + "\\log_" + logFileName.Substring(0, logFileName.LastIndexOf(".")) + "_" + DateTime.Now.ToString().Replace(' ', '_').Replace(':', '.') + ".xml";
                 logFilesPaths = logFilesPaths + fullFilePath + "|";
@@ -395,6 +396,7 @@ namespace Audit
                 {
                     UpdateChecking(Checking, doc);
                 }
+                CloseRvtFile(doc);
             }
             else
             {
@@ -408,6 +410,7 @@ namespace Audit
                     {
                         UpdateChecking(Checking, doc);
                     }
+                    CloseRvtFile(doc);
                 }
             }
             UpdateSettings();
@@ -436,6 +439,7 @@ namespace Audit
                         }
                     }
                 }
+                CloseRvtFile(doc);
             }
             else
             {
@@ -457,6 +461,7 @@ namespace Audit
                             }
                         }
                     }
+                    CloseRvtFile(doc);
                 }
             }
             UpdateSettings();
@@ -619,6 +624,13 @@ namespace Audit
             Autodesk.Revit.ApplicationServices.Application app = CommandLauncher.app;
             Document doc = app.OpenDocumentFile(path, openOptions);
             return doc;
+        }
+        public static void CloseRvtFile(Document doc)
+        {
+            if (doc.Title != CommandLauncher.uiapp.ActiveUIDocument.Document.Title)
+            {
+                doc.Close(false);
+            }
         }
         #endregion
 

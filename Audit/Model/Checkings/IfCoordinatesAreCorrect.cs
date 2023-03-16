@@ -28,75 +28,75 @@ namespace Audit.Model.Checkings
             //Флаг для определения результата проверки: пройдена или нет
             int flag = 3;
             
-            //Проверяем наличие связей
-            if (links.Count == 0)
-            {
-                flag = 0;
-            }
-            //Получаем документы из связей
-            //Чтобы получить документы из связей, берем имена всех связанных файлов и ищем их в том же каталоге,
-            //где лежит базовый файл, углубляясь на 2 папки
-            List<Document> linkdocs = new List<Document>();
-            List<string> names = new List<string>();
-            foreach (Element rvtlink in links)
-            {
-                RevitLinkInstance link = (RevitLinkInstance)rvtlink;
-                if (!link.Name.ToLower().Contains("задани") || !link.Name.ToLower().Contains("отверсти"))
-                {
-                    names.Add(link.Name);
-                }
-            }
-            foreach (string name in names)
-            {
-                string Name = name.Split(' ')[0];
-                string filePath = Properties.Settings.Default.CurrentFile;
-                string dir = Path.GetDirectoryName(Path.GetDirectoryName(filePath));
-                string[] files = Directory.GetFiles(dir, "*.*", SearchOption.AllDirectories);
-                string linkPath = "";
-                foreach (string file in files)
-                {
-                    if (file.Contains(Name))
-                    {
-                        linkPath = file;
-                        break;
-                    }
-                }
-                if (linkPath != "")
-                {
-                    Document document = ApplicationViewModel.OpenRvtFile(linkPath);
-                    linkdocs.Add(document);
-                }
-            }
-            //Получаем систему координат проекта
-            SiteLocation doclocation = doc.ActiveProjectLocation.GetSiteLocation();
+            ////Проверяем наличие связей
+            //if (links.Count == 0)
+            //{
+            //    flag = 0;
+            //}
+            ////Получаем документы из связей
+            ////Чтобы получить документы из связей, берем имена всех связанных файлов и ищем их в том же каталоге,
+            ////где лежит базовый файл, углубляясь на 2 папки
+            //List<Document> linkdocs = new List<Document>();
+            //List<string> names = new List<string>();
+            //foreach (Element rvtlink in links)
+            //{
+            //    RevitLinkInstance link = (RevitLinkInstance)rvtlink;
+            //    if (!link.Name.ToLower().Contains("задани") || !link.Name.ToLower().Contains("отверсти"))
+            //    {
+            //        names.Add(link.Name);
+            //    }
+            //}
+            //foreach (string name in names)
+            //{
+            //    string Name = name.Split(' ')[0];
+            //    string filePath = Properties.Settings.Default.CurrentFile;
+            //    string dir = Path.GetDirectoryName(Path.GetDirectoryName(filePath));
+            //    string[] files = Directory.GetFiles(dir, "*.*", SearchOption.AllDirectories);
+            //    string linkPath = "";
+            //    foreach (string file in files)
+            //    {
+            //        if (file.Contains(Name))
+            //        {
+            //            linkPath = file;
+            //            break;
+            //        }
+            //    }
+            //    if (linkPath != "")
+            //    {
+            //        Document document = ApplicationViewModel.OpenRvtFile(linkPath);
+            //        linkdocs.Add(document);
+            //    }
+            //}
+            ////Получаем систему координат проекта
+            //SiteLocation doclocation = doc.ActiveProjectLocation.GetSiteLocation();
 
-            //Просматриваем все связи и сравниваем их системы координат с системой координат проекта
-            int errorscount = 0;
-            foreach (Document linkdoc in linkdocs)
-            {
-                SiteLocation linklocation = linkdoc.ActiveProjectLocation.GetSiteLocation();
-                if (Math.Round(linklocation.Latitude, 3) != Math.Round(doclocation.Latitude, 3) || Math.Round(linklocation.Longitude, 3) != Math.Round(doclocation.Longitude, 3))
-                {
-                    errorscount++;
-                }
-            }
-            if (errorscount == linkdocs.Count && linkdocs.Count != 0)
-            {
-                flag = 1;
-            }
+            ////Просматриваем все связи и сравниваем их системы координат с системой координат проекта
+            //int errorscount = 0;
+            //foreach (Document linkdoc in linkdocs)
+            //{
+            //    SiteLocation linklocation = linkdoc.ActiveProjectLocation.GetSiteLocation();
+            //    if (Math.Round(linklocation.Latitude, 3) != Math.Round(doclocation.Latitude, 3) || Math.Round(linklocation.Longitude, 3) != Math.Round(doclocation.Longitude, 3))
+            //    {
+            //        errorscount++;
+            //    }
+            //}
+            //if (errorscount == linkdocs.Count && linkdocs.Count != 0)
+            //{
+            //    flag = 1;
+            //}
 
-            //Проверяем, стоят ли связи по общим координатам
-            if (flag == 3)
-            {
-                foreach (Element link in links)
-                {
-                    if (link.Name.Contains("Не общедоступное"))
-                    {
-                        flag = 2;
-                        break;
-                    }
-                }
-            }
+            ////Проверяем, стоят ли связи по общим координатам
+            //if (flag == 3)
+            //{
+            //    foreach (Element link in links)
+            //    {
+            //        if (link.Name.Contains("Не общедоступное"))
+            //        {
+            //            flag = 2;
+            //            break;
+            //        }
+            //    }
+            //}
 
             //Возвращаем результат проверки
             if (flag == 0)

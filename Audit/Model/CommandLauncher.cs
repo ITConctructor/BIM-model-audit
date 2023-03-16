@@ -20,6 +20,8 @@ using System.Windows.Shapes;
 using Image = System.Drawing.Image;
 using Autodesk.Revit.UI.Events;
 using System.Runtime.InteropServices;
+using Application = System.Windows.Forms.Application;
+using System.IO;
 
 namespace Audit
 {
@@ -28,6 +30,11 @@ namespace Audit
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
+            resultsPath = commandData.Application.Application.CurrentUsersAddinsDataFolderPath + "\\Audit_Results";
+            if (!System.IO.Directory.Exists(resultsPath))
+            {
+                System.IO.Directory.CreateDirectory(resultsPath);
+            }
             commandData.Application.DialogBoxShowing += DialogHandler;
             uiapp = commandData.Application;
             app = commandData.Application.Application;
@@ -58,5 +65,6 @@ namespace Audit
         }
         public static Autodesk.Revit.ApplicationServices.Application app { get; private set; }
         public static UIApplication uiapp { get; private set; }
+        public static string resultsPath = "";
     }
 }

@@ -44,6 +44,11 @@ namespace Audit.Model.Checkings
                 }
             }
             //Ищем точку пересечения осей
+            if (corgrids.Count == 0)
+            {
+                Message = "В файле нет осей 1 и А";
+                return ApplicationViewModel.CheckingStatus.CheckingFailed;
+            }
             Curve line1 = ((Grid)corgrids[0]).Curve;
             Curve line2 = ((Grid)corgrids[1]).Curve;
             XYZ intersectPoint = new XYZ();
