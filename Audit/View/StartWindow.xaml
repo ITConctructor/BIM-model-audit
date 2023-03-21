@@ -1296,6 +1296,9 @@
                 <CheckBox Margin="20, 0, 0, 0" VerticalAlignment="Center" IsChecked="{Binding UpdateForSelectedFile, Mode=TwoWay}" Content="Обновить только для выбранного файла"
                           Style="{StaticResource CheckBoxCustomStyle}"
                           Height="Auto" MinHeight="30" MaxHeight="30"/>
+                <Button HorizontalAlignment="Left" Margin="20, 0, 0, 0" x:Name="CreateParameterChecking" Command="{Binding CreateParameterCheckingCommand}" Width="190"
+                        Style="{StaticResource ButtonStyle}" Content="Создать проверку параметров">
+                </Button>
             </StackPanel>
         </Grid>
         <local:CustomGridSplitter SplitterDirection="Horizontal" MinimumDistanceFromEdge="250" x:Name="splitterCenter" Grid.Row="3" HorizontalAlignment="Stretch" Height="5" MouseDown="splitterCenter_MouseDown" PreviewMouseMove="splitterCenter_PreviewMouseMove"/>
@@ -1486,15 +1489,7 @@
             </TabItem>
             <TabItem Header="Аналитика" Style="{StaticResource TabItemStyle}">
                 <Grid Margin="10, 10, 10, 10">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Text="Путь к папке с результатами прошлых проверок:" Height="Auto"/>
-                    <StackPanel Grid.Row="1" Orientation="Horizontal">
-                        <TextBox Width="500" Height="20" x:Name="logFilePath" Text="{Binding LogFilesPath}"/>
-                        <Button x:Name="selectFolderToSaveLog" Margin="10, 10, 10, 10" Height="20" Content="Обзор..." Command="{Binding SelectFolderToSaveLogCommand}"/>
-                    </StackPanel>
+
                 </Grid>
             </TabItem>
         </TabControl>

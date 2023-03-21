@@ -43,3 +43,5 @@ C:\Users\Евгений\Source\Repos\etl_audit\Audit\obj\Debug\Audit.csproj.Core
 C:\Users\Евгений\Source\Repos\etl_audit\Audit\obj\Debug\Audit.csproj.CopyComplete
 C:\Users\Евгений\Source\Repos\etl_audit\Audit\obj\Debug\Audit.dll
 C:\Users\Евгений\Source\Repos\etl_audit\Audit\obj\Debug\Audit.pdb
+C:\Users\Евгений\source\repos\etl_audit\Audit\obj\Debug\View\ParameterCheckingWindow.g.cs
+C:\Users\Евгений\source\repos\etl_audit\Audit\obj\Debug\View\ParameterCheckingWindow.baml

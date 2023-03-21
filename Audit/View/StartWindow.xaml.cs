@@ -35,10 +35,10 @@ namespace Audit
 {
     public partial class StartWindow : Window
     {
-        public StartWindow()
+        public StartWindow(ApplicationViewModel viewModel)
         {
             InitializeComponent();
-            ViewModel = new ApplicationViewModel(this);
+            ViewModel = viewModel;
             DataContext = ViewModel;
         }
         private ApplicationViewModel ViewModel { get; set; }

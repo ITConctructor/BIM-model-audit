@@ -29,6 +29,10 @@ using DataGrid = System.Windows.Controls.DataGrid;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Diagnostics;
 using Application = System.Windows.Forms.Application;
+using Audit.View;
+using Audit.Model;
+using Audit.ViewModel;
+using static Audit.Model.Utils;
 
 namespace Audit
 {
@@ -67,21 +71,34 @@ namespace Audit
             }
         }
 
-        public ApplicationViewModel(StartWindow win)
+        private DataBase Model { get; set; }
+
+        public ApplicationViewModel(DataBase model)
         {
-            _win = win;
-            LoadLastLaunchData();
-            FirstLaunchDataInitializing();
+            View = new StartWindow(this);
+            Model = model;
+            LoadLastLaunchSettings();
             ReadLog();
+            View.Show();
         }
 
         #region Данные для передачи в StartWindow
 
-        private StartWindow _win;
+        private StartWindow View;
 
-        public ObservableCollection<RvtFileInfo> PreanalysFiles { get; set; } = new ObservableCollection<RvtFileInfo>();
+        public ObservableCollection<RvtFileInfo> PreanalysFiles
+        {
+            get
+            {
+                return Model.PreanalysFiles;
+            }
+            set
+            {
+                Model.PreanalysFiles = value;
+            }
+        }
 
-        private string _logFilesPath = Properties.Settings.Default.folderToSaveLog;
+        private string _logFilesPath = CommandLauncher.resultsPath;
         public string LogFilesPath { get => _logFilesPath; set { SetProperty(ref _logFilesPath, value); } }
 
         private bool _updateForSelectedFile;
@@ -102,13 +119,13 @@ namespace Audit
             {
                 RvtFileInfo buf = value as RvtFileInfo;
                 SetProperty(ref _selectedFile, buf);
-                _win.CommonCheckingGrid.ItemsSource = _selectedFile?.CheckingResults[0].Checkings.Where(t => t.Dep == "ОБЩ").ToList();
-                _win.ARCheckingGrid.ItemsSource = _selectedFile?.CheckingResults[0].Checkings.Where(t => t.Dep == "АР").ToList();
-                _win.KRCheckingGrid.ItemsSource = _selectedFile?.CheckingResults[0].Checkings.Where(t => t.Dep == "КР").ToList();
-                _win.EOMCheckingGrid.ItemsSource = _selectedFile?.CheckingResults[0].Checkings.Where(t => t.Dep == "ЭОМ").ToList();
-                _win.VKCheckingGrid.ItemsSource = _selectedFile?.CheckingResults[0].Checkings.Where(t => t.Dep == "ВК").ToList();
-                _win.OVCheckingGrid.ItemsSource = _selectedFile?.CheckingResults[0].Checkings.Where(t => t.Dep == "ОВ").ToList();
-                _win.SSCheckingGrid.ItemsSource = _selectedFile?.CheckingResults[0].Checkings.Where(t => t.Dep == "СС").ToList();
+                View.CommonCheckingGrid.ItemsSource = _selectedFile?.CheckingResults[0].Checkings.Where(t => t.Dep == "ОБЩ").ToList();
+                View.ARCheckingGrid.ItemsSource = _selectedFile?.CheckingResults[0].Checkings.Where(t => t.Dep == "АР").ToList();
+                View.KRCheckingGrid.ItemsSource = _selectedFile?.CheckingResults[0].Checkings.Where(t => t.Dep == "КР").ToList();
+                View.EOMCheckingGrid.ItemsSource = _selectedFile?.CheckingResults[0].Checkings.Where(t => t.Dep == "ЭОМ").ToList();
+                View.VKCheckingGrid.ItemsSource = _selectedFile?.CheckingResults[0].Checkings.Where(t => t.Dep == "ВК").ToList();
+                View.OVCheckingGrid.ItemsSource = _selectedFile?.CheckingResults[0].Checkings.Where(t => t.Dep == "ОВ").ToList();
+                View.SSCheckingGrid.ItemsSource = _selectedFile?.CheckingResults[0].Checkings.Where(t => t.Dep == "СС").ToList();
                 SelectedChecking = _selectedFile?.CheckingResults[0].Checkings[0];
             }
         }
@@ -121,17 +138,17 @@ namespace Audit
             {
                 CheckingTemplate buf = value as CheckingTemplate;
                 SetProperty(ref _selectedChecking, buf);
-                _win.ResultsGrid.ItemsSource = _selectedChecking?.ElementCheckingResults;
-                _win.resultStatusesColumn.ItemsSource = ResultStatuses;
+                View.ResultsGrid.ItemsSource = _selectedChecking?.ElementCheckingResults;
+                View.resultStatusesColumn.ItemsSource = ResultStatuses;
                 if (buf != null && buf.ResultType == CheckingResultType.ElementsList)
                 {
-                    _win.ResultsGrid.Visibility = System.Windows.Visibility.Visible;
-                    _win.MessageTextBlock.Visibility = System.Windows.Visibility.Hidden;
+                    View.ResultsGrid.Visibility = System.Windows.Visibility.Visible;
+                    View.MessageTextBlock.Visibility = System.Windows.Visibility.Hidden;
                 }
                 else if (buf != null && buf.ResultType == CheckingResultType.Message)
                 {
-                    _win.ResultsGrid.Visibility = System.Windows.Visibility.Hidden;
-                    _win.MessageTextBlock.Visibility = System.Windows.Visibility.Visible;
+                    View.ResultsGrid.Visibility = System.Windows.Visibility.Hidden;
+                    View.MessageTextBlock.Visibility = System.Windows.Visibility.Visible;
                 }
             }
         }
@@ -248,19 +265,18 @@ namespace Audit
         /// </summary>
         private void AddFilesToPreanalysList()
         {
-            List<string> filesToAnalysAsText = new List<string>();
-            foreach (RvtFileInfo item in _win.FilesToAnalys.Items)
+            List<string> preanalysFilesAsText = new List<string>();
+            foreach (RvtFileInfo item in PreanalysFiles)
             {
-                filesToAnalysAsText.Add(item.Name);
+                preanalysFilesAsText.Add(item.Name);
             }
-            TreeViewItem file = _win.foldersItem.SelectedItem as TreeViewItem;
+            TreeViewItem file = View.foldersItem.SelectedItem as TreeViewItem;
             string Name = file.Header as string;
             string Path = file.Tag as string;
-            RvtFileInfo selectedFile = new RvtFileInfo() { Name = Name , Path = Path };
-            if (Name.EndsWith(".rvt") && !filesToAnalysAsText.Contains(Name))
+            RvtFileInfo selectedFile = new RvtFileInfo(Name, Path);
+            if (Name.EndsWith(".rvt") && !preanalysFilesAsText.Contains(Name))
             {
-                PreanalysFiles.Add(selectedFile);
-                FirstLaunchDataInitializing();
+                Model.PreanalysFiles.Add(selectedFile);
             }
         }
 
@@ -269,10 +285,10 @@ namespace Audit
         /// </summary>
         private void RemoveFilesFromPreanalysList()
         {
-            for (int i = 0; i < _win.FilesToAnalys.SelectedItems.Count; i = i)
+            for (int i = 0; i < View.FilesToAnalys.SelectedItems.Count; i = i)
             {
-                RvtFileInfo FileToRemove = _win.FilesToAnalys.SelectedItems[i] as RvtFileInfo;
-                PreanalysFiles.Remove(FileToRemove);
+                RvtFileInfo FileToRemove = View.FilesToAnalys.SelectedItems[i] as RvtFileInfo;
+                Model.PreanalysFiles.Remove(FileToRemove);
             }
         }
 
@@ -293,50 +309,54 @@ namespace Audit
         }
 
         /// <summary>
-        /// Выбирает в файловой структуре ПК папку для сохранения результатов проверок, впоследствии использующихся приложением
-        /// </summary>
-        private void SelectFolderToSaveLog()
-        {
-            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
-            folderBrowserDialog.Description = "Выберите папку для сохранения результатов проверок";
-            if (Properties.Settings.Default.folderToSaveLog != "")
-            {
-                folderBrowserDialog.SelectedPath = Properties.Settings.Default.folderToSaveLog;
-            }
-            folderBrowserDialog.ShowDialog();
-            LogFilesPath = folderBrowserDialog.SelectedPath;
-            Properties.Settings.Default.folderToSaveLog = LogFilesPath;
-            Properties.Settings.Default.Save();
-        }
-
-        /// <summary>
         /// Загружает из настроек приложения данные прошлого запуска: анализированные файлы и результаты проверок
         /// </summary>
-        private void LoadLastLaunchData()
+        private void LoadLastLaunchSettings()
         {
-            string loadedLastAnalysFiles = Properties.Settings.Default.lastCheckedFiles;
-            string[] loadedLastAnalysFilesArray = loadedLastAnalysFiles.Split('|');
-            string loadedLastAnalysFilesPaths = Properties.Settings.Default.lastCheckedFilesPaths;
-            string[] loadedLastAnalysFilesPathsArray = loadedLastAnalysFilesPaths.Split('|');
-            PreanalysFiles.Clear();
+            string[] loadedLastAnalysFilesArray = Properties.Settings.Default.lastCheckedFiles.Split('|');
+            string[] loadedLastAnalysFilesPathsArray = Properties.Settings.Default.lastCheckedFilesPaths.Split('|');
+            Model.PreanalysFiles.Clear();
             for (int i = 0; i < loadedLastAnalysFilesArray.Count(); i++)
             {
                 if (loadedLastAnalysFilesArray[i] != "")
                 {
-                    RvtFileInfo File = new RvtFileInfo() { Name = loadedLastAnalysFilesArray[i], Path = loadedLastAnalysFilesPathsArray[i] };
-                    PreanalysFiles.Add(File);
+                    RvtFileInfo File = new RvtFileInfo(loadedLastAnalysFilesArray[i], loadedLastAnalysFilesPathsArray[i]);
+                    Model.PreanalysFiles.Add(File);
                 }
             }
-            string reportSettings = Properties.Settings.Default.ReportSettings;
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(ReportSettings));
-            using(StringReader reader = new StringReader(reportSettings))
+            string serializedReportSettings = Properties.Settings.Default.ReportSettings;
+            if (serializedReportSettings != "")
             {
-                if (reportSettings != "")
-                {
-                    ReportsSettings = (ReportSettings)xmlSerializer.Deserialize(reader);
-                }
+                ReportsSettings = Deserialize<ReportSettings>(serializedReportSettings);
             }
 
+        }
+
+        /// <summary>
+        /// Считывает результаты предыдущих проверок
+        /// </summary>
+        private void ReadLog()
+        {
+            string[] logFilesPaths = Properties.Settings.Default.logFilesPaths.Split(new string[] { "|" }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (string path in logFilesPaths)
+            {
+                foreach (RvtFileInfo fileInfo in Model.PreanalysFiles)
+                {
+                    foreach (CheckingTemplate checking in fileInfo.CheckingResults[0].Checkings)
+                    {
+                        checking.Status = CheckingStatus.NotLaunched;
+                    }
+                    if (path.Contains(fileInfo.Name.Replace(".rvt", "")) && File.Exists(path))
+                    {
+                        string serializedFileInfo = System.IO.File.ReadAllText(path);
+                        fileInfo.CheckingResults = Deserialize<List<FileCheckingResult>>(serializedFileInfo);
+                        foreach (CheckingTemplate checking in fileInfo.CheckingResults[fileInfo.CheckingResults.Count-1].Checkings)
+                        {
+                            checking.Status = CheckingStatus.NotUpdated;
+                        }
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -345,18 +365,15 @@ namespace Audit
         public void WriteLog()
         {
             string logFilesPaths = "";
-            foreach (RvtFileInfo File in PreanalysFiles)
+            foreach (RvtFileInfo file in Model.PreanalysFiles)
             {
-                string logFileName = File.Name;
+                string logFileName = file.Name;
                 string directoryPath = CommandLauncher.resultsPath + "\\log_" + logFileName;
                 directoryPath = directoryPath.Replace(".rvt", "");
                 string fullFilePath = directoryPath + "\\log_" + logFileName.Substring(0, logFileName.LastIndexOf(".")) + "_" + DateTime.Now.ToString().Replace(' ', '_').Replace(':', '.') + ".xml";
                 logFilesPaths = logFilesPaths + fullFilePath + "|";
                 Directory.CreateDirectory(directoryPath);
-                Serialize(File.CheckingResults, fullFilePath);
-                string text = System.IO.File.ReadAllText(fullFilePath);
-                text = text.Substring(0, text.LastIndexOf(">") + 1);
-                System.IO.File.WriteAllText(fullFilePath, text, Encoding.UTF8);
+                Serialize<List<FileCheckingResult>>(file.CheckingResults, fullFilePath);
             }
             
             Properties.Settings.Default.logFilesPaths = logFilesPaths;
@@ -364,35 +381,17 @@ namespace Audit
         }
 
         /// <summary>
-        /// Создает xml файл по указанному пути
-        /// </summary>
-        public static void Serialize(List<FileCheckingResult> result, string file)
-        {
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<FileCheckingResult>));
-            string xml;
-            System.Xml.XmlWriterSettings writerSets = new System.Xml.XmlWriterSettings();
-            writerSets.NewLineOnAttributes = true;
-            writerSets.Indent = true;
-            writerSets.ConformanceLevel = ConformanceLevel.Document;
-            using (XmlWriter writer = XmlWriter.Create(file, writerSets))
-            {
-                xmlSerializer.Serialize(writer, result);
-                xml = writer.ToString();
-            }
-            File.AppendAllText(file, xml, Encoding.UTF8);
-        }
-
-        /// <summary>
         /// Выполняет все проверки, сохраняет их результаты во внешний файл и сохраняет выбор файлов для последующего запуска
         /// </summary>
         private void UpdateAll()
         {
-            if (UpdateForSelectedFile == true)
+            if (UpdateForSelectedFile)
             {
                 Document doc = OpenRvtFile(SelectedFile?.Path);
                 Properties.Settings.Default.CurrentFile = SelectedFile?.Path;
                 Properties.Settings.Default.Save();
-                foreach (CheckingTemplate Checking in SelectedFile?.CheckingResults[0].Checkings)
+                FileCheckingResult lastResult = SelectedFile?.CheckingResults[SelectedFile.CheckingResults.Count - 1];
+                foreach (CheckingTemplate Checking in lastResult.Checkings)
                 {
                     UpdateChecking(Checking, doc);
                 }
@@ -402,11 +401,12 @@ namespace Audit
             {
                 for (int i = 0; i < PreanalysFiles.Count; i++)
                 {
-                    _win.activeFileComboBox.SelectedIndex = i;
-                    Document doc = OpenRvtFile(PreanalysFiles[i].Path);
-                    Properties.Settings.Default.CurrentFile = PreanalysFiles[i].Path;
+                    View.activeFileComboBox.SelectedIndex = i;
+                    Document doc = OpenRvtFile(Model.PreanalysFiles[i].Path);
+                    Properties.Settings.Default.CurrentFile = Model.PreanalysFiles[i].Path;
                     Properties.Settings.Default.Save();
-                    foreach (CheckingTemplate Checking in PreanalysFiles[i].CheckingResults[0].Checkings)
+                    FileCheckingResult lastResult = Model.PreanalysFiles[i].CheckingResults[SelectedFile.CheckingResults.Count - 1];
+                    foreach (CheckingTemplate Checking in lastResult.Checkings)
                     {
                         UpdateChecking(Checking, doc);
                     }
@@ -423,7 +423,7 @@ namespace Audit
         {
             if (UpdateForSelectedFile == true)
             {
-                TabItem selectedTabItem = _win.CheckingsTabControl.SelectedItem as TabItem;
+                TabItem selectedTabItem = View.CheckingsTabControl.SelectedItem as TabItem;
                 DataGrid selectedDataGrid = selectedTabItem.Content as DataGrid;
                 Document doc = OpenRvtFile(SelectedFile?.Path);
                 Properties.Settings.Default.CurrentFile = SelectedFile?.Path;
@@ -443,12 +443,12 @@ namespace Audit
             }
             else
             {
-                foreach (RvtFileInfo file in PreanalysFiles)
+                foreach (RvtFileInfo file in Model.PreanalysFiles)
                 {
                     Document doc = OpenRvtFile(file.Path);
                     Properties.Settings.Default.CurrentFile = file.Path;
                     Properties.Settings.Default.Save();
-                    TabItem selectedTabItem = _win.CheckingsTabControl.SelectedItem as TabItem;
+                    TabItem selectedTabItem = View.CheckingsTabControl.SelectedItem as TabItem;
                     DataGrid selectedDataGrid = selectedTabItem.Content as DataGrid;
                     foreach (var item in selectedDataGrid.SelectedItems)
                     {
@@ -492,7 +492,7 @@ namespace Audit
         {
             string lastAnalysFilesString = "";
             string lastAnalysFilesPathsString = "";
-            foreach (RvtFileInfo fileToSaveInList in PreanalysFiles)
+            foreach (RvtFileInfo fileToSaveInList in Model.PreanalysFiles)
             {
                 lastAnalysFilesString = lastAnalysFilesString + fileToSaveInList.Name + "|";
                 lastAnalysFilesPathsString = lastAnalysFilesPathsString + fileToSaveInList.Path + "|";
@@ -500,87 +500,6 @@ namespace Audit
             Properties.Settings.Default.lastCheckedFiles = lastAnalysFilesString;
             Properties.Settings.Default.lastCheckedFilesPaths = lastAnalysFilesPathsString;
             Properties.Settings.Default.Save();
-        }
-
-        /// <summary>
-        /// Заполняет массив данных пустыми значениями результатов проверок, если плагин запускается впервые и в лог ничего не записано
-        /// </summary>
-        private void FirstLaunchDataInitializing()
-        {
-            Type[] checkings = Assembly.GetExecutingAssembly().GetTypes().Where(t => t.Namespace == "Audit.Model.Checkings").ToArray();
-            foreach (RvtFileInfo FileInfo in PreanalysFiles)
-            {
-                if (FileInfo.CheckingResults.Count == 0)
-                {
-                    FileInfo.CheckingResults.Add(new FileCheckingResult());
-                    foreach (TabItem item in _win.CheckingsTabControl.Items)
-                    {
-                        DataGrid dataGrid = item.Content as DataGrid;
-                        foreach (Type checking in checkings)
-                        {
-                            CheckingTemplate Checking = Activator.CreateInstance(Type.GetType(checking.FullName)) as CheckingTemplate;
-                            if (Checking != null && item.Header.ToString() == Checking.Dep)
-                            {
-                                Checking.ElementCheckingResults = new BindingList<ElementCheckingResult>();
-                                Checking.Status = CheckingStatus.NotLaunched;
-                                FileInfo.CheckingResults[0].Checkings.Add(Checking);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// Считывает результаты предыдущих проверок
-        /// </summary>
-        private void ReadLog()
-        {
-            string[] logFilesPaths = Properties.Settings.Default.logFilesPaths.Split(new string[] { "|" }, StringSplitOptions.RemoveEmptyEntries);
-            foreach (string item in logFilesPaths)
-            {
-                foreach (RvtFileInfo fileInfo in PreanalysFiles)
-                {
-                    foreach (CheckingTemplate checking in fileInfo.CheckingResults[0].Checkings)
-                    {
-                        checking.Status = CheckingStatus.NotLaunched;
-                    }
-                    if (item.IndexOf(fileInfo.Name.Replace(".rvt", "")) != -1 && File.Exists(item))
-                    {
-                        fileInfo.CheckingResults[0] = Deserialize(item);
-                        foreach (CheckingTemplate checking in fileInfo.CheckingResults[0].Checkings)
-                        {
-                            checking.Status = CheckingStatus.NotUpdated;
-                        }
-                    }
-                }
-            }
-        }
-        
-        /// <summary>
-        /// Считывает xml файл
-        /// </summary>
-        public static FileCheckingResult Deserialize(string file)
-        {
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<FileCheckingResult>));
-            List<FileCheckingResult> results = new List<FileCheckingResult>();
-            FileCheckingResult result = new FileCheckingResult();
-            if (File.Exists(file))
-            {
-                try
-                {
-                    using (XmlReader reader = XmlReader.Create(file))
-                    {
-                        results = (List<FileCheckingResult>)xmlSerializer.Deserialize(reader);
-                        result = results[results.Count - 1];
-                    }
-                }
-                catch (Exception)
-                {
-
-                }
-            }
-            return result;
         }
 
         /// <summary>
@@ -605,7 +524,7 @@ namespace Audit
         /// </summary>
         public void CreateReport()
         {
-            ReportsSettings.CreateReport(_win, PreanalysFiles);
+            ReportsSettings.CreateReport(View, Model.PreanalysFiles);
         }
 
         /// <summary>
@@ -632,6 +551,11 @@ namespace Audit
                 doc.Close(false);
             }
         }
+
+        public void CreateParameterChecking()
+        {
+            ParameterCheckingViewModel parameterViewModel = new ParameterCheckingViewModel(Model);
+        }
         #endregion
 
         #region Комманды
@@ -648,10 +572,6 @@ namespace Audit
         }
 
         private RelayCommand _selectFolderToSaveLogCommand;
-        public RelayCommand SelectFolderToSaveLogCommand
-        {
-            get { return _selectFolderToSaveLogCommand ?? (_selectFolderToSaveLogCommand = new RelayCommand(SelectFolderToSaveLog)); }
-        }
 
         private RelayCommand _updateAllCommand;
         public RelayCommand UpdateAllCommand
@@ -670,19 +590,15 @@ namespace Audit
         {
             get { return _createReportCommand ?? (_createReportCommand = new RelayCommand(CreateReport)); }
         }
+
+        private RelayCommand _createParameterCheckingCommand;
+        public RelayCommand CreateParameterCheckingCommand
+        {
+            get { return _createParameterCheckingCommand ?? (_createParameterCheckingCommand = new RelayCommand(CreateParameterChecking)); }
+        }
         #endregion
 
         #region Вспомогательные классы для хранения данных
-        public class RvtFileInfo
-        {
-            public string Name { get; set; }
-            public string Path { get; set; }
-            public List<FileCheckingResult> CheckingResults { get; set; } = new List<FileCheckingResult>();
-            public override string ToString()
-            {
-                return Name;
-            }
-        }
 
         public class ReportSettings
         {
@@ -691,6 +607,7 @@ namespace Audit
             public string Type { get; set; }
             public string Format { get; set; }
             public bool WriteForSelectedFile { get; set; }
+
             /// <summary>
             /// Создает отчеты о проверках
             /// </summary>
@@ -704,14 +621,7 @@ namespace Audit
                 {
 
                 }
-                XmlSerializer xmlSerializer = new XmlSerializer(typeof(ReportSettings));
-                string reportSettings = "";
-                using (StringWriter writer = new StringWriter())
-                {
-                    xmlSerializer.Serialize(writer, this);
-                    reportSettings = writer.ToString();
-                }
-                Properties.Settings.Default.ReportSettings = reportSettings;
+                Properties.Settings.Default.ReportSettings = Serialize<ReportSettings>(this);
                 Properties.Settings.Default.Save();
             }
             /// <summary>

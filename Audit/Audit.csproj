@@ -76,21 +76,28 @@
     <Compile Include="Model\Checkings\IfNoSheetsWithoutNames.cs" />
     <Compile Include="Model\Checkings\IfOnlyExistingGroups.cs" />
     <Compile Include="Model\Checkings\IfViewsNamesAreCorrect.cs" />
+    <Compile Include="Model\ParameterChecking.cs" />
+    <Compile Include="Model\DataBase.cs" />
+    <Compile Include="Model\ParameterCheckingConfiguration.cs" />
+    <Compile Include="Model\ParameterCheckingRule.cs" />
+    <Compile Include="Model\RvtFileInfo.cs" />
+    <Compile Include="Model\Utils.cs" />
     <Compile Include="Properties\Resource1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource1.resx</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\ApplicationViewModel.cs" />
-    <Compile Include="ViewModel\CheckingTemplate.cs" />
+    <Compile Include="Model\CheckingTemplate.cs" />
     <Compile Include="Model\CommandLauncher.cs" />
+    <Compile Include="ViewModel\ParameterCheckingViewModel.cs" />
     <Compile Include="View\BooleanToVisibilityConverter.cs" />
     <Compile Include="View\BooleanToVisibilityNegativeConverter.cs" />
     <Compile Include="View\CheckingStatusToImageConverter.cs" />
     <Compile Include="View\CheckingStatusToTextConverter.cs" />
     <Compile Include="View\CustomGridSplitter.cs" />
-    <Compile Include="ViewModel\ElementCheckingResult.cs" />
-    <Compile Include="ViewModel\FileCheckingResult.cs" />
+    <Compile Include="Model\ElementCheckingResult.cs" />
+    <Compile Include="Model\FileCheckingResult.cs" />
     <Compile Include="View\HeaderToImageConverter.cs" />
     <Compile Include="Model\Checkings\IfAllRoomsArePlaced.cs" />
     <Compile Include="Model\Checkings\IfLevelNamesAreCorrectChecking.cs" />
@@ -104,11 +111,18 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
+    <Compile Include="View\ParameterCheckingWindow.xaml.cs">
+      <DependentUpon>ParameterCheckingWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\StartWindow.xaml.cs">
       <DependentUpon>StartWindow.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="View\ParameterCheckingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\StartWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

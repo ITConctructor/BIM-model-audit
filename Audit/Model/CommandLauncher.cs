@@ -22,6 +22,7 @@ using Autodesk.Revit.UI.Events;
 using System.Runtime.InteropServices;
 using Application = System.Windows.Forms.Application;
 using System.IO;
+using Audit.Model;
 
 namespace Audit
 {
@@ -35,15 +36,19 @@ namespace Audit
             {
                 System.IO.Directory.CreateDirectory(resultsPath);
             }
-            commandData.Application.DialogBoxShowing += DialogHandler;
+            commandData.Application.DialogBoxShowing += ModelOpenDialogHandler;
             uiapp = commandData.Application;
             app = commandData.Application.Application;
-            StartWindow win = new StartWindow();
-            //ApplicationViewModel model = new ApplicationViewModel(win);
-            win.Show();
+            DataBase dataBase = new DataBase();
+            ApplicationViewModel viewModel = new ApplicationViewModel(dataBase);
             return Result.Succeeded;
         }
-        private async void DialogHandler(object sender, DialogBoxShowingEventArgs e)
+        /// <summary>
+        /// Обрабатывает диалоговые окна, возникающие при открытии модели
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void ModelOpenDialogHandler(object sender, DialogBoxShowingEventArgs e)
         {
             switch (e)
             {
