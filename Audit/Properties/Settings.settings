@@ -2,12 +2,6 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Audit.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="lastCheckedFiles" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="lastCheckedFilesPaths" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
     <Setting Name="ReportSettings" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
@@ -17,7 +11,7 @@
     <Setting Name="CurrentFile" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="logFilesPaths" Type="System.String" Scope="User">
+    <Setting Name="backupsPaths" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

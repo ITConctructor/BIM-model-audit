@@ -55,5 +55,15 @@ namespace Audit
             Corrected = ElementCheckingResults.Where(t => t.Status == "Исправленная").ToList().Count.ToString();
             Checked = ElementCheckingResults.Where(t => t.Status == "Проверенная").ToList().Count.ToString();
         }
+        public void UpdateResults(Document doc)
+        {
+            LastRun = System.DateTime.Now.ToString();
+            Status = Run(doc, ElementCheckingResults);
+            Amount = ElementCheckingResults.Count.ToString();
+            Created = ElementCheckingResults.Where(t => t.Status == "Созданная").ToList().Count.ToString();
+            Active = ElementCheckingResults.Where(t => t.Status == "Активная").ToList().Count.ToString();
+            Corrected = ElementCheckingResults.Where(t => t.Status == "Исправленная").ToList().Count.ToString();
+            Checked = ElementCheckingResults.Where(t => t.Status == "Проверенная").ToList().Count.ToString();
+        }
     }
 }

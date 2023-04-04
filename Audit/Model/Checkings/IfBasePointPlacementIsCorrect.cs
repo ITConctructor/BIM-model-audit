@@ -8,6 +8,7 @@ using Autodesk.Revit.UI;
 using Autodesk.Revit.Attributes;
 using System.ComponentModel;
 using Autodesk.Revit.ApplicationServices;
+using static Audit.Model.Utils;
 
 namespace Audit.Model.Checkings
 {
@@ -44,7 +45,7 @@ namespace Audit.Model.Checkings
                 }
             }
             //Ищем точку пересечения осей
-            if (corgrids.Count == 0)
+            if (corgrids.Count < 2)
             {
                 Message = "В файле нет осей 1 и А";
                 return ApplicationViewModel.CheckingStatus.CheckingFailed;

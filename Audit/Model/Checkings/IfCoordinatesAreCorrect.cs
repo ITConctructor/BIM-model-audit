@@ -9,6 +9,7 @@ using Autodesk.Revit.Attributes;
 using System.ComponentModel;
 using Autodesk.Revit.ApplicationServices;
 using System.IO;
+using static Audit.Model.Utils;
 
 namespace Audit.Model.Checkings
 {

@@ -26,30 +26,6 @@ namespace Audit.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string lastCheckedFiles {
-            get {
-                return ((string)(this["lastCheckedFiles"]));
-            }
-            set {
-                this["lastCheckedFiles"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string lastCheckedFilesPaths {
-            get {
-                return ((string)(this["lastCheckedFilesPaths"]));
-            }
-            set {
-                this["lastCheckedFilesPaths"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string ReportSettings {
             get {
                 return ((string)(this["ReportSettings"]));
@@ -86,12 +62,12 @@ namespace Audit.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string logFilesPaths {
+        public string backupsPaths {
             get {
-                return ((string)(this["logFilesPaths"]));
+                return ((string)(this["backupsPaths"]));
             }
             set {
-                this["logFilesPaths"] = value;
+                this["backupsPaths"] = value;
             }
         }
     }

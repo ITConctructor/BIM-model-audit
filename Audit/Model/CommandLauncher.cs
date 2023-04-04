@@ -31,10 +31,10 @@ namespace Audit
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
-            resultsPath = commandData.Application.Application.CurrentUsersAddinsDataFolderPath + "\\Audit_Results";
-            if (!System.IO.Directory.Exists(resultsPath))
+            backupsDirectoryPath = commandData.Application.Application.CurrentUsersAddinsDataFolderPath + "\\Audit_Results";
+            if (!System.IO.Directory.Exists(backupsDirectoryPath))
             {
-                System.IO.Directory.CreateDirectory(resultsPath);
+                System.IO.Directory.CreateDirectory(backupsDirectoryPath);
             }
             commandData.Application.DialogBoxShowing += ModelOpenDialogHandler;
             uiapp = commandData.Application;
@@ -70,6 +70,6 @@ namespace Audit
         }
         public static Autodesk.Revit.ApplicationServices.Application app { get; private set; }
         public static UIApplication uiapp { get; private set; }
-        public static string resultsPath = "";
+        public static string backupsDirectoryPath = "";
     }
 }

@@ -1391,9 +1391,13 @@
                                 <ScaleTransform ScaleY="3" />
                             </Separator.RenderTransform>
                         </Separator>
-                        <ListBox x:Name="FilesToAnalys" Margin="5, 10, 5, 5" SelectionMode="Multiple" ItemsSource="{Binding PreanalysFiles}" Grid.Row="2"
+                        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto"
+                                      HorizontalScrollBarVisibility="Auto"
+                                      Margin="0, 10, 0, 0">
+                            <ListBox x:Name="FilesToAnalys" Margin="5, 10, 5, 5" SelectionMode="Multiple" ItemsSource="{Binding PreanalysFiles}"
                                  BorderBrush="White"
                                  Foreground="#FF163475"/>
+                        </ScrollViewer>
                     </Grid>
                 </Grid>
             </TabItem>

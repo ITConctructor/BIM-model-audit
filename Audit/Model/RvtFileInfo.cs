@@ -12,6 +12,10 @@ namespace Audit.Model
 {
     public class RvtFileInfo
     {
+        public RvtFileInfo()
+        {
+
+        }
         public RvtFileInfo(string name, string path)
         {
             Name = name;
@@ -25,7 +29,7 @@ namespace Audit.Model
                 {
                     Checking.ElementCheckingResults = new BindingList<ElementCheckingResult>();
                     Checking.Status = CheckingStatus.NotLaunched;
-                    CheckingResults[CheckingResults.Count-1].Checkings.Add(Checking);
+                    CheckingResults.Last().Checkings.Add(Checking);
                 }
             }
         }

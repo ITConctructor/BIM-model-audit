@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Audit.Model.Utils;
 
 namespace Audit.Model.Checkings
 {
@@ -37,7 +38,7 @@ namespace Audit.Model.Checkings
             foreach (Element element in results)
             {
                 ElementCheckingResult result = new ElementCheckingResult() { Name = element.Name, ID = element.Id.ToString(), Time = System.DateTime.Now.ToString() };
-                ApplicationViewModel.AddElementCheckingResult(result, oldResults);
+                AddElementCheckingResult(result, oldResults);
             }
 
             //Проверяем, есть ли среди прошлого результата проверок какой-либо результат из новой. Если нет, то ставим этому результату статус "Исправленная"

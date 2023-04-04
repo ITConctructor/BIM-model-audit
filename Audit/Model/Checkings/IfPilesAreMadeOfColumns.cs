@@ -7,6 +7,7 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.Attributes;
 using System.ComponentModel;
+using static Audit.Model.Utils;
 
 namespace Audit.Model.Checkings
 {
@@ -23,8 +24,8 @@ namespace Audit.Model.Checkings
         {
             ElementCheckingResult newResult = new ElementCheckingResult() { Name = "elementName", ID = "elementID", Time = System.DateTime.Now.ToString() };
             ElementCheckingResult newResult2 = new ElementCheckingResult() { Name = "elementName2", ID = "elementID2", Time = System.DateTime.Now.ToString() };
-            ApplicationViewModel.AddElementCheckingResult(newResult2, oldResults);
-            ApplicationViewModel.AddElementCheckingResult(newResult, oldResults);
+            AddElementCheckingResult(newResult2, oldResults);
+            AddElementCheckingResult(newResult, oldResults);
             IList<Element> results = new List<Element>();
 
             //Возвращаем результат проверки - пройдена или нет

@@ -8,6 +8,7 @@ using Autodesk.Revit.UI;
 using Autodesk.Revit.Attributes;
 using System.ComponentModel;
 using Autodesk.Revit.ApplicationServices;
+using static Audit.Model.Utils;
 
 namespace Audit.Model.Checkings
 {
@@ -48,7 +49,7 @@ namespace Audit.Model.Checkings
             //Из списка элементов заполняем отчет
             foreach (ElementCheckingResult element in results)
             {
-                ApplicationViewModel.AddElementCheckingResult(element, oldResults);
+                AddElementCheckingResult(element, oldResults);
             }
 
             //Проверяем, есть ли среди прошлого результата проверок какой-либо результат из новой. Если нет, то ставим этому результату статус "Исправленная"

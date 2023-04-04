@@ -37,8 +37,8 @@ namespace Audit
     {
         public StartWindow(ApplicationViewModel viewModel)
         {
-            InitializeComponent();
             ViewModel = viewModel;
+            InitializeComponent();
             DataContext = ViewModel;
         }
         private ApplicationViewModel ViewModel { get; set; }
@@ -101,19 +101,23 @@ namespace Audit
         {
             GetDrivers();
             activeFileComboBox.SelectedIndex = 0;
+            foreach (TabItem item in CheckingsTabControl.Items)
+            {
+                DataGrid content = item.Content as DataGrid;
+                content.SelectedItems.Clear();
+            }
             activeGrid.SelectedIndex = 0;
-
         }
 
         private void CheckingsTabControl_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (CheckingsTabControl.SelectedItem == null)
-            {
-                CheckingsTabControl.SelectedIndex = 0;
-                TabItem activeTab = CheckingsTabControl.SelectedItem as TabItem;
-                System.Windows.Controls.DataGrid activeGrid = activeTab.Content as System.Windows.Controls.DataGrid;
-                activeGrid.SelectedIndex = 0;
-            }
+            //if (CheckingsTabControl.SelectedItem == null)
+            //{
+            //    CheckingsTabControl.SelectedIndex = 0;
+            //    TabItem activeTab = CheckingsTabControl.SelectedItem as TabItem;
+            //    System.Windows.Controls.DataGrid activeGrid = activeTab.Content as System.Windows.Controls.DataGrid;
+            //    activeGrid.SelectedIndex = 0;
+            //}
         }
 
         private void splitterCenter_MouseDown(object sender, MouseButtonEventArgs e)
@@ -170,6 +174,21 @@ namespace Audit
         {
             TabItem activeTab = CheckingsTabControl.SelectedItem as TabItem;
             activeGrid = activeTab.Content as System.Windows.Controls.DataGrid;
+            ViewModel.SelectedCheckingsNames = new ObservableCollection<string>();
+            ViewModel.SelectedCheckings = new ObservableCollection<CheckingTemplate>();
+            foreach (TabItem item in CheckingsTabControl.Items)
+            {
+                DataGrid content = item.Content as DataGrid;
+                foreach (var checking in content.SelectedItems)
+                {
+                    CheckingTemplate Checking = checking as CheckingTemplate;
+                    if (Checking.Name != null)
+                    {
+                        ViewModel.SelectedCheckingsNames.Add(Checking.Name);
+                        ViewModel.SelectedCheckings.Add(Checking);
+                    }
+                }
+            }
         }
 
         private void ResultStatusSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -179,7 +198,7 @@ namespace Audit
 
         private void BaseWindow_Closed(object sender, EventArgs e)
         {
-            ViewModel.WriteLog();
+            ViewModel.SaveBackups();
         }
     }
 }

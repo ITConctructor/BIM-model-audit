@@ -80,6 +80,7 @@
     <Compile Include="Model\DataBase.cs" />
     <Compile Include="Model\ParameterCheckingConfiguration.cs" />
     <Compile Include="Model\ParameterCheckingRule.cs" />
+    <Compile Include="Model\ReportSettings.cs" />
     <Compile Include="Model\RvtFileInfo.cs" />
     <Compile Include="Model\Utils.cs" />
     <Compile Include="Properties\Resource1.Designer.cs">
